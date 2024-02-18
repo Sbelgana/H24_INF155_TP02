@@ -74,3 +74,31 @@ La Coupe du Monde de Football Qatar 2022 se distingue par son format unique et s
 - **Critères de départage** : En cas d'égalité de points dans les phases de groupes, plusieurs critères sont utilisés pour départager les équipes, tels que la différence de buts générale, le nombre de buts marqués, et les résultats directs entre les équipes concernées.
 
 À la fin du tournoi, l'équipe gagnante de la finale est couronnée championne du monde, tandis que les équipes ayant perdu en demi-finales jouent un match pour la troisième place. Ce format garantit une compétition intense et offre de nombreuses possibilités de surprises et de moments mémorables.</div>
+
+## 5. Partie 1: Lire et construire la base de données <a name="part1"></a>
+### 5.1. lire_equipes() / 5
+<div align="justify">
+Cette fonction est responsable de la lecture des données des équipes participant à la Coupe du Monde de Football Qatar 2022 à partir du fichier `equipes2022.txt`.
+
+Le fichier `equipes2022.txt` sera structuré pour contenir des informations essentielles sur chaque équipe qualifiée, telles que le nom de l'équipe, son classement FIFA, la confédération à laquelle elle appartient, et d'autres statistiques clés. Pour chaque confédération, une section du fichier sera dédiée, précédée par une ligne indiquant le nombre d'équipes qualifiées de cette confédération.
+
+La fonction utilisera l'allocation dynamique pour stocker les informations de chaque équipe dans une structure adaptée. Après la lecture de toutes les données, le fichier est fermé, et les informations sont stockées dans un tableau dynamique de structures, chaque élément représentant une équipe avec ses données respectives.
+
+- **Type de retour :**
+  - Un tableau dynamique contenant les structures représentant chaque équipe. Chaque structure contiendra divers champs pour stocker les informations spécifiques de l'équipe, telles que le nom, le classement FIFA, et d'autres données pertinentes.
+
+- **Exemple (pseudocode) :**
+```c
+typedef struct {
+  char nom[50];
+  int classementFIFA;
+  char confederation[20];
+  // Autres champs selon les données disponibles
+} Equipe;
+
+// Fonction pour lire les données des équipes
+Equipe* lire_equipes(char* fichier, int* nombreEquipes) {
+  // Implémentation de la lecture du fichier et du stockage des données dans un tableau dynamique d'Equipe
+}
+```
+</div>
