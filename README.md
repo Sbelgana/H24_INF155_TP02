@@ -60,3 +60,17 @@ Pour simuler de manière réaliste les matchs de la Coupe du Monde de Football Q
 
 Chaque simulation du tournoi comprendra la mise à jour des classements et des statistiques des équipes après chaque match, permettant une analyse détaillée des performances et des tendances au fur et à mesure de l'avancement du tournoi. Le processus de simulation peut être répété de nombreuses fois pour obtenir des prédictions statistiquement significatives sur les performances des équipes, les éventuels vainqueurs du tournoi, et d'autres analyses pertinentes.</div>
 
+## 4. Déroulement de la Coupe du Monde de Football Qatar 2022 <a name="saison"></a>
+<div align="justify">
+La Coupe du Monde de Football Qatar 2022 se distingue par son format unique et sa répartition globale des équipes. Le tournoi regroupe 32 équipes nationales issues de différentes confédérations à travers le monde, réparties en huit groupes de quatre équipes chacun. La phase de groupes est suivie par les phases éliminatoires, incluant les huitièmes de finale, les quarts de finale, les demi-finales, et la finale.
+
+- **Phase de groupes** : Chaque équipe joue trois matchs, un contre chaque autre équipe de son groupe. Les points sont attribués comme suit :
+  - **Victoire** : 3 points pour l'équipe gagnante.
+  - **Match nul** : 1 point pour chaque équipe.
+  - **Défaite** : 0 point pour l'équipe perdante.
+
+- **Phases éliminatoires** : Les deux premières équipes de chaque groupe, basées sur le total de points accumulés, se qualifient pour les huitièmes de finale. Les matchs éliminatoires sont joués sur un format de match unique, où le vainqueur avance à l'étape suivante, tandis que le perdant est éliminé du tournoi.
+
+- **Critères de départage** : En cas d'égalité de points dans les phases de groupes, plusieurs critères sont utilisés pour départager les équipes, tels que la différence de buts générale, le nombre de buts marqués, et les résultats directs entre les équipes concernées.
+
+À la fin du tournoi, l'équipe gagnante de la finale est couronnée championne du monde, tandis que les équipes ayant perdu en demi-finales jouent un match pour la troisième place. Ce format garantit une compétition intense et offre de nombreuses possibilités de surprises et de moments mémorables.</div>
