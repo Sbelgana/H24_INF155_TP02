@@ -246,3 +246,8 @@ Les équipes qualifiées de chaque groupe avancent vers les huitièmes de finale
   - Un tableau dynamique contenant les structures des équipes qualifiées pour les phases éliminatoires. Ce tableau est organisé pour refléter l'ordre des matchs des huitièmes de finale, basé sur le classement des équipes dans leurs groupes respectifs.
 
 Cette fonction joue un rôle crucial dans la transition de la phase de groupes vers les phases éliminatoires, assurant que les équipes sont qualifiées et classées de manière juste et conforme aux règles officielles de la FIFA pour la Coupe du Monde de Football.</div>
+
+
+https://www.fifa.com/fr/fifa-world-ranking/men?dateId=id13792
+https://www.fifa.com/fifaplus/fr/articles/qatar-2022-tout-savoir-qualifies-groupes-dates-calendrier-billets
+https://fr.wikipedia.org/wiki/%C3%89liminatoires_de_la_Coupe_du_monde_de_football_2022
