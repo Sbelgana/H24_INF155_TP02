@@ -179,7 +179,36 @@ La simulation s'ajuste pour refléter la compétitivité entre les équipes, ave
 - **Type de retour :**
   - `buts_vis` : Nombre de buts marqués par l'équipe visiteuse.
   - `buts_dom` : Nombre de buts marqués par l'équipe à domicile.
-  - Le match peut se conclure par une victoire de l'une des équipes ou par un match nul, basé sur le nombre de buts marqués.
+  - `pts_vis`: Points gagnés par l'équipe visiteur.
+  - `pts_dom`: Points gagnés par l'équipe domicile.
 
 Cette méthode de simulation vise à capturer l'essence des dynamiques de match dans la Coupe du Monde de Football, permettant une estimation réaliste des résultats en phase de groupes basée sur le classement FIFA, sans recourir à des mécanismes complexes comme les victoires en prolongation ou les tirs au but qui ne s'appliquent pas à cette étape du tournoi.</div>
 
+### 5.5. mettre_a_jour_classement(equipe, resultatMatch) / 3
+
+Cette fonction met à jour les statistiques d'une équipe spécifique après la conclusion d'un match. Elle ajuste le nombre de points de l'équipe, le nombre total de buts marqués et encaissés, en fonction du résultat du match.
+
+- **Paramètres :**
+  - `equipe` : La structure représentant l'équipe dont les statistiques doivent être mises à jour.
+  - `resultatMatch` : Une structure contenant les détails du match, y compris les buts marqués par l'équipe, les buts encaissés, et le résultat final (victoire, défaite, match nul).
+
+- **Fonctionnement :**
+  - La fonction ajuste les statistiques de l'équipe en ajoutant les points gagnés (3 pour une victoire, 1 pour un match nul, 0 pour une défaite), en mettant à jour le nombre total de buts marqués et encaissés.
+  - Ces mises à jour sont essentielles pour refléter la performance actuelle de l'équipe dans le classement de son groupe.
+
+Ces fonctions jouent un rôle crucial dans la simulation de la Coupe du Monde, permettant un suivi précis des performances des équipes tout au long du tournoi et assurant que le classement reflète fidèlement leurs résultats dans les matchs de phase de groupe.
+
+
+
+### 5.5. trier_groupes(groupes) / 3
+
+Cette fonction est conçue pour organiser les équipes au sein de chaque groupe de la Coupe du Monde de manière descendante selon leur nombre total de points accumulés durant la phase de groupes.
+
+Chaque groupe est trié indépendamment, avec les équipes classées de la plus performante à la moins performante, basées sur leur nombre de points. En cas d'égalité de points entre deux équipes ou plus, des critères supplémentaires tels que la différence de buts, le nombre de buts marqués, et les confrontations directes peuvent être utilisés pour déterminer le classement final au sein du groupe.
+
+- **Paramètres :**
+  - `groupes` : Un tableau dynamique de structures, où chaque structure représente un groupe contenant un tableau dynamique d'équipes. Chaque équipe a ses points, sa différence de buts, et d'autres statistiques pertinentes pour le classement.
+
+- **Fonctionnement :**
+  - La fonction parcourt chaque groupe, triant les équipes selon leur nombre de points de manière descendante.
+  - En cas d'égalité, les critères supplémentaires sont appliqués pour assurer un classement précis selon les règles officielles de la FIFA.
