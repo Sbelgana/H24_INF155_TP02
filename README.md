@@ -160,3 +160,26 @@ Equipe trouver_equipe_par_id(char* equipe_id, Equipe* equipes, int nombreEquipes
 ```
 
 Cette méthode permet de rechercher efficacement une équipe parmi celles qualifiées pour la Coupe du Monde en parcourant un tableau de structures en C, garantissant ainsi une intégration fluide avec le reste du processus de simulation.</div>
+
+
+### 5.4. jouer_match(classementFIFA_vis, classementFIFA_dom) / 4
+<div align="justify">
+Cette fonction simule un match entre deux équipes, l'une à domicile et l'autre visiteuse, en se basant sur leur classement FIFA. Elle détermine le nombre de buts marqués par chaque équipe durant le match simulé, en prenant en compte leur classement FIFA pour calculer les probabilités de marquer.
+
+La simulation s'ajuste pour refléter la compétitivité entre les équipes, avec une équipe ayant un meilleur classement FIFA ayant légèrement plus de chances de marquer contre son adversaire. Cela simule l'influence du classement sur les performances des équipes sans nécessiter un calcul explicite des différences de buts.
+
+- **Calcul des buts :** La fonction génère un nombre aléatoire de buts pour chaque équipe, influencé par le classement FIFA des deux équipes. Le classement plus élevé peut être traduit par une meilleure probabilité de marquer, ajustant ainsi le score final du match.
+
+- **Résultat du match :** Le match se termine soit par une victoire de l'une des équipes, soit par un match nul, sans nécessité de prolongation ou de tirs au but pour les matchs de phase de groupe.
+
+- **Paramètres :**
+  - `classementFIFA_vis` : Classement FIFA de l'équipe visiteuse.
+  - `classementFIFA_dom` : Classement FIFA de l'équipe à domicile.
+
+- **Type de retour :**
+  - `buts_vis` : Nombre de buts marqués par l'équipe visiteuse.
+  - `buts_dom` : Nombre de buts marqués par l'équipe à domicile.
+  - Le match peut se conclure par une victoire de l'une des équipes ou par un match nul, basé sur le nombre de buts marqués.
+
+Cette méthode de simulation vise à capturer l'essence des dynamiques de match dans la Coupe du Monde de Football, permettant une estimation réaliste des résultats en phase de groupes basée sur le classement FIFA, sans recourir à des mécanismes complexes comme les victoires en prolongation ou les tirs au but qui ne s'appliquent pas à cette étape du tournoi.</div>
+
