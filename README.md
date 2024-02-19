@@ -87,7 +87,7 @@ La fonction utilisera l'allocation dynamique pour stocker les informations de ch
 - **Type de retour :**
   - Un tableau dynamique contenant les structures représentant chaque équipe. Chaque structure contiendra divers champs pour stocker les informations spécifiques de l'équipe, telles que le nom, le classement FIFA, et d'autres données pertinentes.
 
-- **Exemple (pseudocode) :**
+- **Exemple:**
 ```c
 typedef struct {
   char nom[50];
@@ -102,3 +102,61 @@ Equipe* lire_equipes(char* fichier, int* nombreEquipes) {
 }
 ```
 </div>
+
+### 5.2. lire_matchs() / 3
+<div align="justify">
+Cette fonction est destinée à lire les informations sur les matchs de la phase de groupes de la Coupe du Monde de Football Qatar 2022 à partir du fichier `matchs2022.txt`.
+
+Le fichier `matchs2022.txt` contiendra les détails des matchs planifiés, chaque ligne indiquant les équipes qui s'affronteront. Par exemple, une entrée telle que `FRA ARG` indiquerait que l'équipe de France joue contre l'Argentine. Ainsi, chaque ligne représente un match distinct et est interprétée pour identifier les deux équipes concernées.
+
+La fonction parcourt le fichier ligne par ligne, extrayant les identifiants ou noms des équipes pour chaque match. Ces informations sont ensuite stockées dans un tableau dynamique de structures, chaque structure représentant un match avec les équipes participantes.
+
+- **Type de retour :**
+  - Un tableau dynamique de structures, où chaque structure contient les informations relatives à un match spécifique. Chaque structure inclura, par exemple, les noms ou identifiants des deux équipes en compétition.
+
+- **Exemple:**
+```c
+typedef struct {
+  char equipeDomicile[50];
+  char equipeVisiteur[50];
+} Match;
+
+// Fonction pour lire les informations des matchs
+Match* lire_matchs(char* fichier, int* nombreMatchs) {
+  // Implémentation de la lecture du fichier et du stockage des informations dans un tableau dynamique de Match
+}
+```
+
+Cette approche, basée sur l'utilisation de structures et d'allocation dynamique en C, permet de gérer efficacement les données relatives aux matchs de la Coupe du Monde, facilitant ainsi les simulations et analyses ultérieures du tournoi.</div>
+
+
+### 5.3. trouver_equipe_par_id(equipe_id, equipes) / 2
+<div align="justify">
+Cette fonction est conçue pour identifier une équipe spécifique et sa confédération associée à partir de son identifiant unique ou de son acronyme dans un contexte de simulation de la Coupe du Monde de Football Qatar 2022.
+
+Contrairement à l'utilisation de dictionnaires dans des langages de programmation comme Python, en C, cette recherche implique de parcourir un tableau de structures où chaque structure représente une équipe et contient ses informations, y compris son identifiant (ou acronyme) et sa confédération.
+
+- **Paramètres :**
+  - `equipe_id` : Une chaîne de caractères représentant l'identifiant ou l'acronyme de l'équipe recherchée.
+  - `equipes` : Un tableau de structures représentant les équipes qualifiées pour la Coupe du Monde, où chaque structure contient, entre autres, l'identifiant de l'équipe et sa confédération.
+
+- **Type de retour :**
+  - Une structure représentant l'équipe trouvée. Cette structure contiendra le nom complet de l'équipe, son identifiant (ou acronyme), et d'autres informations pertinentes telles que sa confédération.
+
+- **Exemple (pseudocode) :**
+```c
+typedef struct {
+  char id[50]; // Identifiant ou acronyme de l'équipe
+  char nom[100]; // Nom complet de l'équipe
+  char confederation[50]; // Confédération de l'équipe
+  // Autres champs selon les données disponibles
+} Equipe;
+
+// Fonction pour trouver une équipe par son identifiant
+Equipe trouver_equipe_par_id(char* equipe_id, Equipe* equipes, int nombreEquipes) {
+
+  // Retourner une équipe vide ou une erreur si l'équipe n'est pas trouvée
+}
+```
+
+Cette méthode permet de rechercher efficacement une équipe parmi celles qualifiées pour la Coupe du Monde en parcourant un tableau de structures en C, garantissant ainsi une intégration fluide avec le reste du processus de simulation.</div>
