@@ -75,7 +75,7 @@ La Coupe du Monde de Football Qatar 2022 se distingue par son format unique et s
 ## 5. Partie 1: Lire et construire la base de données <a name="part1"></a>
 
 ### 5.1 lire_equipes() / 5
-
+<div align="justify">
 Cette fonction charge les données des équipes qualifiées pour la Coupe du Monde de Football Qatar 2022 à partir d'un fichier texte spécifié. Elle organise ces données dans une structure définie, comprenant le nom de l'équipe, son classement FIFA, la confédération à laquelle elle appartient, entre autres statistiques importantes. La fonction lit chaque section du fichier, alloue dynamiquement un espace pour stocker les informations de chaque équipe, et remplit une structure `Equipe` pour chaque entrée. Finalement, elle ferme le fichier et retourne un tableau dynamique contenant toutes les équipes lues.
 
 Pour capturer les données lues, cette fonction utilise une série de structures imbriquées, notamment :
@@ -100,28 +100,20 @@ lire_equipes("equipes2022.txt", &worldCupData);
 Cette fonction est cruciale pour établir la base de la simulation, en s'assurant que toutes les équipes sont correctement représentées et organisées conformément à leur disposition réelle dans le tournoi.
 </div>
 
-### 5.2. lire_matchs() / 3
+### 5.2. Lire les matchs / 3
 <div align="justify">
-Cette fonction est destinée à lire les informations sur les matchs de la phase de groupes de la Coupe du Monde de Football Qatar 2022 à partir du fichier `matchs2022.txt`.
+Cette fonction charge les informations des matchs de la Coupe du Monde de Football Qatar 2022 depuis le fichier `matchs2022.txt`. Chaque ligne du fichier représente un match en listant les équipes qui s'affrontent, permettant ainsi d'identifier clairement les confrontations prévues. La lecture se fait ligne par ligne, extrayant et stockant les identifiants des équipes participantes dans une structure adaptée. Ces données sont ensuite organisées dans un tableau dynamique de structures, chaque structure représentant un match avec ses équipes correspondantes.
 
-Le fichier `matchs2022.txt` contiendra les détails des matchs planifiés, chaque ligne indiquant les équipes qui s'affronteront. Par exemple, une entrée telle que `FRA ARG` indiquerait que l'équipe de France joue contre l'Argentine. Ainsi, chaque ligne représente un match distinct et est interprétée pour identifier les deux équipes concernées.
-
-La fonction parcourt le fichier ligne par ligne, extrayant les identifiants ou noms des équipes pour chaque match. Ces informations sont ensuite stockées dans un tableau dynamique de structures, chaque structure représentant un match avec les équipes participantes.
+- **Paramètres :**
+  - `fichier` : Le chemin vers le fichier contenant les matchs.
+  - `nombreMatchs` : Un pointeur vers une variable où le nombre total de matchs lus sera stocké.
 
 - **Type de retour :**
-  - Un tableau dynamique de structures, où chaque structure contient les informations relatives à un match spécifique. Chaque structure inclura, par exemple, les noms ou identifiants des deux équipes en compétition.
+  - Un tableau dynamique contenant les structures de matchs, où chaque structure renferme les identifiants des équipes en compétition pour chaque match prévu.
 
 - **Exemple:**
 ```c
-typedef struct {
-  char equipeDomicile[50];
-  char equipeVisiteur[50];
-} Match;
-
-// Fonction pour lire les informations des matchs
-Match* lire_matchs(char* fichier, int* nombreMatchs) {
-  // Implémentation de la lecture du fichier et du stockage des informations dans un tableau dynamique de Match
-}
+Match* matches = lire_matchs("matchs2022.txt", &nombreMatchs);
 ```
 
 Cette approche, basée sur l'utilisation de structures et d'allocation dynamique en C, permet de gérer efficacement les données relatives aux matchs de la Coupe du Monde, facilitant ainsi les simulations et analyses ultérieures du tournoi.</div>
