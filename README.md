@@ -73,31 +73,31 @@ La Coupe du Monde de Football Qatar 2022 se distingue par son format unique et s
 À la fin du tournoi, l'équipe gagnante de la finale est couronnée championne du monde, tandis que les équipes ayant perdu en demi-finales jouent un match pour la troisième place. Ce format garantit une compétition intense et offre de nombreuses possibilités de surprises et de moments mémorables.</div>
 
 ## 5. Partie 1: Lire et construire la base de données <a name="part1"></a>
-### 5.1. lire_equipes() / 5
-<div align="justify">
-Cette fonction est responsable de la lecture des données des équipes participant à la Coupe du Monde de Football Qatar 2022 à partir du fichier `equipes2022.txt`.
 
-Le fichier `equipes2022.txt` sera structuré pour contenir des informations essentielles sur chaque équipe qualifiée, telles que le nom de l'équipe, son classement FIFA, la confédération à laquelle elle appartient, et d'autres statistiques clés. Pour chaque confédération, une section du fichier sera dédiée, précédée par une ligne indiquant le nombre d'équipes qualifiées de cette confédération.
+### 5.1 lire_equipes() / 5
 
-La fonction utilisera l'allocation dynamique pour stocker les informations de chaque équipe dans une structure adaptée. Après la lecture de toutes les données, le fichier est fermé, et les informations sont stockées dans un tableau dynamique de structures, chaque élément représentant une équipe avec ses données respectives.
+Cette fonction charge les données des équipes qualifiées pour la Coupe du Monde de Football Qatar 2022 à partir d'un fichier texte spécifié. Elle organise ces données dans une structure définie, comprenant le nom de l'équipe, son classement FIFA, la confédération à laquelle elle appartient, entre autres statistiques importantes. La fonction lit chaque section du fichier, alloue dynamiquement un espace pour stocker les informations de chaque équipe, et remplit une structure `Equipe` pour chaque entrée. Finalement, elle ferme le fichier et retourne un tableau dynamique contenant toutes les équipes lues.
+
+Pour capturer les données lues, cette fonction utilise une série de structures imbriquées, notamment :
+
+- **`Equipe`** : Contient les détails de chaque équipe, comme le nom, l'identifiant FIFA, le classement FIFA, et des statistiques de jeu telles que le nombre de victoires, de défaites, de nuls, les buts marqués et encaissés, et le total de points accumulés.
+- **`Groupe`** : Regroupe les équipes selon leur affectation initiale dans la compétition, facilitant l'organisation et la simulation des matches de poule.
+- **`W_CUP`** : Représente la structure globale de la Coupe du Monde, englobant tous les groupes, les équipes, et les étapes éliminatoires jusqu'à la finale.
+
+- **Paramètres :**
+  - `const char* nom_fichier` : Le chemin vers le fichier contenant les données des équipes.
+  - `W_CUP* wc` : Pointeur vers la structure de la coupe du monde où les équipes seront stockées.
 
 - **Type de retour :**
-  - Un tableau dynamique contenant les structures représentant chaque équipe. Chaque structure contiendra divers champs pour stocker les informations spécifiques de l'équipe, telles que le nom, le classement FIFA, et d'autres données pertinentes.
+  - La fonction ne retourne pas directement les données, mais remplit la structure `W_CUP` passée en paramètre avec les informations des équipes lues du fichier.
 
 - **Exemple:**
 ```c
-typedef struct {
-  char nom[50];
-  int classementFIFA;
-  char confederation[20];
-  // Autres champs selon les données disponibles
-} Equipe;
-
-// Fonction pour lire les données des équipes
-Equipe* lire_equipes(char* fichier, int* nombreEquipes) {
-  // Implémentation de la lecture du fichier et du stockage des données dans un tableau dynamique d'Equipe
-}
+W_CUP worldCupData;
+lire_equipes("equipes2022.txt", &worldCupData);
 ```
+
+Cette fonction est cruciale pour établir la base de la simulation, en s'assurant que toutes les équipes sont correctement représentées et organisées conformément à leur disposition réelle dans le tournoi.
 </div>
 
 ### 5.2. lire_matchs() / 3
