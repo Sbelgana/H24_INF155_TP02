@@ -61,7 +61,7 @@ Chaque simulation du tournoi comprendra la mise à jour des classements et des s
 <div align="justify">
 La Coupe du Monde de Football Qatar 2022 se distingue par son format unique et sa répartition globale des équipes. Le tournoi regroupe 32 équipes nationales issues de différentes confédérations à travers le monde, réparties en huit groupes de quatre équipes chacun. La phase de groupes est suivie par les phases éliminatoires, incluant les huitièmes de finale, les quarts de finale, les demi-finales, et la finale.
 
-- **Phase de groupes** : Chaque équipe joue trois matchs, un contre chaque autre équipe de son groupe. Les points sont attribués comme suit :
+- **Phase de groupes** : Chaque équipe joue trois matchs, un contre chaque autre équipe de son groupe. Les points sont attribués comme suit:
   - **Victoire** : 3 points pour l'équipe gagnante.
   - **Match nul** : 1 point pour chaque équipe.
   - **Défaite** : 0 point pour l'équipe perdante.
@@ -74,11 +74,12 @@ La Coupe du Monde de Football Qatar 2022 se distingue par son format unique et s
 
 ## 5. Partie 1: Lire et construire la base de données <a name="part1"></a>
 
+
 ### 5.1 lire_equipes() / 5
 <div align="justify">
-Cette fonction charge les données des équipes qualifiées pour la Coupe du Monde de Football Qatar 2022 à partir d'un fichier texte spécifié. Elle organise ces données dans une structure définie, comprenant le nom de l'équipe, son classement FIFA, la confédération à laquelle elle appartient, entre autres statistiques importantes. La fonction lit chaque section du fichier, alloue dynamiquement un espace pour stocker les informations de chaque équipe, et remplit une structure `Equipe` pour chaque entrée. Finalement, elle ferme le fichier et retourne un tableau dynamique contenant toutes les équipes lues.
+Cette fonction charge les données des équipes qualifiées pour la Coupe du Monde de Football Qatar 2022 à partir d'un fichier texte spécifié. Elle organise ces données dans une structure définie, comprenant le nom de l'équipe, son classement FIFA, la confédération à laquelle elle appartient, entre autres statistiques importantes. La fonction lit chaque section du fichier, alloue dynamiquement un espace pour stocker les informations de chaque équipe, et remplit une structure `Equipe` pour chaque entrée. Finalement, elle ferme le fichier et retourne un tableau dynamique contenant toutes les équipes lues.<br><br>
 
-Pour capturer les données lues, cette fonction utilise une série de structures imbriquées, notamment :
+Pour capturer les données lues, cette fonction utilise une série de structures imbriquées, notamment:
 
 - **`Equipe`** : Contient les détails de chaque équipe, comme le nom, l'identifiant FIFA, le classement FIFA, et des statistiques de jeu telles que le nombre de victoires, de défaites, de nuls, les buts marqués et encaissés, et le total de points accumulés.
 - **`Groupe`** : Regroupe les équipes selon leur affectation initiale dans la compétition, facilitant l'organisation et la simulation des matches de poule.
@@ -121,34 +122,35 @@ Cette approche, basée sur l'utilisation de structures et d'allocation dynamique
 
 ### 5.3. trouver_equipe_par_id(equipe_id, equipes) / 2
 <div align="justify">
-Cette fonction est conçue pour identifier une équipe spécifique et sa confédération associée à partir de son identifiant unique ou de son acronyme dans un contexte de simulation de la Coupe du Monde de Football Qatar 2022.
+Cette fonction joue un rôle crucial dans la simulation de la Coupe du Monde de la FIFA Qatar 2022 en localisant une équipe spécifique par son identifiant unique au sein de l'ensemble des structures de données représentant les équipes qualifiées. Elle est essentielle pour le déroulement des matchs, permettant d'identifier chaque équipe avant de simuler leurs rencontres.<br><br>
 
-Contrairement à l'utilisation de dictionnaires dans des langages de programmation comme Python, en C, cette recherche implique de parcourir un tableau de structures où chaque structure représente une équipe et contient ses informations, y compris son identifiant (ou acronyme) et sa confédération.
+Le processus implique une recherche séquentielle à travers la structure W_CUP, qui contient des groupes d'équipes organisés pour le tournoi. Chaque groupe à son tour comprend un tableau d'équipes, chacune représentée par une structure contenant des détails tels que son identifiant, son nom, et d'autres informations pertinentes.<br>
+
+La fonction parcourt chaque groupe de la structure W_CUP, et pour chaque équipe au sein d'un groupe, compare l'identifiant de l'équipe avec l'identifiant recherché. Si une correspondance est trouvée, la fonction retourne un pointeur vers cette équipe, permettant ainsi son accès direct pour d'autres opérations telles que la mise à jour des statistiques de match ou la simulation de rencontres.
+
+Si aucune équipe correspondante à l'identifiant fourni n'est trouvée dans l'ensemble des groupes, la fonction retourne NULL, indiquant l'absence de correspondance et permettant au programme appelant de gérer ce cas selon ses besoins.
 
 - **Paramètres :**
-  - `equipe_id` : Une chaîne de caractères représentant l'identifiant ou l'acronyme de l'équipe recherchée.
-  - `equipes` : Un tableau de structures représentant les équipes qualifiées pour la Coupe du Monde, où chaque structure contient, entre autres, l'identifiant de l'équipe et sa confédération.
+  - `wc` : Pointeur vers la structure W_CUP contenant les données de tous les groupes et équipes participant à la Coupe du Monde.
+  - `id` : Chaîne de caractères représentant l'identifiant unique (ou acronyme) de l'équipe recherchée.
 
 - **Type de retour :**
-  - Une structure représentant l'équipe trouvée. Cette structure contiendra le nom complet de l'équipe, son identifiant (ou acronyme), et d'autres informations pertinentes telles que sa confédération.
+  - Un pointeur vers la structure Equipe trouvée, contenant toutes les informations pertinentes de l'équipe correspondant à l'identifiant donné.
 
-- **Exemple (pseudocode) :**
+- **Exemple :**
 ```c
-typedef struct {
-  char id[50]; // Identifiant ou acronyme de l'équipe
-  char nom[100]; // Nom complet de l'équipe
-  char confederation[50]; // Confédération de l'équipe
-  // Autres champs selon les données disponibles
-} Equipe;
+W_CUP wc;
+char* idRecherche = "FRA";
+Equipe* equipeTrouvee = trouver_equipe_par_id(&wc, idRecherche);
 
-// Fonction pour trouver une équipe par son identifiant
-Equipe trouver_equipe_par_id(char* equipe_id, Equipe* equipes, int nombreEquipes) {
-
-  // Retourner une équipe vide ou une erreur si l'équipe n'est pas trouvée
+if (equipeTrouvee != NULL) {
+    printf("Equipe trouvée : %s\n", equipeTrouvee->nom);
+} else {
+    printf("Aucune équipe correspondante à l'ID '%s' n'a été trouvée.\n", idRecherche);
 }
 ```
 
-Cette méthode permet de rechercher efficacement une équipe parmi celles qualifiées pour la Coupe du Monde en parcourant un tableau de structures en C, garantissant ainsi une intégration fluide avec le reste du processus de simulation.</div>
+Cette fonction est un composant essentiel pour naviguer dans la complexité des données de la Coupe du Monde, assurant une identification précise et efficace des équipes à travers leurs identifiants uniques dans le cadre de la simulation du tournoi.</div>
 
 
 ### 5.4. jouer_match(classementFIFA_vis, classementFIFA_dom) / 4
