@@ -110,7 +110,7 @@ Cette fonction charge les informations des matchs de la Coupe du Monde de Footba
   - `nombreMatchs` : Un pointeur vers une variable où le nombre total de matchs lus sera stocké.
 
 - **Type de retour :**
-  - Un tableau dynamique contenant les structures de matchs, où chaque structure renferme les identifiants des équipes en compétition pour chaque match prévu.
+  - Aucun.
 
 - **Exemple:**
 ```c
@@ -155,55 +155,142 @@ Cette fonction est un composant essentiel pour naviguer dans la complexité des 
 
 ### 5.4. jouer_match(classementFIFA_vis, classementFIFA_dom) / 4
 <div align="justify">
-Cette fonction simule un match entre deux équipes, l'une à domicile et l'autre visiteuse, en se basant sur leur classement FIFA. Elle détermine le nombre de buts marqués par chaque équipe durant le match simulé, en prenant en compte leur classement FIFA pour calculer les probabilités de marquer.
+Cette fonction simule l'issue d'une rencontre entre deux équipes dans le cadre de la Coupe du Monde de la FIFA Qatar 2022, en prenant en compte leur classement FIFA pour déterminer le score du match. Cette méthode de simulation est conçue pour refléter l'impact du classement FIFA sur la capacité d'une équipe à marquer des buts, offrant ainsi une prédiction réaliste du résultat basée sur les performances historiques des équipes.
 
-La simulation s'ajuste pour refléter la compétitivité entre les équipes, avec une équipe ayant un meilleur classement FIFA ayant légèrement plus de chances de marquer contre son adversaire. Cela simule l'influence du classement sur les performances des équipes sans nécessiter un calcul explicite des différences de buts.
+Le coeur de cette fonction réside dans son utilisation de la distribution normale pour générer le nombre de buts marqués par chaque équipe. Elle ajuste la moyenne des buts en fonction de la différence de classement FIFA entre les deux équipes, permettant à l'équipe avec un classement supérieur d'avoir une meilleure probabilité de marquer.
 
-- **Calcul des buts :** La fonction génère un nombre aléatoire de buts pour chaque équipe, influencé par le classement FIFA des deux équipes. Le classement plus élevé peut être traduit par une meilleure probabilité de marquer, ajustant ainsi le score final du match.
+- **Calcul des buts :** 
+  - La différence de classement FIFA entre l'équipe visiteuse et l'équipe à domicile est prise en compte pour ajuster la moyenne des buts attendus.
+  - Un nombre aléatoire de buts est généré pour chaque équipe en utilisant une distribution normale, avec des ajustements basés sur leur classement FIFA respectif.
 
 - **Résultat du match :** Le match se termine soit par une victoire de l'une des équipes, soit par un match nul, sans nécessité de prolongation ou de tirs au but pour les matchs de phase de groupe.
 
 - **Paramètres :**
-  - `classementFIFA_vis` : Classement FIFA de l'équipe visiteuse.
-  - `classementFIFA_dom` : Classement FIFA de l'équipe à domicile.
+  - Deux pointeurs vers les structures `Equipe`, représentant les équipes participant au match.
 
 - **Type de retour :**
-  - `buts_vis` : Nombre de buts marqués par l'équipe visiteuse.
-  - `buts_dom` : Nombre de buts marqués par l'équipe à domicile.
-  - `pts_vis`: Points gagnés par l'équipe visiteur.
-  - `pts_dom`: Points gagnés par l'équipe domicile.
+  -  Une structure `Buts` contenant le nombre de buts marqués par chaque équipe.
 
-Cette méthode de simulation vise à capturer l'essence des dynamiques de match dans la Coupe du Monde de Football, permettant une estimation réaliste des résultats en phase de groupes basée sur le classement FIFA, sans recourir à des mécanismes complexes comme les victoires en prolongation ou les tirs au but qui ne s'appliquent pas à cette étape du tournoi.</div>
+- **Exemple :**
+```c
+Equipe eq1 = {"FRA", "France", "UEFA", 'A', 1750}; // Exemple d'équipe 1
+Equipe eq2 = {"BRA", "Brésil", "CONMEBOL", 'B', 1822}; // Exemple d'équipe 2
+
+Buts resultat = jouer_match(&eq1, &eq2);
+
+printf("Résultat: %s %d - %d %s\n", eq1.nom, resultat.buts_eq1, resultat.buts_eq2, eq2.nom);
+```
+
+Cette fonctionnalité permet une simulation dynamique et engageante des matchs de la Coupe du Monde, offrant aux fans de football et aux analystes une méthode pour anticiper les issues des rencontres basées sur des données quantitatives fiables.</div>
 
 ### 5.5. mettre_a_jour_classement(equipe, resultatMatch) / 3
 <div align="justify">
-Cette fonction met à jour les statistiques d'une équipe spécifique après la conclusion d'un match. Elle ajuste le nombre de points de l'équipe, le nombre total de buts marqués et encaissés, en fonction du résultat du match.
+Cette fonction est essentielle pour la mise à jour des statistiques d'une équipe suite à un match dans le cadre de la simulation de la Coupe du Monde de la FIFA. Après chaque match, les données telles que le nombre de buts marqués et encaissés, ainsi que les points accumulés, sont ajustées pour refléter le résultat du match.
+
+#### Processus de Mise à Jour :
+
+- **Buts Marqués et Encaissés :** Les buts marqués par chaque équipe durant le match sont ajoutés à leur total pour la saison. Cette mise à jour influence directement la différence de buts, un critère clé pour le classement dans les phases de groupes.
+- **Points :** Basé sur le résultat du match, les points sont attribués (3 points pour une victoire, 1 point pour un match nul, et aucun point pour une défaite). Ces points sont cruciaux pour le classement dans le groupe.
+- **Nombre de Matchs Joués :** Le nombre total de matchs joués par chaque équipe est également mis à jour, ce qui est important pour le suivi de la progression du tournoi.
+
+Cette méthode garantit que le classement des équipes est à jour et reflète précisément leurs performances dans le tournoi. Elle permet une analyse plus approfondie des forces et faiblesses de chaque équipe basée sur les statistiques de buts marqués et encaissés.
+
 
 - **Paramètres :**
-  - `equipe` : La structure représentant l'équipe dont les statistiques doivent être mises à jour.
-  - `resultatMatch` : Une structure contenant les détails du match, y compris les buts marqués par l'équipe, les buts encaissés, et le résultat final (victoire, défaite, match nul).
+  - Deux pointeurs vers les structures `Equipe`, représentant les équipes participant au match.
+  - Une structure `Buts` contenant le nombre de buts marqués par chaque équipe.
 
-- **Fonctionnement :**
-  - La fonction ajuste les statistiques de l'équipe en ajoutant les points gagnés (3 pour une victoire, 1 pour un match nul, 0 pour une défaite), en mettant à jour le nombre total de buts marqués et encaissés.
-  - Ces mises à jour sont essentielles pour refléter la performance actuelle de l'équipe dans le classement de son groupe.
+- **Type de retour :**
+  - Aucun.
 
-Ces fonctions jouent un rôle crucial dans la simulation de la Coupe du Monde, permettant un suivi précis des performances des équipes tout au long du tournoi et assurant que le classement reflète fidèlement leurs résultats dans les matchs de phase de groupe.</div>
+- **Exemple :**
+```c
+// Création et initialisation de deux équipes
+    Equipe equipe1 = {"Eq1", "Equipe 1", 0, 0, 0, 0, 0, 0, 0, 0};
+    Equipe equipe2 = {"Eq2", "Equipe 2", 0, 0, 0, 0, 0, 0, 0, 0};
+    
+    // Création d'un résultat de match
+    Buts resultatMatch = {2, 1}; // L'équipe 1 a marqué 2 buts, l'équipe 2 a marqué 1 but
+    
+    // Mise à jour des statistiques des équipes en fonction du résultat du match
+    mettre_a_jour_classement(&equipe1, &equipe2, resultatMatch);
+    
+    // Affichage des statistiques mises à jour pour vérification
+    printf("Equipe 1 - Points: %d, Buts Pour: %d, Buts Contre: %d, Différence de Buts: %d\n", equipe1.pts, equipe1.buts_p, equipe1.buts_c, equipe1.diff_buts);
+    printf("Equipe 2 - Points: %d, Buts Pour: %d, Buts Contre: %d, Différence de Buts: %d\n", equipe2.pts, equipe2.buts_p, equipe2.buts_c, equipe2.diff_buts);
+```
+
+Cette fonctionnalité est cruciale pour le déroulement logique de la simulation, assurant que le classement des équipes est toujours à jour et reflète fidèlement leurs performances au sein de la compétition.
 
 
 
 ### 5.6. trier_groupes(groupes) / 3
 
-Cette fonction est conçue pour organiser les équipes au sein de chaque groupe de la Coupe du Monde de manière descendante selon leur nombre total de points accumulés durant la phase de groupes.
+<div align="justify">
+La fonction `trier_groupes` joue un rôle crucial dans la simulation de la Coupe du Monde de Football, en organisant les équipes de chaque groupe selon leur performance. Les critères de classement reflètent les règles officielles du tournoi, mettant en avant les équipes les plus performantes sur la base de points accumulés durant les matchs de groupe.
 
-Chaque groupe est trié indépendamment, avec les équipes classées de la plus performante à la moins performante, basées sur leur nombre de points. En cas d'égalité de points entre deux équipes ou plus, des critères supplémentaires tels que la différence de buts, le nombre de buts marqués, et les confrontations directes peuvent être utilisés pour déterminer le classement final au sein du groupe.
+- **Mécanisme de Tri :** Les équipes sont classées en ordre décroissant de points. En cas d'égalité de points, la différence de buts et, si nécessaire, le nombre total de buts marqués sont utilisés comme critères de départage. Cette approche garantit un classement équitable et conforme aux pratiques internationales.
+
+- **Processus de Tri :** Un algorithme de tri à bulles est employé pour parcourir le tableau d'équipes et effectuer les échanges nécessaires afin de respecter les critères de classement. Le tri s'arrête une fois aucune permutation n'est nécessaire, indiquant que les équipes sont correctement ordonnées.
+
+- **Critères de Classement :**
+  - **Points :** Le critère principal de classement. Les équipes avec le plus grand nombre de points sont classées plus haut.
+  - **Différence de Buts :** Utilisée pour départager les équipes à égalité de points.
+  - **Buts Marqués :** Si la différence de buts est identique, le nombre de buts marqués détermine le classement.
 
 - **Paramètres :**
-  - `groupes` : Un tableau dynamique de structures, où chaque structure représente un groupe contenant un tableau dynamique d'équipes. Chaque équipe a ses points, sa différence de buts, et d'autres statistiques pertinentes pour le classement.
+  - `groupes` : Un pointeur vers le groupe à trier, contenant un tableau d'équipes avec leurs statistiques respectives.
 
-- **Fonctionnement :**
-  - La fonction parcourt chaque groupe, triant les équipes selon leur nombre de points de manière descendante.
-  - En cas d'égalité, les critères supplémentaires sont appliqués pour assurer un classement précis selon les règles officielles de la FIFA.
- </div>
+- **Type de retour :**
+  - Aucun.
+
+- **Exemple :**
+```c
+// Initialisation d'un exemple de groupe
+    Groupe groupeA;
+    groupeA.nom = 'A';
+    groupeA.cap = 4; // Capacité du tableau d'équipes
+    groupeA.nb_eqp = 4; // Nombre d'équipes réellement présentes
+    groupeA.eqp = (Equipe*)malloc(groupeA.cap * sizeof(Equipe));
+    
+    // Initialisation des équipes avec des données fictives
+    strcpy(groupeA.eqp[0].nom, "Equipe A1");
+    groupeA.eqp[0].pts = 6;
+    groupeA.eqp[0].buts_p = 8;
+    groupeA.eqp[0].buts_c = 4;
+
+    strcpy(groupeA.eqp[1].nom, "Equipe A2");
+    groupeA.eqp[1].pts = 6;
+    groupeA.eqp[1].buts_p = 10;
+    groupeA.eqp[1].buts_c = 5;
+
+    strcpy(groupeA.eqp[2].nom, "Equipe A3");
+    groupeA.eqp[2].pts = 4;
+    groupeA.eqp[2].buts_p = 5;
+    groupeA.eqp[2].buts_c = 5;
+
+    strcpy(groupeA.eqp[3].nom, "Equipe A4");
+    groupeA.eqp[3].pts = 2;
+    groupeA.eqp[3].buts_p = 3;
+    groupeA.eqp[3].buts_c = 7;
+
+    // Appel de la fonction pour trier les équipes du groupe A
+    trier_groupes(&groupeA);
+
+    // Affichage des équipes après tri
+    printf("Classement du Groupe A après tri :\n");
+    for (size_t i = 0; i < groupeA.nb_eqp; i++) {
+        printf("%s - Points : %zu, Buts pour : %zu, Buts contre : %zu\n",
+               groupeA.eqp[i].nom, groupeA.eqp[i].pts, groupeA.eqp[i].buts_p, groupeA.eqp[i].buts_c);
+    }
+
+    // Libération de la mémoire allouée pour les équipes
+    free(groupeA.eqp);
+
+```
+
+Cette fonction assure que le classement final au sein de chaque groupe reflète précisément les performances des équipes, permettant ainsi une progression juste et méritée dans les phases suivantes de la compétition.
+</div>
  
 ### 5.7. simuler_matchs(matchs, equipes) / 5
 <div align="justify">
