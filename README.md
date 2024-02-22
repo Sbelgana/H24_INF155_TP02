@@ -292,22 +292,57 @@ La fonction `trier_groupes` joue un rôle crucial dans la simulation de la Coupe
 Cette fonction assure que le classement final au sein de chaque groupe reflète précisément les performances des équipes, permettant ainsi une progression juste et méritée dans les phases suivantes de la compétition.
 </div>
  
-### 5.7. simuler_matchs(matchs, equipes) / 5
+### 5.7. simuler_matchs() / 5
+
 <div align="justify">
-Cette fonction prend en charge la simulation d'une série de matchs entre différentes équipes participant à la Coupe du Monde de Football Qatar 2022 et met à jour les statistiques des équipes en fonction des résultats de ces matchs.
+La fonction `simuler_matchs` constitue une étape essentielle dans la modélisation de la Coupe du Monde de Football Qatar 2022, permettant de simuler l'ensemble des matchs prévus dans le tournoi en fonction des données préalablement définies. Cette simulation englobe l'interaction entre différentes équipes, reflétant leurs confrontations sur la base des classements FIFA et d'autres indicateurs de performance.
 
-Pour chaque match listé dans le tableau `matchs`, la fonction identifie les équipes participantes et utilise la fonction `jouer_match` pour simuler l'issue du match en se basant sur les classements FIFA et d'autres paramètres pertinents des équipes. À l'issue de chaque match simulé, les statistiques telles que les buts marqués, les buts encaissés, et les points obtenus sont ajustés pour chaque équipe.
+- **Processus de Simulation :** Pour chaque match indiqué dans le tableau des matchs, les équipes participantes sont identifiées et confrontées via la fonction `jouer_match`. Cette dernière évalue les probabilités de victoire, nul, ou défaite en s'appuyant sur des facteurs tels que le classement FIFA, permettant ainsi de déterminer le score final du match.
 
-Les informations mises à jour sont stockées dans des structures associées à chaque équipe, qui sont ensuite utilisées pour mettre à jour le classement global des équipes dans leurs groupes respectifs.
+- **Mise à Jour des Statistiques :** À l'issue de chaque match, les statistiques des équipes impliquées, notamment les buts marqués et encaissés ainsi que les points accumulés, sont mises à jour. Ces ajustements sont cruciaux pour le classement final des équipes dans leurs groupes respectifs.
+
+- **Organisation et Classement :** Suite à la simulation de l'ensemble des matchs, une opération de tri est effectuée pour chaque groupe afin de classer les équipes selon leurs performances. Ce classement prend en compte non seulement les points accumulés mais aussi d'autres critères de départage en cas d'égalité, tels que la différence de buts.
 
 - **Paramètres :**
-  - `matchs` : Un tableau de structures, chaque structure représentant un match à simuler, incluant les identifiants des équipes participantes.
-  - `equipes` : Un tableau de structures, chaque structure contenant les informations d'une équipe, y compris son classement FIFA, ses statistiques de buts, et ses points.
+  - `matchs` : Référence à une structure contenant une liste des matchs à simuler, y compris les identifiants des équipes participantes.
+  - `equipes` : Référence à la structure globale du tournoi, incluant les détails de chaque équipe et les groupes dans lesquels elles sont réparties.
 
-Après la simulation de tous les matchs, une fonction de tri est appelée pour réorganiser le classement des équipes au sein de chaque groupe, assurant que les équipes sont classées de manière descendante selon leurs points accumulés durant la phase de groupes. En cas d'égalité de points, des critères supplémentaires comme la différence de buts ou les confrontations directes peuvent être appliqués pour déterminer le classement final.
 
-Cette approche méthodique permet de simuler de manière dynamique et réaliste l'évolution du tournoi, offrant ainsi une vision approfondie des performances potentielles des équipes tout au long de la Coupe du Monde.</div>
+- **Type de retour :**
+  - Aucun.
 
+- **Exemple :**
+```c
+W_CUP wc;
+    Liste_matches liste_matches;
+
+    // Initialisation et chargement des équipes
+    lire_equipes("equipes2022.txt", &wc);
+
+    // Initialisation et chargement des matchs à simuler
+    lire_matches("matchs2022.txt", &liste_matches);
+
+    // Simulation des matchs et mise à jour du classement des équipes
+    simuler_matchs(&wc, &liste_matches);
+
+    // Affichage du classement final des groupes après simulation
+    for (int i = 0; i < 8; i++) {
+        printf("Classement final du Groupe %c:\n", wc.grp[i].nom);
+        for (size_t j = 0; j < wc.grp[i].nb_eqp; j++) {
+            printf("%d. %s - %zu points\n", j + 1, wc.grp[i].eqp[j].nom, wc.grp[i].eqp[j].pts);
+        }
+        printf("\n");
+    }
+
+    // Libération de la mémoire allouée
+    for (int i = 0; i < 8; i++) {
+        free(wc.grp[i].eqp);
+    }
+    free(liste_matches.matches);
+```
+
+Cette méthodologie de simulation offre une réplique dynamique et interactive du déroulement de la Coupe du Monde, fournissant ainsi un aperçu précis des issues possibles des matchs basées sur des données et des statistiques réalistes.
+</div>
 
 ### 5.8. equipes_qualifiees(groupes) / 8
 <div align="justify">
@@ -324,8 +359,3 @@ Les équipes qualifiées de chaque groupe avancent vers les huitièmes de finale
   - Un tableau dynamique contenant les structures des équipes qualifiées pour les phases éliminatoires. Ce tableau est organisé pour refléter l'ordre des matchs des huitièmes de finale, basé sur le classement des équipes dans leurs groupes respectifs.
 
 Cette fonction joue un rôle crucial dans la transition de la phase de groupes vers les phases éliminatoires, assurant que les équipes sont qualifiées et classées de manière juste et conforme aux règles officielles de la FIFA pour la Coupe du Monde de Football.</div>
-
-
-https://www.fifa.com/fr/fifa-world-ranking/men?dateId=id13792
-https://www.fifa.com/fifaplus/fr/articles/qatar-2022-tout-savoir-qualifies-groupes-dates-calendrier-billets
-https://fr.wikipedia.org/wiki/%C3%89liminatoires_de_la_Coupe_du_monde_de_football_2022
