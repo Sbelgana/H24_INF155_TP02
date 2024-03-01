@@ -42,9 +42,35 @@ Cette mission implique la création de structures de données complexes pour gé
   
 Pour simuler avec précision la Coupe du Monde de Football Qatar 2022, les données suivantes seront utilisées :
 
-- `equipes2022.txt` : Ce fichier contiendra la liste des équipes qualifiées pour la Coupe du Monde, avec des informations clés telles que le classement mondial,la confédération auquel elles appartiennent, et d'autres statistiques pertinentes.
-- `matchs2022.txt` : Ce fichier listera tous les matchs de la phase de groupes.
+- `equipes2022.txt` : 
+- `matchs2022.txt` : 
 
+### Format des Fichiers de Données
+
+#### Fichier `equipes2022.txt`
+Ce fichier contient les informations des équipes participantes, organisées par confédération. Chaque section commence par le nombre d'équipes suivi du nom de la confédération. Pour chaque équipe, les informations incluent le nom, l'identifiant FIFA, le classement FIFA, et le groupe d'affectation, formatées comme suit :
+
+```
+[nombre d'équipes] [nom de la confédération]
+    [nom de l'équipe] [identifiant FIFA] [classement FIFA] [groupe]
+...
+...
+...
+
+[nombre d'équipes] [nom de la confédération]
+    [nom de l'équipe] [identifiant FIFA] [classement FIFA] [groupe]
+...
+...
+```
+
+#### Fichier `matchs2022.txt`
+Liste tous les matchs de la phase de groupes avec les identifiants des équipes domicile et visiteuse. Chaque ligne représente un match :
+
+```
+[id équipe domicile] [id équipe visiteuse]
+...
+...
+```
 Ces fichiers fourniront la base de données nécessaire pour alimenter le programme de simulation, permettant ainsi de reproduire le déroulement du tournoi de manière réaliste et fondée sur des données authentiques.</div>
 
 ### 3.3 Mécanisme de Simulation
