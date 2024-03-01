@@ -565,4 +565,3 @@ tour_eliminatoires(&wc);
 
 // À la fin, wc contient le champion de la Coupe du Monde de Football.
 ```
-
