@@ -17,7 +17,7 @@
   - [Partie 4: Gestion des Statistiques Finales](#part4)
 - [Barème](#bareme)
 
-:alarm_clock: [Date de remise le mercredi 13 mars à 23h59](https://www.timeanddate.com/countdown/generic?iso=20240313T235959&p0=165&font=cursive)
+:alarm_clock: [Date de remise le dimanche 14 avril à 23h59](https://www.timeanddate.com/countdown/generic?iso=20240414T235959&p0=165&font=cursive)
 
 # Directives particulières <a name="directives"></a>
 * Respecter [guide de codage](https://ena.etsmtl.ca/pluginfile.php/1933883/mod_resource/content/0/INF145%20-%20Normes%20de%20programmations.pdf)
