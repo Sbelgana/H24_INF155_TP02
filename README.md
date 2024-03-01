@@ -11,10 +11,10 @@
 - [Structures de Données Utilisées](#data-structures)
 - [Organisation du Projet en Modules](#project-modules)
 - [Fonction à implémenter](#Fonction)
-  - [Partie 1:](#part1)
-  - [Partie 2:](#part2)
-  - [Partie 3:](#part3)
-  - [Partie 4:](#part4)
+  - [Partie 1: Lire et construire la base de données](#part1)
+  - [Partie 2: Simulation de la Phase de Groupes](#part2)
+  - [Partie 3: Gestion de la Phase Éliminatoire ](#part3)
+  - [Partie 4: Gestion des Statistiques Finales](#part4)
 - [Barème](#bareme)
 
 :alarm_clock: [Date de remise le mercredi 13 mars à 23h59](https://www.timeanddate.com/countdown/generic?iso=20240313T235959&p0=165&font=cursive)
@@ -359,7 +359,7 @@ Liste_matches liste_matches;
 afficher_match(liste_matches);
 ```
 
-## 7.2 Partie 2:  <a name="part2"></a>
+## 7.2 Partie 2: Simulation de la Phase de Groupes <a name="part2"></a>
 ### Trouver équipe par identifiant
 
 La fonction `trouver_equipe_par_id` est essentielle dans le contexte de la simulation de la Coupe du Monde de Football FIFA Qatar 2022, car elle permet de localiser une équipe spécifique à partir de son identifiant unique. Cette capacité est cruciale pour le bon déroulement des simulations de matchs, assurant que chaque équipe puisse être correctement identifiée et manipulée avant, pendant, et après les matchs simulés.
@@ -629,7 +629,7 @@ for (int i = 0; i < 8; i++) {
 free(liste_matches.matches);
 ```
 
-## 7.3 Partie 3:  <a name="part3"></a>
+## 7.3 Partie 3: Gestion de la Phase Éliminatoire <a name="part3"></a>
 ### Équipes qualifiées
 
 La fonction `equipes_qualifiees` identifie les équipes qui avancent aux phases éliminatoires de la Coupe du Monde de Football Qatar 2022, en se basant sur les résultats finaux de la phase de groupes. Cette étape est cruciale pour la transition du tournoi vers les huitièmes de finale, où les enjeux sont considérablement accrus.
@@ -736,7 +736,7 @@ tour_eliminatoires(&wc);
 
 // À la fin, wc contient le champion de la Coupe du Monde de Football.
 ```
-## 7.4 Partie 4:  <a name="part4"></a>
+## 7.4 Partie 4: Gestion des Statistiques Finales <a name="part4"></a>
 ### Afficher les Statistiques du Premier Tour
 
 La fonction `afficher_stats_premier_tour` est dédiée à la présentation des statistiques détaillées de chaque équipe participant à la phase de groupes de la Coupe du Monde de Football, après que tous les matchs de cette phase ont été joués. Elle offre un aperçu complet des performances des équipes, incluant les victoires, défaites, nuls, buts pour et contre, la différence de buts, et les points accumulés, le tout organisé par groupe.
