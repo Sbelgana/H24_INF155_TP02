@@ -23,7 +23,7 @@
 * Respecter [guide de codage](https://ena.etsmtl.ca/pluginfile.php/1933883/mod_resource/content/0/INF145%20-%20Normes%20de%20programmations.pdf)
 * Noms de variables et fonctions adéquats (concis, compréhensibles);  
 * Pas de librairies externes autres que celles déjà importées;
-* 
+  
 # 1. Introduction <a name="introduction"></a>
 <div align="justify">
   L'analyse de données sportives, en particulier dans le contexte du football, est devenue un domaine d'étude et d'application de première importance dans le monde contemporain. La collecte, l'analyse et l'interprétation des données relatives aux performances des équipes, aux statistiques des matchs et au classement mondial revêtent une importance capitale non seulement pour les clubs et les organisations sportives, mais aussi pour les fans et les analystes.<br><br>
