@@ -177,10 +177,48 @@ typedef struct{
 La compréhension de ces structures est essentielle pour naviguer à travers les différentes phases du projet de simulation.
 
 
-## 5. Partie 1: Lire et construire la base de données <a name="part1"></a>
+## 6. Organisation du Projet en Modules <a name="project-modules"></a>
+
+Afin de structurer le projet de manière modulaire et de faciliter la compréhension ainsi que la manipulation du code par les étudiants, le projet est divisé en cinq modules principaux, chacun ayant une responsabilité spécifique. Voici une description de chaque module et de son rôle au sein du projet :
+
+### Module 1: Déclaration des Structures (`structures.h`)
+Ce module contient les déclarations de toutes les structures de données utilisées dans le projet, offrant une référence centrale pour la modélisation des éléments du tournoi.
+- **`structures.h`** : Contient les déclarations des structures `Equipe`, `Groupe`, `Buts`, `Eliminatoire`, `Matche`, `Liste_matches`, et `W_CUP`.
+
+### Module 2: Lecture des Fichiers (`lecture_fichiers.c` et `lecture_fichiers.h`)
+Ce module se charge de lire les informations des équipes et des matchs depuis des fichiers, permettant de charger les données nécessaires pour le tournoi.
+- **`lecture_fichiers.h`** : Définit les prototypes des fonctions `lire_equipes` et `lire_matches`.
+- **`lecture_fichiers.c`** : Implémente les fonctions pour la lecture des fichiers des équipes et des matchs.
+
+### Module 3: Simulation de la Phase de Groupes (`simulation_phase_groupe.c` et `simulation_phase_groupe.h`)
+Ce module gère la simulation des matchs de la phase de groupes, y compris la mise à jour des classements et l'affichage des statistiques des groupes.
+- **`simulation_phase_groupe.h`** : Définit les prototypes des fonctions pour simuler les matchs de la phase de groupes et afficher les groupes.
+- **`simulation_phase_groupe.c`** : Implémente la logique de simulation des matchs de la phase de groupes et les fonctions d'affichage.
+
+### Module 4: Gestion de la Phase Éliminatoire (`phase_eliminatoire.c` et `phase_eliminatoire.h`)
+Ce module prend en main la simulation des matchs éliminatoires, de la phase des huitièmes de finale jusqu'à la finale.
+- **`phase_eliminatoire.h`** : Définit les prototypes des fonctions `jouer_match_eliminatoire`, `simuler_tour`, et `tour_eliminatoires`.
+- **`phase_eliminatoire.c`** : Implémente les fonctions pour gérer et simuler la phase éliminatoire du tournoi.
+
+### Module 5: Gestion des Statistiques Finales (`statistiques_finales.c` et `statistiques_finales.h`)
+Ce module est responsable de l'analyse et de l'affichage des statistiques finales après la conclusion du tournoi, fournissant des insights sur les performances des équipes.
+- **`statistiques_finales.h`** : Définit les prototypes des fonctions pour l'affichage des statistiques finales et éventuellement d'autres analyses.
+- **`statistiques_finales.c`** : Implémente les fonctions pour calculer et présenter diverses statistiques finales du tournoi.
+
+### Résumé de l'Organisation des Fichiers
+- **`structures.h`** : Déclarations centrales des structures.
+- **`lecture_fichiers.c` / `lecture_fichiers.h`** : Lecture des données à partir de fichiers.
+- **`simulation_phase_groupe.c` / `simulation_phase_groupe.h`** : Simulation de la phase de groupes.
+- **`phase_eliminatoire.c` / `phase_eliminatoire.h`** : Gestion de la phase éliminatoire.
+- **`statistiques_finales.c` / `statistiques_finales.h`** : Analyse et présentation des statistiques finales.
+
+Cette organisation modulaire permet une meilleure répartition des responsabilités au sein du code, facilitant ainsi la gestion du projet et permettant aux étudiants de se concentrer sur des aspects individuels de la simulation du tournoi.
 
 
-### 5.1 lire_equipes() / 5
+## 7. Partie 1: Lire et construire la base de données <a name="part1"></a>
+
+
+### 7.1 lire_equipes() / 5
 <div align="justify">
 Cette fonction est conçue pour charger les données des équipes qualifiées pour la Coupe du Monde de Football Qatar 2022 à partir d'un fichier texte. Elle lit les informations concernant chaque équipe, telles que le nom de l'équipe, son identifiant FIFA, son classement FIFA, et le groupe auquel elle appartient. Ces informations sont ensuite organisées dans une structure <code>Equipe</code> et stockées dans un tableau dynamique au sein d'une structure <code>Groupe</code>, elle-même intégrée dans une structure globale <code>W_CUP</code> représentant la Coupe du Monde.<br><br>
 
@@ -204,7 +242,7 @@ lire_equipes("equipes2022.txt", &worldCupData);
 ```
 </div>
 
-### Afficher les Groupes
+### 7.2 Afficher les Groupes
 
 La fonction `afficher_groupe` est conçue pour présenter les informations détaillées de chaque groupe de la phase de groupes de la Coupe du Monde de Football. Elle parcourt tous les groupes, affichant pour chaque équipe son nom, son identifiant (ID), et son classement FIFA, fournissant ainsi une vue d'ensemble claire de la composition initiale des groupes du tournoi.
 
@@ -227,7 +265,7 @@ W_CUP wc;
 afficher_groupe(wc);
 ```
 
-### 5.2 Lire les matchs
+### 7.3 Lire les matchs
 
 Cette fonction lit les informations des matchs prévus pour la Coupe du Monde de Football Qatar 2022 à partir d'un fichier nommé `matchs2022.txt`. Chaque ligne du fichier contient les identifiants des deux équipes qui s'affronteront, ce qui permet d'organiser les données des matchs de manière efficace. La fonction procède à la lecture de chaque ligne, extrayant les identifiants des équipes participantes et les stockant dans des structures `Matche` correspondantes. Ces structures sont ensuite ajoutées à un tableau dynamique, qui est capable de s'agrandir au besoin pour accueillir tous les matchs lus du fichier.
 
@@ -248,7 +286,7 @@ int nombreMatchs;
 Match* matches = lire_matchs("matchs2022.txt", &nombreMatchs);
 ```
 
-### Afficher les Matchs
+### 7.4 Afficher les Matchs
 
 La fonction `afficher_match` est conçue pour présenter une liste des matchs programmés dans un format simplifié, en affichant les identifiants (ID) des équipes domicile et visiteuse pour chaque match prévu. Cela permet d'avoir une vision claire de l'ensemble des confrontations à venir ou simulées dans le cadre de la Coupe du Monde de Football.
 
@@ -271,7 +309,8 @@ Liste_matches liste_matches;
 afficher_match(liste_matches);
 ```
 
-### 5.3 Trouver équipe par identifiant
+## 8. Partie 2:  <a name="part2"></a>
+### 8.1 Trouver équipe par identifiant
 
 La fonction `trouver_equipe_par_id` est essentielle dans le contexte de la simulation de la Coupe du Monde de Football FIFA Qatar 2022, car elle permet de localiser une équipe spécifique à partir de son identifiant unique. Cette capacité est cruciale pour le bon déroulement des simulations de matchs, assurant que chaque équipe puisse être correctement identifiée et manipulée avant, pendant, et après les matchs simulés.
 
@@ -302,7 +341,7 @@ if (equipeTrouvee != NULL) {
 
 
 
-### Générateur de buts basé sur une distribution normale
+### 8.2 Générateur de buts basé sur une distribution normale
 
 La fonction décrite est un générateur de nombres aléatoires qui simule le nombre de buts marqués dans un match de football, en s'appuyant sur une distribution normale. Cette méthode est idéale pour refléter la distribution statistique réelle des scores dans le football, où la majorité des matchs se terminent avec peu de buts.
 
@@ -336,7 +375,7 @@ int butsMarques = normalvariate(2, 1);
 ```
 
 
-### 5.4 Jouer un match
+### 8.3 Jouer un match
 
 La fonction `jouer_match` simule l'issue d'une rencontre entre deux équipes lors de la Coupe du Monde de Football FIFA Qatar 2022, en se basant sur leur classement FIFA pour prédire le résultat du match. Cette approche de simulation est conçue pour refléter de manière réaliste l'influence du classement FIFA sur la performance des équipes, fournissant une prédiction du résultat basée sur les performances historiques.
 
@@ -364,7 +403,7 @@ Buts resultat = jouer_match(&eq1, &eq2);
 printf("Résultat: %s %d - %d %s\n", eq1.nom, resultat.buts_eq1, resultat.buts_eq2, eq2.nom);
 ```
 
-### 5.5 Mettre à jour le classement
+### 8.4 Mettre à jour le classement
 
 La fonction `mettre_a_jour_classement` joue un rôle crucial dans l'actualisation des statistiques des équipes à la suite d'un match dans le cadre de la simulation de la Coupe du Monde de la FIFA. Elle permet d'ajuster les données telles que le nombre de buts marqués et encaissés, ainsi que les points accumulés, en fonction des résultats des matchs, assurant ainsi que le classement reflète fidèlement les performances des équipes.
 
@@ -400,7 +439,7 @@ printf("Equipe 1 - Points: %d, Buts Pour: %d, Buts Contre: %d, Différence de Bu
 printf("Equipe 2 - Points: %d, Buts Pour: %d, Buts Contre: %d, Différence de Buts: %d\n", equipe2.pts, equipe2.buts_p, equipe2.buts_c, equipe2.diff_buts);
 ```
 
-### Fonction pour échanger deux équipes
+### 8.5 Fonction pour échanger deux équipes
 
 La fonction `echanger` permet de permuter les données de deux équipes au sein de simulations ou de traitements nécessitant la réorganisation des structures d'équipes. Cet échange est utile dans divers scénarios, tels que le tri des équipes selon leur classement, la mise à jour de leur positionnement dans un tableau, ou d'autres opérations de manipulation de données.
 
@@ -429,7 +468,7 @@ echanger(&equipe1, &equipe2);
 printf("Après l'échange : Equipe 1 - %s, Equipe 2 - %s\n", equipe1.nom, equipe2.nom);
 ```
 
-### 5.6 Trier les groupes
+### 8.6 Trier les groupes
 
 La fonction `trier_groupes` est essentielle dans le processus de simulation de la Coupe du Monde de Football, car elle organise les équipes de chaque groupe en fonction de leur performance. Le classement se base sur les critères officiels du tournoi, tels que les points accumulés, la différence de buts, et le nombre total de buts marqués, pour mettre en avant les équipes les plus performantes.
 
@@ -496,7 +535,7 @@ free(groupeA.eqp);
 
 </div>
  
-### 5.7 Simuler les matchs
+### 8.7 Simuler les matchs
 
 La fonction `simuler_matchs` est une composante clé de la simulation de la Coupe du Monde de Football Qatar 2022, permettant de simuler tous les matchs prévus dans le tournoi en se basant sur des données spécifiques telles que le classement FIFA et d'autres indicateurs de performance des équipes.
 
@@ -540,7 +579,8 @@ for (int i = 0; i < 8; i++) {
 free(liste_matches.matches);
 ```
 
-### 5.8 Équipes qualifiées
+## 9. Partie 3:  <a name="part3"></a>
+### 9.1 Équipes qualifiées
 
 La fonction `equipes_qualifiees` identifie les équipes qui avancent aux phases éliminatoires de la Coupe du Monde de Football Qatar 2022, en se basant sur les résultats finaux de la phase de groupes. Cette étape est cruciale pour la transition du tournoi vers les huitièmes de finale, où les enjeux sont considérablement accrus.
 
@@ -565,7 +605,7 @@ equipes_qualifiees(&wc);
 // Les équipes qualifiées sont désormais prêtes pour les huitièmes de finale
 ```
 
-### Afficher les Statistiques du Premier Tour
+### 9.2 Afficher les Statistiques du Premier Tour
 
 La fonction `afficher_stats_premier_tour` est dédiée à la présentation des statistiques détaillées de chaque équipe participant à la phase de groupes de la Coupe du Monde de Football, après que tous les matchs de cette phase ont été joués. Elle offre un aperçu complet des performances des équipes, incluant les victoires, défaites, nuls, buts pour et contre, la différence de buts, et les points accumulés, le tout organisé par groupe.
 
@@ -589,7 +629,7 @@ W_CUP wc;
 afficher_stats_premier_tour(&wc);
 ```
 
-### Jouer un match éliminatoire
+### 9.3 Jouer un match éliminatoire
 
 La fonction `jouer_match_eliminatoire` simule un match éliminatoire entre deux équipes dans le cadre de la Coupe du Monde de Football, prenant en compte non seulement le score du match mais également les mécanismes de décision en cas d'égalité, tels que la prolongation ou les tirs au but, pour déterminer l'équipe qui avance dans le tournoi.
 
@@ -615,7 +655,7 @@ Equipe* equipeGagnante = jouer_match_eliminatoire(&equipe1, &equipe2);
 printf("L'équipe gagnante est : %s\n", equipeGagnante->nom);
 ```
 
-### Simuler un tour éliminatoire
+### 9.4 Simuler un tour éliminatoire
 
 La fonction `simuler_tour` joue un rôle crucial dans la progression des étapes éliminatoires de la Coupe du Monde de Football, en simulant chaque match d'un tour donné (huitièmes de finale, quarts de finale, demi-finales, et finale) et en préparant les confrontations pour le tour suivant, basées sur les équipes gagnantes.
 
@@ -644,7 +684,7 @@ simuler_tour(&wc, wc.huitiemes, 8, wc.quarts);
 // Après la simulation des huitièmes, les quarts sont prêts à être simulés, et ainsi de suite jusqu'à la finale
 ```
 
-### Tournoi Éliminatoire
+### 9.5 Tournoi Éliminatoire
 
 La fonction `tour_eliminatoires` orchestre la progression des tours éliminatoires dans la simulation de la Coupe du Monde de Football, depuis les huitièmes de finale jusqu'à la grande finale. Elle utilise la fonction `simuler_tour` pour simuler chaque tour, en s'appuyant sur les résultats pour déterminer les confrontations du tour suivant, jusqu'à couronner le champion du tournoi.
 
@@ -670,3 +710,4 @@ tour_eliminatoires(&wc);
 
 // À la fin, wc contient le champion de la Coupe du Monde de Football.
 ```
+## 10. Partie 4:  <a name="part4"></a>
