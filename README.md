@@ -47,15 +47,29 @@ Pour simuler avec précision la Coupe du Monde de Football Qatar 2022, les donn�
 
 Ces fichiers fourniront la base de données nécessaire pour alimenter le programme de simulation, permettant ainsi de reproduire le déroulement du tournoi de manière réaliste et fondée sur des données authentiques.</div>
 
-### 3.3 Mécanisme de simulation:
-<div align="justify">
-Pour simuler de manière réaliste les matchs de la Coupe du Monde de Football Qatar 2022, le programme suivra ces principes :
+### 3.3 Mécanisme de Simulation
 
-- **Détermination des résultats** : Les résultats des matchs seront calculés à l'aide d'une fonction générant des nombres aléatoires suivant une distribution normale, simulant ainsi l'issue des rencontres en fonction des statistiques et du classement mondial des équipes. Cette approche permet de refléter les performances réelles des équipes en leur donnant des probabilités de victoire basées sur leur force relative.
+La simulation réaliste des matchs de la Coupe du Monde de Football Qatar 2022 est le cœur de notre projet. Pour ce faire, nous adoptons une approche méthodique qui tient compte à la fois des performances historiques des équipes et de leur classement FIFA actuel. Le processus de simulation est divisé en étapes clairement définies pour assurer des résultats à la fois cohérents et imprévisibles, reflétant la nature dynamique du football.
 
-- **Détails du match** : Le déroulement précis de chaque match, y compris la possibilité d'une victoire en temps réglementaire, d'une prolongation ou d'une séance de tirs au but, sera déterminé aléatoirement. Cette méthode assure que chaque simulation de tournoi offre des résultats uniques et imprévisibles, à l'image de la nature souvent imprévisible du football.
+#### Étape 1: Préparation des Données
+Avant la simulation, les données pertinentes sur les équipes, incluant le classement FIFA, les performances historiques et les statistiques de match, sont collectées et structurées. Ces données servent de base pour évaluer la force relative de chaque équipe.
 
-Chaque simulation du tournoi comprendra la mise à jour des classements et des statistiques des équipes après chaque match, permettant une analyse détaillée des performances et des tendances au fur et à mesure de l'avancement du tournoi. Le processus de simulation peut être répété de nombreuses fois pour obtenir des prédictions statistiquement significatives sur les performances des équipes, les éventuels vainqueurs du tournoi, et d'autres analyses pertinentes.</div>
+#### Étape 2: Simulation des Matchs
+Chaque match est simulé en tenant compte des facteurs suivants :
+- **Classement FIFA :** Influence directement les probabilités de victoire, de nul ou de défaite pour chaque équipe.
+- **Distribution des Scores :** Utilisation d'une fonction générant des scores basés sur une distribution normale, ajustée selon le classement FIFA des équipes. Cela permet de simuler des résultats de matchs qui reflètent les capacités réelles des équipes.
+- **Résolution des Égalités :** En cas de match nul à la fin du temps réglementaire, des mécanismes tels que la prolongation ou les tirs au but sont aléatoirement choisis pour déterminer le gagnant.
+
+#### Étape 3: Mise à Jour des Statistiques
+Après chaque match simulé, les statistiques des équipes sont mises à jour pour inclure les résultats, les buts marqués et encaissés, et d'autres données pertinentes. Cela permet de maintenir un classement à jour et de préparer le terrain pour les simulations suivantes.
+
+#### Étape 4: Avancement et Élimination
+- **Phase de Groupes :** Les équipes sont classées selon leurs performances, avec les deux meilleures équipes de chaque groupe avançant aux phases éliminatoires.
+- **Phases Éliminatoires :** À partir des huitièmes de finale, les matchs sont éliminatoires, menant finalement à la finale où le champion est couronné.
+
+#### Étape 5: Analyse et Répétition
+Le processus de simulation peut être répété plusieurs fois pour générer des données statistiques significatives, permettant une analyse approfondie des performances des équipes et la prédiction des issues potentielles du tournoi.
+
 
 ## 4. Déroulement de la Coupe du Monde de Football Qatar 2022 <a name="saison"></a>
 <div align="justify">
@@ -71,6 +85,97 @@ La Coupe du Monde de Football Qatar 2022 se distingue par son format unique et s
 - **Critères de départage** : En cas d'égalité de points dans les phases de groupes, plusieurs critères sont utilisés pour départager les équipes, tels que la différence de buts générale, le nombre de buts marqués, et les résultats directs entre les équipes concernées.
 
 À la fin du tournoi, l'équipe gagnante de la finale est couronnée championne du monde, tandis que les équipes ayant perdu en demi-finales jouent un match pour la troisième place. Ce format garantit une compétition intense et offre de nombreuses possibilités de surprises et de moments mémorables.</div>
+
+
+## 5. Structures de Données Utilisées <a name="data-structures"></a>
+
+Ce projet utilise des structures de données spécifiques pour modéliser les aspects clés de la Coupe du Monde de Football. Ces structures représentent les équipes, les groupes, les matchs, et l'organisation générale du tournoi. Voici une explication détaillée de chaque structure et de ses champs :
+
+### Structure `Equipe`
+Cette structure représente une équipe participant au tournoi, contenant toutes les informations nécessaires relatives à son identité et ses performances.
+```c
+typedef struct {
+    char id[10];          // Identifiant unique de l'équipe, souvent basé sur des abréviations ou des codes FIFA.
+    char nom[20];         // Nom complet de l'équipe.
+    char conf[20];        // Confédération à laquelle appartient l'équipe (ex : UEFA, CONMEBOL).
+    char groupe;          // Lettre désignant le groupe dans lequel l'équipe est placée.
+    size_t vic;           // Nombre de victoires de l'équipe dans le tournoi.
+    size_t def;           // Nombre de défaites de l'équipe dans le tournoi.
+    size_t nul;           // Nombre de matchs nuls de l'équipe dans le tournoi.
+    size_t buts_p;        // Nombre total de buts marqués par l'équipe.
+    size_t buts_c;        // Nombre total de buts encaissés par l'équipe.
+    size_t diff_buts;     // Différence entre les buts marqués et les buts encaissés.
+    size_t pts;           // Nombre total de points accumulés par l'équipe dans le tournoi.
+    size_t clas;          // Classement FIFA de l'équipe.
+    size_t matche_jouer;  // Nombre total de matchs joués par l'équipe.
+} Equipe;
+```
+
+### Structure `Groupe`
+Organise les équipes en groupes pour la phase de groupes du tournoi.
+```c
+typedef struct {
+    char nom;             // Lettre désignant le nom du groupe.
+    Equipe* eqp;          // Pointeur vers un tableau dynamique d'équipes dans le groupe.
+    size_t nb_eqp;        // Nombre d'équipes actuellement dans le groupe.
+    size_t cap;           // Capacité actuelle du tableau d'équipes (permet d'allouer dynamiquement plus d'espace si nécessaire).
+} Groupe;
+```
+
+### Structure `Buts`
+Contient le décompte des buts pour un match donné entre deux équipes.
+```c
+typedef struct {
+    int buts_eq1;         // Nombre de buts marqués par l'équipe 1.
+    int buts_eq2;         // Nombre de buts marqués par l'équipe 2.
+} Buts;
+```
+
+### Structure `Eliminatoire`
+Définit une rencontre éliminatoire, pouvant être un match des huitièmes de finale, quarts de finale, demi-finales, ou la finale.
+```c
+typedef struct {
+    Equipe rencontre[2];  // Les deux équipes participant à la rencontre éliminatoire.
+} Eliminatoire;
+```
+
+### Structure `W_CUP`
+Représente la structure globale du tournoi, incluant toutes les phases de jeu.
+```c
+typedef struct {
+    Groupe grp[8];           // Tableau des 8 groupes de la phase de groupes.
+    Eliminatoire tour_16[8]; // Tableau des 8 matchs des huitièmes de finale.
+    Eliminatoire tour_8[4];  // Tableau des 4 matchs des quarts de finale.
+    Eliminatoire tour_4[2];  // Tableau des 2 matchs des demi-finales.
+    Eliminatoire finale;     // La finale du tournoi.
+} W_CUP;
+```
+
+### Structure `Matche` et `Liste_matches`
+Ces structures permettent de gérer les informations relatives aux matchs programmés et simulés durant le tournoi.
+```c
+typedef struct{
+    char id_vis[10];        // Identifiant de l'équipe visiteuse.
+    char id_dom[10];        // Identifiant de l'équipe à domicile.
+    size_t clas_vis;        // Classement FIFA de l'équipe visiteuse.
+    size_t clas_dom;        // Classement FIFA de l'équipe à domicile.
+    size_t buts_eq1;        // Buts marqués
+
+ par l'équipe à domicile.
+    size_t buts_eq2;        // Buts marqués par l'équipe visiteuse.
+    size_t pts_vis;         // Points accumulés par l'équipe visiteuse.
+    size_t pts_dom;         // Points accumulés par l'équipe à domicile.
+} Matche;
+
+typedef struct{
+    Matche* matches;        // Pointeur vers un tableau dynamique de matchs.
+    size_t nb_matche;       // Nombre de matchs contenus dans le tableau.
+    size_t cap;             // Capacité actuelle du tableau (pour allocation dynamique).
+} Liste_matches;
+```
+
+La compréhension de ces structures est essentielle pour naviguer à travers les différentes phases du projet de simulation.
+
 
 ## 5. Partie 1: Lire et construire la base de données <a name="part1"></a>
 
