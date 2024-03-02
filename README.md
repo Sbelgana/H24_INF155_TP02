@@ -121,7 +121,8 @@ Ce fichier contient les informations des équipes participantes, organisées par
 | | | ![Drapeau Uruguay](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/20px-Flag_of_Uruguay.svg.png) Uruguay | URU | 1638 | H |
 | AFC | 6 | ![Drapeau Arabie saoudite](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/20px-Flag_of_Saudi_Arabia.svg.png) Arabie saoudite | SAU | 1437 | C |
 | | | ![Drapeau Australie](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Flag_of_Australia.svg/20px-Flag_of_Australia.svg.png) Australie | AUS | 1488 | D |
-| | | ![Drapeau Corée du Sud](https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/20px-Flag_of_South_Korea.svg.png) Corée du Sud | KOR | 1530| H | ![Drapeau Iran](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/20px-Flag_of_Iran.svg.png) Iran | IRN | 1564 | B |
+| | | ![Drapeau Corée du Sud](https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/20px-Flag_of_South_Korea.svg.png) Corée du Sud | KOR | 1530| H | 
+| | | ![Drapeau Iran](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/20px-Flag_of_Iran.svg.png) Iran | IRN | 1564 | B |
 | | | ![Drapeau Japon](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/20px-Flag_of_Japan.svg.png) Japon | JPN | 1559 |  E|
 | | | ![Drapeau Qatar](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Qatar.svg/20px-Flag_of_Qatar.svg.png) Qatar (pays hôte) | QAT | 1439 | A |
 
