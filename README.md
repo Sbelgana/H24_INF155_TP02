@@ -2,6 +2,7 @@
   <img src="https://www.etudesuniversitaires.ca/wp-content/uploads/2013/08/ecole-de-technologie-superieure-campus-image2.jpg" />
 </p>
 
+
 # TR02: Coupe du Monde de Football Qatar 2022
 - [Directives particulières](#directives)
 - [Introduction](#introduction)
@@ -25,23 +26,32 @@
 * Noms de variables et fonctions adéquats (concis, compréhensibles);  
 * Pas de librairies externes autres que celles déjà importées;
   
+<div align="justify">
+
 # 1. Introduction <a name="introduction"></a>
 
-  L'analyse de données sportives, en particulier dans le contexte du football, est devenue un domaine d'étude et d'application de première importance dans le monde contemporain. La collecte, l'analyse et l'interprétation des données relatives aux performances des équipes, aux statistiques des matchs et au classement mondial revêtent une importance capitale non seulement pour les clubs et les organisations sportives, mais aussi pour les fans et les analystes.<br><br>
+L'analyse de données sportives, en particulier dans le contexte du football, est devenue un domaine d'étude et d'application de première importance dans le monde contemporain. La collecte, l'analyse et l'interprétation des données relatives aux performances des équipes, aux statistiques des matchs et au classement mondial revêtent une importance capitale non seulement pour les clubs et les organisations sportives, mais aussi pour les fans et les analystes.
 
 Ce projet propose une immersion dans l'univers fascinant de la simulation sportive au moyen du langage de programmation C. La simulation de la Coupe du Monde de Football, un événement qui retient l'attention globale tous les quatre ans, sera réalisée en s'appuyant sur des données concrètes. Ce processus permettra de développer des compétences importantes en manipulation de données, en algorithmique et en programmation structurée.
 
+</div>
+
+
+
+<div align="justify">
 
 # 2. Objectifs du Projet <a name="objectif"></a>
 
+Ce projet vise à atteindre les objectifs suivants :
 
- Ce projet vise à atteindre les objectifs suivants :
-  
 - **Maîtrise des notions de base et des structures de données en C** : Approfondir la compréhension et l'application des concepts fondamentaux et des structures de données spécifiques au langage C, essentiels pour la modélisation et la simulation de compétitions sportives.
 - **Gestion de fichiers** : Développer les compétences nécessaires pour manipuler des fichiers en C, permettant de lire et stocker des informations relatives aux équipes, aux joueurs, et aux résultats des matchs.
 - **Adhésion aux standards de programmation** : Encourager l'adoption des meilleures pratiques de programmation, y compris le respect des conventions de codage et la production d'un code clair, maintenable, et efficace.
 - **Simulation de matchs** : Utiliser des algorithmes pour simuler les rencontres entre équipes, prenant en compte divers facteurs tels que le classement des équipes, les performances historiques, et l'avantage de jouer à domicile.
 - **Analyse statistique des résultats** : Appliquer des techniques d'analyse pour traiter et interpréter les données issues des simulations, afin de produire des statistiques détaillées sur les performances des équipes et prédire les issues potentielles des matchs.
+
+</div>
+
 
 # 3. Énoncé de travail <a name="description"></a>
 
@@ -49,13 +59,20 @@ Ce projet propose une immersion dans l'univers fascinant de la simulation sporti
   <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/2022_FIFA_World_Cup.svg/313px-2022_FIFA_World_Cup.svg.png" />
 </p>
 
+<div align="justify">
+
 L'objectif de ce projet est de simuler la Coupe du Monde de Football Qatar 2022. Cet événement majeur du football mondial rassemble les meilleures équipes nationales, chacune aspirant à remporter le titre le plus prestigieux. À travers une série de simulations, ce projet vise à prédire les résultats des matchs, en s'appuyant sur des données réelles telles que le classement FIFA des équipes, leurs performances historiques, et d'autres statistiques pertinentes. La question centrale est de savoir comment, en utilisant des méthodes de programmation en C et des algorithmes de simulation, il est possible de calculer les probabilités de chaque équipe de progresser à travers les différentes phases du tournoi, de la phase de groupes à la finale. Ce faisant, le projet explorera la capacité de modéliser des événements sportifs complexes et d'en prédire les issues, en se basant sur l'analyse de données et la simulation informatique.
 
+</div>
+
+
+
+<div align="justify">
 
 ## 3.1 Votre mission:
 
-  Votre mission consiste à :
-  
+Votre mission consiste à :
+
 1. **Développer un programme en C** qui simule l'intégralité de la Coupe du Monde de Football Qatar 2022, en utilisant des données réelles sur les équipes qualifiées et des fonctions de simulation pour générer les résultats des matchs.
 2. **Réaliser une analyse détaillée** pour extraire des insights significatifs sur les performances des équipes tout au long du tournoi, en se concentrant sur les aspects suivants :
    - Les équipes ayant marqué le plus et le moins de buts durant le tournoi.
@@ -68,9 +85,10 @@ L'objectif de ce projet est de simuler la Coupe du Monde de Football Qatar 2022.
 
 Cette mission implique la création de structures de données complexes pour gérer les informations des équipes et des matchs, l'utilisation avancée de fichiers pour lire et stocker les données, et l'application d'algorithmes de tri et de recherche pour organiser et analyser les résultats obtenus.
 
+</div>
+
 
 ## 3.2 Données:
-
   
 Pour simuler avec précision la Coupe du Monde de Football Qatar 2022, les données suivantes seront utilisées :
 
@@ -78,7 +96,11 @@ Pour simuler avec précision la Coupe du Monde de Football Qatar 2022, les donn�
 - `matchs2022.txt` : 
 
 ### 3.2.1 Fichier `equipes2022.txt`
+
+<div align="justify">
+  
 Ce fichier contient les informations des équipes participantes, organisées par confédération. Chaque section commence par le nombre d'équipes suivi du nom de la confédération. Pour chaque équipe, les informations incluent le nom, l'identifiant FIFA, le classement FIFA, et le groupe d'affectation, formatées comme suit :
+</div>
 
 ```
 [nombre d'équipes] [nom de la confédération]
@@ -132,6 +154,9 @@ Ce fichier contient les informations des équipes participantes, organisées par
 
   
 ### 3.2.2 Fichier `matchs2022.txt`
+
+<div align="justify">
+  
 Liste tous les matchs de la phase de groupes avec les identifiants des équipes domicile et visiteuse. Chaque ligne représente un match :
 
 ```
@@ -139,7 +164,9 @@ Liste tous les matchs de la phase de groupes avec les identifiants des équipes 
 ...
 ...
 ```
-Ces fichiers fourniront la base de données nécessaire pour alimenter le programme de simulation, permettant ainsi de reproduire le déroulement du tournoi de manière réaliste et fondée sur des données authentiques.
+Ces fichiers fourniront la base de données nécessaire pour alimenter le programme de simulation, permettant ainsi de reproduire le déroulement du tournoi de manière réaliste et fondée sur des données authentiques.</div>
+
+<div align="justify">
 
 ## 3.3 Mécanisme de Simulation
 
@@ -164,6 +191,10 @@ Après chaque match simulé, les statistiques des équipes sont mises à jour po
 ### Étape 5: Analyse et Répétition
 Le processus de simulation peut être répété plusieurs fois pour générer des données statistiques significatives, permettant une analyse approfondie des performances des équipes et la prédiction des issues potentielles du tournoi.
 
+</div>
+
+
+<div align="justify">
 
 # 4. Déroulement de la Coupe du Monde de Football Qatar 2022 <a name="saison"></a>
 
@@ -180,6 +211,11 @@ La Coupe du Monde de Football Qatar 2022 se distingue par son format unique et s
 
 À la fin du tournoi, l'équipe gagnante de la finale est couronnée championne du monde, tandis que les équipes ayant perdu en demi-finales jouent un match pour la troisième place. Ce format garantit une compétition intense et offre de nombreuses possibilités de surprises et de moments mémorables.
 
+</div>
+
+
+
+<div align="justify">
 
 # 5. Structures de Données Utilisées <a name="data-structures"></a>
 
@@ -251,11 +287,11 @@ Ces structures permettent de gérer les informations relatives aux matchs progra
 typedef struct{
     char id_vis[10];        // Identifiant de l'équipe visiteuse.
     char id_dom[10];        // Identifiant de l'équipe à domicile.
-    size_t clas_vis;        // Classement FIFA de l'équipe visiteuse.
-    size_t clas_dom;        // Classement FIFA de l'équipe à domicile.
-    size_t buts_eq1;        // Buts marqués
+    size_t clas_vis;        // Classement
 
- par l'équipe à domicile.
+ FIFA de l'équipe visiteuse.
+    size_t clas_dom;        // Classement FIFA de l'équipe à domicile.
+    size_t buts_eq1;        // Buts marqués par l'équipe à domicile.
     size_t buts_eq2;        // Buts marqués par l'équipe visiteuse.
     size_t pts_vis;         // Points accumulés par l'équipe visiteuse.
     size_t pts_dom;         // Points accumulés par l'équipe à domicile.
@@ -269,6 +305,12 @@ typedef struct{
 ```
 
 La compréhension de ces structures est essentielle pour naviguer à travers les différentes phases du projet de simulation.
+
+</div>
+
+
+
+<div align="justify">
 
 # 6. Organisation du Projet en Modules <a name="project-modules"></a>
 
@@ -307,34 +349,42 @@ Ce module est responsable de l'analyse et de l'affichage des statistiques finale
 
 Cette organisation modulaire permet une meilleure répartition des responsabilités au sein du code, facilitant ainsi la gestion du projet et permettant aux étudiants de se concentrer sur des aspects individuels de la simulation du tournoi.
 
+</div>
+
+
 # 7. Fonction à implémenter <a name="fonctions"></a>
 ## 7.1 Partie 1: Lire et construire la base de données <a name="part1"></a>
 
-### lire_equipes() / 5
+<div align="justify">
+
+### Lire les équipes
 
 Cette fonction est conçue pour charger les données des équipes qualifiées pour la Coupe du Monde de Football Qatar 2022 à partir d'un fichier texte. Elle lit les informations concernant chaque équipe, telles que le nom de l'équipe, son identifiant FIFA, son classement FIFA, et le groupe auquel elle appartient. Ces informations sont ensuite organisées dans une structure <code>Equipe</code> et stockées dans un tableau dynamique au sein d'une structure <code>Groupe</code>, elle-même intégrée dans une structure globale <code>W_CUP</code> représentant la Coupe du Monde.<br><br>
 
 Le fichier est structuré par confédérations, avec chaque section débutant par le nombre d'équipes et le nom de la confédération. Pour chaque équipe, la fonction lit le nom, l'identifiant FIFA, le classement FIFA, et le groupe d'affectation, avant d'ajouter l'équipe à son groupe respectif dans la structure `W_CUP`. Si nécessaire, l'espace alloué pour les équipes dans un groupe est dynamiquement agrandi pour accueillir de nouvelles entrées.
 
-####  Paramètres :
+#### Paramètres :
 - `nom_fichier` : Chaîne de caractères constante représentant le chemin vers le fichier contenant les données des équipes.
 - `wc` : Pointeur vers une structure `W_CUP`, qui sera remplie avec les données des équipes lues du fichier.
 
-####  Déroulement de la fonction :
-1. **Ouverture du fichier** : La fonction commence par ouvrir le fichier spécifié pour la lecture. Si l'ouverture échoue, elle affiche un message d'erreur et s'arrête.
-2. Lecture séquentielle du fichier. Pour chaque confédération, le nombre d'équipes et le nom de la confédération sont lus, puis chaque équipe est traitée individuellement.
+#### Déroulement de la fonction :
+1. La fonction commence par ouvrir le fichier spécifié pour la lecture. Si l'ouverture échoue, elle affiche un message d'erreur et s'arrête.
+2. Pour chaque confédération, le nombre d'équipes et le nom de la confédération sont lus, puis chaque équipe est traitée individuellement.
 3. Pour chaque équipe, les informations sont lues et stockées dans une structure `Equipe`. Cette structure est ensuite ajoutée à un tableau dynamique correspondant au groupe de l'équipe dans la structure `W_CUP`.
 4. Le tableau des équipes dans chaque groupe est agrandi dynamiquement au besoin pour accueillir toutes les équipes.
 5. Fermeture du fichier une fois toutes les données lues et traitées.
 
-####  Exemple d'utilisation :
+#### Exemple d'utilisation :
 ```c
 W_CUP worldCupData;
 lire_equipes("equipes2022.txt", &worldCupData);
 ```
+</div>
 
 ---
 
+
+<div align="justify">
 
 ### Afficher les Groupes
 
@@ -358,8 +408,9 @@ W_CUP wc;
 // Afficher les détails de chaque groupe de la Coupe du Monde
 afficher_groupe(wc);
 ```
+</div>
 
-Groupe A:
+**Groupe A:**
 |   | Équipe        | Pts | J | G | N | P | BP | BC | Diff |
 |---|---------------|-----|---|---|---|---|----|----|------|
 | 1 | ![Qatar](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Qatar.svg/20px-Flag_of_Qatar.svg.png) **Qatar** |   |   |   |   |   |    |    |      |
@@ -367,7 +418,7 @@ Groupe A:
 | 3 | ![Sénégal](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/20px-Flag_of_Senegal.svg.png) **Sénégal** |   |   |   |   |   |    |    |      |
 | 4 | ![Pays-Bas](https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/20px-Flag_of_the_Netherlands.svg.png) **Pays-Bas**|   |   |   |   |   |    |    |      |
 
-Groupe B:
+**Groupe B:**
 |   | Équipe        | Pts | J | G | N | P | BP | BC | Diff |
 |---|---------------|-----|---|---|---|---|----|----|------|
 | 1 | ![Angleterre](https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/20px-Flag_of_England.svg.png) **Angleterre** |   |   |   |   |   |    |    |      |
@@ -376,7 +427,7 @@ Groupe B:
 | 4 | ![Pays de Galles](https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Flag_of_Wales.svg/20px-Flag_of_Wales.svg.png) **Pays de Galles**|   |   |   |   |   |    |    |      |
 
 
-Groupe C:
+**Groupe C:**
 |   | Équipe        | Pts | J | G | N | P | BP | BC | Diff |
 |---|---------------|-----|---|---|---|---|----|----|------|
 | 1 | ![Argentine](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/20px-Flag_of_Argentina.svg.png) **Argentine** |   |   |   |   |   |    |    |      |
@@ -385,7 +436,7 @@ Groupe C:
 | 4 | ![Pologne](https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Flag_of_Poland.svg/20px-Flag_of_Poland.svg.png) **Pologne**|   |   |   |   |   |    |    |      |
 
 
-Groupe D:
+**Groupe D:**
 |   | Équipe        | Pts | J | G | N | P | BP | BC | Diff |
 |---|---------------|-----|---|---|---|---|----|----|------|
 | 1 | ![France](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/20px-Flag_of_France.svg.png) **France** |   |   |   |   |   |    |    |      |
@@ -393,7 +444,7 @@ Groupe D:
 | 3 | ![Danemark](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/20px-Flag_of_Denmark.svg.png) **Danemark** |   |   |   |   |   |    |    |      |
 | 4 | ![Tunisie](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/20px-Flag_of_Tunisia.svg.png) **Tunisie**|   |   |   |   |   |    |    |      |
 
-Groupe E:
+**Groupe E:**
 |   | Équipe         | Pts | J | G | N | P | BP | BC | Diff |
 |---|----------------|-----|---|---|---|---|----|----|------|
 | 1 | ![Espagne](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/20px-Flag_of_Spain.svg.png) **Espagne** |   |   |   |   |   |    |    |      |
@@ -401,7 +452,7 @@ Groupe E:
 | 3 | ![Allemagne](https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/20px-Flag_of_Germany.svg.png) **Allemagne** |   |   |   |   |   |    |    |      |
 | 4 | ![Japon](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/20px-Flag_of_Japan.svg.png) **Japon**|   |   |   |   |   |    |    |      |
 
-Groupe F:
+**Groupe F:**
 |   | Équipe         | Pts | J | G | N | P | BP | BC | Diff |
 |---|----------------|-----|---|---|---|---|----|----|------|
 | 1 | ![Belgique](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/20px-Flag_of_Belgium.svg.png) **Belgique** |   |   |   |   |   |    |    |      |
@@ -410,7 +461,7 @@ Groupe F:
 | 4 | ![Croatie](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/20px-Flag_of_Croatia.svg.png) **Croatie**|   |   |   |   |   |    |    |      |
 
 
-Groupe G:
+**Groupe G:**
 |   | Équipe          | Pts | J | G | N | P | BP | BC | Diff |
 |---|-----------------|-----|---|---|---|---|----|----|------|
 | 1 | ![Brésil](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/20px-Flag_of_Brazil.svg.png) **Brésil** |   |   |   |   |   |    |    |      |
@@ -419,7 +470,7 @@ Groupe G:
 | 4 | ![Suisse](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/20px-Flag_of_Switzerland.svg.png) **Suisse**|   |   |   |   |   |    |    |      |
 
 
-Groupe H:
+**Groupe H:**
 |   | Équipe         | Pts | J | G | N | P | BP | BC | Diff |
 |---|----------------|-----|---|---|---|---|----|----|------|
 | 1 | ![Portugal](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/20px-Flag_of_Portugal.svg.png) **Portugal** |   |   |   |   |   |    |    |      |
@@ -432,6 +483,8 @@ Groupe H:
 ---
 
 
+
+<div align="justify">
 
 ### Lire les matchs
 
@@ -454,13 +507,16 @@ int nombreMatchs;
 Match* matches = lire_matchs("matchs2022.txt", &nombreMatchs);
 ```
 
+</div>
+
 
 ---
 
 
 
-### Afficher les Matchs
+<div align="justify">
 
+### Afficher les Matchs
 La fonction `afficher_match` est conçue pour présenter une liste des matchs programmés dans un format simplifié, en affichant les identifiants (ID) des équipes domicile et visiteuse pour chaque match prévu. Cela permet d'avoir une vision claire de l'ensemble des confrontations à venir ou simulées dans le cadre de la Coupe du Monde de Football.
 
 #### Détails de la fonction :
@@ -473,6 +529,9 @@ La fonction `afficher_match` est conçue pour présenter une liste des matchs pr
 #### Type de retour :
 - Aucun. Les informations sur les matchs sont directement affichées à l'utilisateur.
 
+</div>
+
+
 #### Exemple d'utilisation :
 ```c
 Liste_matches liste_matches;
@@ -483,6 +542,10 @@ afficher_match(liste_matches);
 ```
 
 ## 7.2 Partie 2: Simulation de la Phase de Groupes <a name="part2"></a>
+
+
+<div align="justify">
+
 ### Trouver équipe par identifiant
 
 La fonction `trouver_equipe_par_id` est essentielle dans le contexte de la simulation de la Coupe du Monde de Football FIFA Qatar 2022, car elle permet de localiser une équipe spécifique à partir de son identifiant unique. Cette capacité est cruciale pour le bon déroulement des simulations de matchs, assurant que chaque équipe puisse être correctement identifiée et manipulée avant, pendant, et après les matchs simulés.
@@ -498,6 +561,9 @@ Pour trouver une équipe, la fonction parcourt chaque groupe et, au sein de chaq
 
 #### Type de retour :
 - Un pointeur vers la structure `Equipe` trouvée, contenant les informations détaillées de l'équipe correspondante. Retourne `NULL` si aucune équipe correspondante n'est trouvée.
+
+</div>
+
 
 #### Exemple d'utilisation :
 ```c
@@ -518,6 +584,8 @@ if (equipeTrouvee != NULL) {
 
 
 
+<div align="justify">
+
 ### Générateur de buts basé sur une distribution normale
 
 La fonction décrite est un générateur de nombres aléatoires qui simule le nombre de buts marqués dans un match de football, en s'appuyant sur une distribution normale. Cette méthode est idéale pour refléter la distribution statistique réelle des scores dans le football, où la majorité des matchs se terminent avec peu de buts.
@@ -525,19 +593,18 @@ La fonction décrite est un générateur de nombres aléatoires qui simule le no
 #### Fonctionnement :
 Le générateur utilise la méthode Box-Muller pour convertir deux nombres aléatoires uniformes en une variable suivant une distribution normale standard. La procédure est détaillée ci-dessous, indépendamment de tout langage de programmation :
 
-1. **Génération de deux nombres aléatoires uniformes** \(u_1\) et \(u_2\). Ces nombres sont choisis de manière à être distribués uniformément dans l'intervalle ouvert (0, 1).
+1. **Génération de deux nombres aléatoires uniformes** $u_1$ et $u_2$. Ces nombres sont choisis de manière à être distribués uniformément dans l'intervalle ouvert $(0, 1)$.
 
-2. **Transformation de Box-Muller** : À partir de \(u_1\) et \(u_2\), une variable aléatoire \(z_0\) suivant une distribution normale standard est générée selon les formules :
-   - \(z_0 = \sqrt{-2 \ln(u_1)} \cos(2 \pi u_2)\)
+2. **Transformation de Box-Muller** : À partir de $u_1$ et $u_2$, une variable aléatoire $z$ suivant une distribution normale standard est générée selon les formules : $z = \sqrt{-2.\ln(u_1)} . \cos(2.\pi.u_2)$
 
-La variable \(z_0\) obtenue est ensuite ajustée pour modéliser un score de football réaliste. Pour ce faire, on la normalise avec une moyenne \(\mu\) et un écart-type \(\sigma\), puis on restreint le résultat à un intervalle spécifique pour assurer que le nombre de buts est réaliste dans le contexte d'un match de football.
+La variable $z$ obtenue est ensuite ajustée pour modéliser un score de football réaliste. Pour ce faire, on la normalise avec une moyenne $\mu$ et un écart-type $\sigma$, puis on restreint le résultat à un intervalle spécifique pour assurer que le nombre de buts est réaliste dans le contexte d'un match de football.
 
 #### Ajustement du score :
 Le score final est ajusté pour s'assurer qu'il reste dans une plage acceptable, typiquement entre 0 et 6 buts, pour refléter les scores communs observés dans les matchs de football. Cette restriction est appliquée à la variable normalisée pour obtenir un nombre entier de buts conforme aux attentes du contexte sportif.
 
 #### Formule d'ajustement du score :
 La variable normalisée et ajustée pour le contexte du football est calculée comme suit, sans se limiter à une implémentation spécifique dans un langage de programmation :
-- Le score ajusté est obtenu en limitant la valeur de \(z_0\) normalisée (avec \(\mu\) et \(\sigma\)) à l'intervalle [0, 6].
+- Le score ajusté est obtenu en limitant la valeur de \$z$ normalisée (avec $\mu$ et $\sigma$) à l'intervalle $[0, 6]$.
 
 #### Paramètres :
 - `mu` : La moyenne de la distribution, représentant le score moyen attendu dans un match.
@@ -545,6 +612,9 @@ La variable normalisée et ajustée pour le contexte du football est calculée c
 
 #### Type de retour :
 - Un entier représentant le nombre de buts généré, garanti d'être compris entre 0 et 6.
+
+</div>
+
 
 #### Exemple d'utilisation :
 ```c
@@ -555,6 +625,8 @@ int butsMarques = normalvariate(2, 1);
 ---
 
 
+<div align="justify">
+
 ### Jouer un match
 
 La fonction `jouer_match` simule l'issue d'une rencontre entre deux équipes lors de la Coupe du Monde de Football FIFA Qatar 2022, en se basant sur leur classement FIFA pour prédire le résultat du match. Cette approche de simulation est conçue pour refléter de manière réaliste l'influence du classement FIFA sur la performance des équipes, fournissant une prédiction du résultat basée sur les performances historiques.
@@ -562,6 +634,9 @@ La fonction `jouer_match` simule l'issue d'une rencontre entre deux équipes lor
 #### Principes de la simulation :
 - **Influence du classement FIFA :** Le classement FIFA est utilisé pour ajuster la probabilité de marquer des buts pour chaque équipe, en prenant en compte la différence de classement entre les deux équipes. Cela permet à l'équipe avec un meilleur classement d'avoir statistiquement plus de chances de marquer.
 - **Détermination des scores :** Le nombre de buts marqués par chaque équipe est généré à l'aide d'une distribution normale, où la moyenne est ajustée selon la différence de classement FIFA. Cela simule l'avantage ou le désavantage d'une équipe en fonction de son classement.
+
+#### Calcul des buts :
+La fonction calcule la différence de classement FIFA entre les deux équipes (`diff_fifa`), puis utilise cette différence pour ajuster la moyenne des buts marqués. Pour l'équipe avec un classement supérieur, la moyenne est augmentée de `diff_fifa`, et pour l'équipe avec un classement inférieur, elle est diminuée de `diff_fifa`. Les buts sont générés en suivant une distribution normale centrée sur 3 buts, avec un écart type de 1, ajustée par la différence de classement FIFA.
 
 #### Résultat du match :
 Le match peut se terminer par une victoire d'une des équipes ou un match nul. La fonction calcule les scores finaux sans nécessiter de prolongation ou de tirs au but pour les matchs de phase de groupe.
@@ -572,6 +647,8 @@ Le match peut se terminer par une victoire d'une des équipes ou un match nul. L
 
 #### Type de retour :
 - Renvoie une structure `Buts` qui contient le nombre de buts marqués par chaque équipe pendant le match.
+
+</div>
 
 #### Exemple d'utilisation :
 ```c
@@ -587,6 +664,8 @@ printf("Résultat: %s %d - %d %s\n", eq1.nom, resultat.buts_eq1, resultat.buts_e
 ---
 
 
+
+<div align="justify">
 
 ### Mettre à jour le classement
 
@@ -606,6 +685,9 @@ Ces mises à jour garantissent une gestion précise et à jour du classement des
 
 #### Type de retour :
 - Aucun. Les modifications sont appliquées directement aux structures `Equipe` fournies en paramètres.
+
+</div>
+
 
 #### Exemple d'utilisation :
 ```c
@@ -629,6 +711,8 @@ printf("Equipe 2 - Points: %d, Buts Pour: %d, Buts Contre: %d, Différence de Bu
 
 
 
+<div align="justify">
+
 ### Fonction pour échanger deux équipes
 
 La fonction `echanger` permet de permuter les données de deux équipes au sein de simulations ou de traitements nécessitant la réorganisation des structures d'équipes. Cet échange est utile dans divers scénarios, tels que le tri des équipes selon leur classement, la mise à jour de leur positionnement dans un tableau, ou d'autres opérations de manipulation de données.
@@ -642,6 +726,9 @@ La fonction réalise l'échange en copiant temporairement les données de la pre
 
 #### Type de retour :
 - Aucun. L'échange des données est effectué directement sur les structures passées en paramètres.
+
+</div>
+
 
 #### Exemple d'utilisation :
 ```c
@@ -662,6 +749,8 @@ printf("Après l'échange : Equipe 1 - %s, Equipe 2 - %s\n", equipe1.nom, equipe
 ---
 
 
+<div align="justify">
+
 ### Trier les groupes
 
 La fonction `trier_groupes` est essentielle dans le processus de simulation de la Coupe du Monde de Football, car elle organise les équipes de chaque groupe en fonction de leur performance. Le classement se base sur les critères officiels du tournoi, tels que les points accumulés, la différence de buts, et le nombre total de buts marqués, pour mettre en avant les équipes les plus performantes.
@@ -680,6 +769,9 @@ La fonction `trier_groupes` est essentielle dans le processus de simulation de l
 
 #### Type de retour :
 - Aucun. Le tri est effectué in situ, modifiant l'ordre des équipes directement dans le tableau fourni.
+
+</div>
+
 
 #### Exemple d'utilisation :
 ```c
@@ -733,6 +825,8 @@ free(groupeA.eqp);
 
 
  
+<div align="justify">
+
 ### Simuler les matchs
 
 La fonction `simuler_matchs` est une composante clé de la simulation de la Coupe du Monde de Football Qatar 2022, permettant de simuler tous les matchs prévus dans le tournoi en se basant sur des données spécifiques telles que le classement FIFA et d'autres indicateurs de performance des équipes.
@@ -748,6 +842,9 @@ La fonction `simuler_matchs` est une composante clé de la simulation de la Coup
 
 #### Type de retour :
 - Aucun. La fonction effectue les simulations et met à jour les structures concernées directement.
+
+</div>
+
 
 #### Exemple d'utilisation :
 ```c
@@ -778,6 +875,9 @@ free(liste_matches.matches);
 ```
 
 ## 7.3 Partie 3: Gestion de la Phase Éliminatoire <a name="part3"></a>
+
+<div align="justify">
+
 ### Équipes qualifiées
 
 La fonction `equipes_qualifiees` identifie les équipes qui avancent aux phases éliminatoires de la Coupe du Monde de Football Qatar 2022, en se basant sur les résultats finaux de la phase de groupes. Cette étape est cruciale pour la transition du tournoi vers les huitièmes de finale, où les enjeux sont considérablement accrus.
@@ -791,6 +891,9 @@ La fonction `equipes_qualifiees` identifie les équipes qui avancent aux phases 
 
 #### Type de retour :
 - Aucun. Les équipes qualifiées sont directement intégrées dans la structure `W_CUP`, préparant le tableau pour les huitièmes de finale.
+
+</div>
+
 
 #### Exemple d'utilisation :
 ```c
@@ -807,6 +910,8 @@ equipes_qualifiees(&wc);
 ---
 
 
+<div align="justify">
+
 ### Jouer un match éliminatoire
 
 La fonction `jouer_match_eliminatoire` simule un match éliminatoire entre deux équipes dans le cadre de la Coupe du Monde de Football, prenant en compte non seulement le score du match mais également les mécanismes de décision en cas d'égalité, tels que la prolongation ou les tirs au but, pour déterminer l'équipe qui avance dans le tournoi.
@@ -822,6 +927,9 @@ La fonction `jouer_match_eliminatoire` simule un match éliminatoire entre deux 
 #### Type de retour :
 - Retourne un pointeur vers l'équipe gagnante qui avance dans le tournoi.
 
+</div>
+
+
 #### Exemple d'utilisation :
 ```c
 Equipe equipe1; // Initialisée avec des données spécifiques
@@ -836,6 +944,8 @@ printf("L'équipe gagnante est : %s\n", equipeGagnante->nom);
 
 ---
 
+
+<div align="justify">
 
 ### Simuler un tour éliminatoire
 
@@ -855,6 +965,9 @@ La fonction `simuler_tour` joue un rôle crucial dans la progression des étapes
 #### Type de retour :
 - Aucun. Les résultats des matchs et les configurations des tours suivants sont mis à jour directement dans les structures fournies.
 
+</div>
+
+
 #### Exemple d'utilisation :
 ```c
 W_CUP wc;
@@ -869,6 +982,8 @@ simuler_tour(&wc, wc.huitiemes, 8, wc.quarts);
 
 ---
 
+
+<div align="justify">
 
 ### Phase Éliminatoire
 
@@ -886,6 +1001,9 @@ La fonction `tour_eliminatoires` orchestre la progression des tours éliminatoir
 #### Type de retour :
 - Aucun. Le champion du tournoi est déterminé et enregistré dans la structure `W_CUP`.
 
+</div>
+
+
 #### Exemple d'utilisation :
 ```c
 W_CUP wc;
@@ -897,6 +1015,9 @@ tour_eliminatoires(&wc);
 // À la fin, wc contient le champion de la Coupe du Monde de Football.
 ```
 ## 7.4 Partie 4: Gestion des Statistiques Finales <a name="part4"></a>
+
+<div align="justify">
+
 ### Afficher les Statistiques du Premier Tour
 
 La fonction `afficher_stats_premier_tour` est dédiée à la présentation des statistiques détaillées de chaque équipe participant à la phase de groupes de la Coupe du Monde de Football, après que tous les matchs de cette phase ont été joués. Elle offre un aperçu complet des performances des équipes, incluant les victoires, défaites, nuls, buts pour et contre, la différence de buts, et les points accumulés, le tout organisé par groupe.
@@ -911,6 +1032,9 @@ La fonction `afficher_stats_premier_tour` est dédiée à la présentation des s
 
 #### Type de retour :
 - Aucun. Les statistiques sont affichées directement sur la sortie standard.
+
+</div>
+
 
 #### Exemple d'utilisation :
 ```c
