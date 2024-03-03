@@ -413,7 +413,7 @@ afficher_groupe(wc);
 **Groupe A:**
 |   | Équipe        | Pts | M-J | V | N | D | BP | BC | Diff |
 |---|---------------|-----|---|---|---|---|----|----|------|
-| 1 | ![Qatar](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Qatar.svg/20px-Flag_of_Qatar.svg.png) **Qatar** |   |   |   |   |   |    |    |      |
+| 1 | ![Qatar](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Qatar.svg/20px-Flag_of_Qatar.svg.png) **Qatar**     |   |   |   |   |   |    |    |      |
 | 2 | ![Équateur](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/20px-Flag_of_Ecuador.svg.png) **Équateur** |   |   |   |   |   |    |    |      |
 | 3 | ![Sénégal](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/20px-Flag_of_Senegal.svg.png) **Sénégal** |   |   |   |   |   |    |    |      |
 | 4 | ![Pays-Bas](https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/20px-Flag_of_the_Netherlands.svg.png) **Pays-Bas**|   |   |   |   |   |    |    |      |
@@ -595,9 +595,9 @@ Le générateur utilise la méthode Box-Muller pour convertir deux nombres aléa
 
 1. **Génération de deux nombres aléatoires uniformes** $u_1$ et $u_2$. Ces nombres sont choisis de manière à être distribués uniformément dans l'intervalle ouvert $(0, 1)$.
 
-2. **Transformation de Box-Muller** : À partir de $u_1$ et $u_2$, une variable aléatoire $z$ suivant une distribution normale standard est générée selon les formules : $z = \sqrt{-2.\ln(u_1)} . \cos(2.\pi.u_2)$
+2. **Transformation de Box-Muller** : À partir de $u_1$ et $u_2$, une variable aléatoire $z$ suivant une distribution normale standard est générée selon la formule : $z = \sqrt{-2.\ln(u_1)} . \cos(2.\pi.u_2)$
 
-La variable $z$ obtenue est ensuite ajustée pour modéliser un score de football réaliste. Pour ce faire, on la normalise avec une moyenne $\mu$ et un écart-type $\sigma$, puis on restreint le résultat à un intervalle spécifique pour assurer que le nombre de buts est réaliste dans le contexte d'un match de football.
+La variable $z$ obtenue est ensuite ajustée pour modéliser un score de football réaliste. Pour ce faire, on la normalise avec une moyenne $\mu$ et un écart-type $\sigma$, puis on restreint le résultat à un intervalle spécifique pour assurer que le nombre de buts est réaliste dans le contexte d'un match de football selon la formule: $z.\sigma + \mu $
 
 #### Ajustement du score :
 Le score final est ajusté pour s'assurer qu'il reste dans une plage acceptable, typiquement entre 0 et 6 buts, pour refléter les scores communs observés dans les matchs de football. Cette restriction est appliquée à la variable normalisée pour obtenir un nombre entier de buts conforme aux attentes du contexte sportif.
@@ -1044,3 +1044,175 @@ W_CUP wc;
 // Affichage des statistiques des équipes du premier tour, organisées par groupe
 afficher_stats_premier_tour(&wc);
 ```
+
+
+
+### Équipes avec le Plus de Buts Marqués
+
+La fonction `equipes_plus_buts_marques` identifie les équipes ayant marqué le plus grand nombre de buts durant la phase de groupes de la Coupe du Monde de Football. Elle parcourt toutes les équipes participantes, compare leurs performances en termes de buts marqués, et sélectionne celles qui se distinguent par leur efficacité offensive.
+
+#### Fonctionnement :
+- **Analyse des performances :** La fonction examine les statistiques de buts marqués par chaque équipe au sein de leurs groupes respectifs, en se focalisant sur celles ayant le plus haut total de buts.
+- **Sélection dynamique :** Les équipes répondant au critère de sélection sont ajoutées à un tableau dynamique, dont la capacité est ajustée au besoin pour accueillir toutes les équipes correspondantes.
+
+#### Paramètres :
+- `wc` : Pointeur vers la structure globale `W_CUP` contenant les détails des groupes et des équipes.
+- `nb_equipes` : Pointeur vers une variable où le nombre d'équipes sélectionnées sera enregistré.
+
+#### Type de retour :
+- Retourne un tableau dynamique d'équipes ayant marqué le plus grand nombre de buts, ainsi que le nombre d'équipes dans ce tableau via le paramètre `nb_equipes`.
+
+#### Exemple d'utilisation :
+```c
+W_CUP wc;
+// La structure W_CUP doit être initialisée avec les résultats de la phase de groupes.
+
+size_t nb_equipes;
+Equipe* equipes_dominantes = equipes_plus_buts_marques(&wc, &nb_equipes);
+
+// Affichage des équipes sélectionnées et de leurs buts marqués
+for (size_t i = 0; i < nb_equipes; ++i) {
+    printf("Equipe : %s, Buts marqués : %d\n", equipes_dominantes[i].nom, equipes_dominantes[i].buts_p);
+}
+
+// Libération de la mémoire allouée au tableau dynamique
+free(equipes_dominantes);
+```
+
+
+
+### Équipes avec le Plus de Buts Encaissés
+
+La fonction `equipes_plus_buts_encaisses` sert à identifier les équipes qui ont concédé le plus grand nombre de buts pendant la phase de groupes de la Coupe du Monde de Football. En parcourant les statistiques des équipes dans chaque groupe, cette fonction met en avant celles qui ont montré des vulnérabilités défensives en encaissant de nombreux buts.
+
+#### Fonctionnement :
+- **Évaluation des performances défensives :** La fonction examine le nombre de buts encaissés par chaque équipe, sélectionnant celles qui ont laissé passer le plus de buts.
+- **Sélection et allocation dynamique :** Les équipes correspondant au critère sont ajoutées à un tableau dynamique, dont la taille est ajustée selon le nombre d'équipes répondant au critère.
+
+#### Paramètres :
+- `wc` : Pointeur vers la structure globale `W_CUP`, qui contient les informations sur les groupes et les équipes.
+- `nb_equipes` : Pointeur vers une variable destinée à stocker le nombre d'équipes identifiées selon le critère de sélection.
+
+#### Type de retour :
+- Retourne un tableau dynamique contenant les équipes ayant encaissé le plus de buts, et le nombre d'équipes dans ce tableau est retourné via le paramètre `nb_equipes`.
+
+#### Exemple d'utilisation :
+```c
+W_CUP wc;
+// Assurez-vous que la structure W_CUP est initialisée avec les données pertinentes de la compétition.
+
+size_t nb_equipes;
+Equipe* equipes_vulnerables = equipes_plus_buts_encaisses(&wc, &nb_equipes);
+
+// Affichage des équipes ayant encaissé le plus de buts
+for (size_t i = 0; i < nb_equipes; ++i) {
+    printf("Equipe : %s, Buts encaissés : %d\n", equipes_vulnerables[i].nom, equipes_vulnerables[i].buts_c);
+}
+
+// Libération de la mémoire allouée pour le tableau dynamique
+free(equipes_vulnerables);
+```
+
+### Équipes avec le Plus de Victoires
+
+La fonction `equipes_plus_victoires` extrait les équipes ayant enregistré le plus grand nombre de victoires durant la phase de groupes de la Coupe du Monde de Football. Cette approche permet de mettre en évidence les performances dominantes en termes de résultats positifs obtenus par les équipes tout au long du tournoi.
+
+#### Fonctionnement :
+- **Analyse des victoires :** Parcourt tous les groupes et équipes, identifiant celles avec le nombre le plus élevé de victoires.
+- **Sélection et allocation dynamique :** Les équipes sélectionnées sont stockées dans un tableau dynamique, dont la taille est ajustée selon le nombre d'équipes répondant au critère de sélection.
+
+#### Paramètres :
+- `wc` : Pointeur vers la structure `W_CUP`, contenant les informations détaillées des équipes et des groupes.
+- `nb_equipes` : Pointeur vers une variable où sera stocké le nombre d'équipes répondant au critère de sélection.
+
+#### Type de retour :
+- Retourne un tableau dynamique contenant les équipes ayant le plus de victoires, ainsi que le nombre d'équipes dans ce tableau via le paramètre `nb_equipes`.
+
+#### Exemple d'utilisation :
+```c
+W_CUP wc;
+// Supposons que wc contient les informations des phases de groupes correctement initialisées.
+
+size_t nb_equipes;
+Equipe* equipes_dominantes = equipes_plus_victoires(&wc, &nb_equipes);
+
+// Affichage des équipes avec le plus de victoires
+for (size_t i = 0; i < nb_equipes; ++i) {
+    printf("Equipe : %s, Victoires : %d\n", equipes_dominantes[i].nom, equipes_dominantes[i].vic);
+}
+
+// Libération de la mémoire allouée au tableau dynamique
+free(equipes_dominantes);
+```
+
+
+### Équipes avec le Plus de Défaites
+
+La fonction `equipes_plus_defaites` identifie les équipes ayant subi le plus grand nombre de défaites durant la phase de groupes de la Coupe du Monde de Football. Cette analyse permet de reconnaître les équipes qui ont eu des difficultés tout au long du tournoi, en mettant en lumière les défis auxquels elles ont été confrontées.
+
+#### Fonctionnement :
+- **Sélection basée sur les défaites :** Examine toutes les équipes participantes, identifiant celles qui ont enregistré le plus grand nombre de défaites.
+- **Allocation dynamique :** Les équipes répondant au critère sont ajoutées à un tableau dynamique. La capacité de ce tableau est ajustée au besoin pour accueillir toutes les équipes concernées.
+
+#### Paramètres :
+- `wc` : Pointeur vers la structure `W_CUP`, contenant les détails des équipes et des groupes.
+- `nb_equipes` : Pointeur vers une variable qui stockera le nombre d'équipes sélectionnées.
+
+#### Type de retour :
+- Un tableau dynamique d'équipes ayant le plus grand nombre de défaites, ainsi que le nombre d'équipes correspondantes, est retourné via le paramètre `nb_equipes`.
+
+#### Exemple d'utilisation :
+```c
+W_CUP wc;
+// La structure W_CUP est supposée être préalablement remplie avec les données des phases de groupes.
+
+size_t nb_equipes;
+Equipe* equipes_avec_defaites = equipes_plus_defaites(&wc, &nb_equipes);
+
+// Affichage des équipes ayant le plus de défaites
+for (size_t i = 0; i < nb_equipes; ++i) {
+    printf("Equipe : %s, Défaites : %d\n", equipes_avec_defaites[i].nom, equipes_avec_defaites[i].def);
+}
+
+// Libération de la mémoire allouée pour le tableau dynamique
+free(equipes_avec_defaites);
+```
+
+
+### Équipes avec le Plus de Matchs Nuls
+
+La fonction `equipes_plus_matchs_nuls` cible les équipes ayant concédé le plus grand nombre de matchs nuls durant la phase de groupes de la Coupe du Monde de Football. Cette analyse révèle les équipes qui ont montré une résilience défensive ou qui ont été impliquées dans des confrontations très serrées, aboutissant à des issues indécises.
+
+#### Fonctionnement :
+- **Identification des matchs nuls :** Parcourt tous les groupes pour identifier les équipes ayant le plus de matchs nuls, soulignant leur capacité à résister à la défaite dans des situations compétitives.
+- **Gestion dynamique du tableau :** Les équipes sélectionnées sont stockées dans un tableau dynamique, dont la taille est adaptée pour accueillir le nombre variable d'équipes répondant aux critères de sélection.
+
+#### Paramètres :
+- `wc` : Pointeur vers la structure `W_CUP`, englobant les informations détaillées sur les équipes et les groupes du tournoi.
+- `nb_equipes` : Pointeur vers une variable qui sera utilisée pour stocker le nombre d'équipes ayant le plus grand nombre de matchs nuls.
+
+#### Type de retour :
+- Retourne un tableau dynamique contenant les équipes avec le plus grand nombre de matchs nuls et le nombre total d'équipes correspondantes via le paramètre `nb_equipes`.
+
+#### Exemple d'utilisation :
+```c
+W_CUP wc;
+// Assumez que wc a été préalablement initialisé avec les données des phases de groupes.
+
+size_t nb_equipes;
+Equipe* equipes_max_nuls = equipes_plus_matchs_nuls(&wc, &nb_equipes);
+
+// Affichage des équipes ayant concédé le plus de matchs nuls
+for (size_t i = 0; i < nb_equipes; ++i) {
+    printf("Equipe : %s, Matchs Nuls : %d\n", equipes_max_nuls[i].nom, equipes_max_nuls[i].nul);
+}
+
+// Libération de la mémoire allouée au tableau dynamique
+free(equipes_max_nuls);
+```
+
+
+
+
+
+
