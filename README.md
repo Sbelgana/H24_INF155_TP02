@@ -1046,6 +1046,10 @@ afficher_stats_premier_tour(&wc);
 ```
 
 
+---
+
+
+<div align="justify">
 
 ### Équipes avec le Plus de Buts Marqués
 
@@ -1061,6 +1065,8 @@ La fonction `equipes_plus_buts_marques` identifie les équipes ayant marqué le 
 
 #### Type de retour :
 - Retourne un tableau dynamique d'équipes ayant marqué le plus grand nombre de buts, ainsi que le nombre d'équipes dans ce tableau via le paramètre `nb_equipes`.
+
+</div>
 
 #### Exemple d'utilisation :
 ```c
@@ -1079,7 +1085,10 @@ for (size_t i = 0; i < nb_equipes; ++i) {
 free(equipes_dominantes);
 ```
 
+---
 
+
+<div align="justify">
 
 ### Équipes avec le Plus de Buts Encaissés
 
@@ -1095,6 +1104,8 @@ La fonction `equipes_plus_buts_encaisses` sert à identifier les équipes qui on
 
 #### Type de retour :
 - Retourne un tableau dynamique contenant les équipes ayant encaissé le plus de buts, et le nombre d'équipes dans ce tableau est retourné via le paramètre `nb_equipes`.
+
+</div>
 
 #### Exemple d'utilisation :
 ```c
@@ -1113,6 +1124,10 @@ for (size_t i = 0; i < nb_equipes; ++i) {
 free(equipes_vulnerables);
 ```
 
+---
+
+<div align="justify">
+  
 ### Équipes avec le Plus de Victoires
 
 La fonction `equipes_plus_victoires` extrait les équipes ayant enregistré le plus grand nombre de victoires durant la phase de groupes de la Coupe du Monde de Football. Cette approche permet de mettre en évidence les performances dominantes en termes de résultats positifs obtenus par les équipes tout au long du tournoi.
@@ -1127,6 +1142,8 @@ La fonction `equipes_plus_victoires` extrait les équipes ayant enregistré le p
 
 #### Type de retour :
 - Retourne un tableau dynamique contenant les équipes ayant le plus de victoires, ainsi que le nombre d'équipes dans ce tableau via le paramètre `nb_equipes`.
+
+</div>
 
 #### Exemple d'utilisation :
 ```c
@@ -1145,6 +1162,9 @@ for (size_t i = 0; i < nb_equipes; ++i) {
 free(equipes_dominantes);
 ```
 
+---
+
+<div align="justify">
 
 ### Équipes avec le Plus de Défaites
 
@@ -1160,6 +1180,8 @@ La fonction `equipes_plus_defaites` identifie les équipes ayant subi le plus gr
 
 #### Type de retour :
 - Un tableau dynamique d'équipes ayant le plus grand nombre de défaites, ainsi que le nombre d'équipes correspondantes, est retourné via le paramètre `nb_equipes`.
+
+</div>
 
 #### Exemple d'utilisation :
 ```c
@@ -1178,7 +1200,10 @@ for (size_t i = 0; i < nb_equipes; ++i) {
 free(equipes_avec_defaites);
 ```
 
+---
 
+<div align="justify">
+  
 ### Équipes avec le Plus de Matchs Nuls
 
 La fonction `equipes_plus_matchs_nuls` cible les équipes ayant concédé le plus grand nombre de matchs nuls durant la phase de groupes de la Coupe du Monde de Football. Cette analyse révèle les équipes qui ont montré une résilience défensive ou qui ont été impliquées dans des confrontations très serrées, aboutissant à des issues indécises.
@@ -1193,6 +1218,8 @@ La fonction `equipes_plus_matchs_nuls` cible les équipes ayant concédé le plu
 
 #### Type de retour :
 - Retourne un tableau dynamique contenant les équipes avec le plus grand nombre de matchs nuls et le nombre total d'équipes correspondantes via le paramètre `nb_equipes`.
+
+</div>
 
 #### Exemple d'utilisation :
 ```c
@@ -1210,9 +1237,3 @@ for (size_t i = 0; i < nb_equipes; ++i) {
 // Libération de la mémoire allouée au tableau dynamique
 free(equipes_max_nuls);
 ```
-
-
-
-
-
-
