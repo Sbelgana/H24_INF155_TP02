@@ -45,7 +45,12 @@ Ce projet propose une immersion dans l'univers fascinant de la simulation sporti
 
 # 3. Énoncé de travail <a name="description"></a>
 
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/2022_FIFA_World_Cup.svg/313px-2022_FIFA_World_Cup.svg.png" />
+</p>
+
 L'objectif de ce projet est de simuler la Coupe du Monde de Football Qatar 2022. Cet événement majeur du football mondial rassemble les meilleures équipes nationales, chacune aspirant à remporter le titre le plus prestigieux. À travers une série de simulations, ce projet vise à prédire les résultats des matchs, en s'appuyant sur des données réelles telles que le classement FIFA des équipes, leurs performances historiques, et d'autres statistiques pertinentes. La question centrale est de savoir comment, en utilisant des méthodes de programmation en C et des algorithmes de simulation, il est possible de calculer les probabilités de chaque équipe de progresser à travers les différentes phases du tournoi, de la phase de groupes à la finale. Ce faisant, le projet explorera la capacité de modéliser des événements sportifs complexes et d'en prédire les issues, en se basant sur l'analyse de données et la simulation informatique.
+
 
 ## 3.1 Votre mission:
 
@@ -72,9 +77,7 @@ Pour simuler avec précision la Coupe du Monde de Football Qatar 2022, les donn�
 - `equipes2022.txt` : 
 - `matchs2022.txt` : 
 
-## Format des Fichiers de Données
-
-### Fichier `equipes2022.txt`
+### 3.2.1 Fichier `equipes2022.txt`
 Ce fichier contient les informations des équipes participantes, organisées par confédération. Chaque section commence par le nombre d'équipes suivi du nom de la confédération. Pour chaque équipe, les informations incluent le nom, l'identifiant FIFA, le classement FIFA, et le groupe d'affectation, formatées comme suit :
 
 ```
@@ -128,7 +131,7 @@ Ce fichier contient les informations des équipes participantes, organisées par
 </div>
 
   
-### Fichier `matchs2022.txt`
+### 3.2.2 Fichier `matchs2022.txt`
 Liste tous les matchs de la phase de groupes avec les identifiants des équipes domicile et visiteuse. Chaque ligne représente un match :
 
 ```
