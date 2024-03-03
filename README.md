@@ -271,36 +271,36 @@ La compréhension de ces structures est essentielle pour naviguer à travers les
 
 Afin de structurer le projet de manière modulaire et de faciliter la compréhension ainsi que la manipulation du code par les étudiants, le projet est divisé en cinq modules principaux, chacun ayant une responsabilité spécifique. Voici une description de chaque module et de son rôle au sein du projet :
 
-## Module 1: Déclaration des Structures (`structures.h`)
+### Module 1: Déclaration des Structures (`structures.h`)
 Ce module contient les déclarations de toutes les structures de données utilisées dans le projet, offrant une référence centrale pour la modélisation des éléments du tournoi.
 - **`structures.h`** : Contient les déclarations des structures `Equipe`, `Groupe`, `Buts`, `Eliminatoire`, `Matche`, `Liste_matches`, et `W_CUP`.
 
-## Module 2: Lecture des Fichiers (`lecture_fichiers.c` et `lecture_fichiers.h`)
+### Module 2: Lecture des Fichiers (`lecture_fichiers.c` et `lecture_fichiers.h`)
 Ce module se charge de lire les informations des équipes et des matchs depuis des fichiers, permettant de charger les données nécessaires pour le tournoi.
 - **`lecture_fichiers.h`** : Définit les prototypes des fonctions `lire_equipes` et `lire_matches`.
 - **`lecture_fichiers.c`** : Implémente les fonctions pour la lecture des fichiers des équipes et des matchs.
 
-## Module 3: Simulation de la Phase de Groupes (`simulation_phase_groupe.c` et `simulation_phase_groupe.h`)
+### Module 3: Simulation de la Phase de Groupes (`sim_phase_grp.c` et `sim_phase_grp.h`)
 Ce module gère la simulation des matchs de la phase de groupes, y compris la mise à jour des classements et l'affichage des statistiques des groupes.
-- **`simulation_phase_groupe.h`** : Définit les prototypes des fonctions pour simuler les matchs de la phase de groupes et afficher les groupes.
-- **`simulation_phase_groupe.c`** : Implémente la logique de simulation des matchs de la phase de groupes et les fonctions d'affichage.
+- **`sim_phase_grp.h`** : Définit les prototypes des fonctions pour simuler les matchs de la phase de groupes et afficher les groupes.
+- **`sim_phase_grp.c`** : Implémente la logique de simulation des matchs de la phase de groupes et les fonctions d'affichage.
 
-## Module 4: Gestion de la Phase Éliminatoire (`phase_eliminatoire.c` et `phase_eliminatoire.h`)
+### Module 4: Gestion de la Phase Éliminatoire (`phase_elimin.c` et `phase_elimin.h`)
 Ce module prend en main la simulation des matchs éliminatoires, de la phase des huitièmes de finale jusqu'à la finale.
-- **`phase_eliminatoire.h`** : Définit les prototypes des fonctions `jouer_match_eliminatoire`, `simuler_tour`, et `tour_eliminatoires`.
-- **`phase_eliminatoire.c`** : Implémente les fonctions pour gérer et simuler la phase éliminatoire du tournoi.
+- **`phase_elimin.h`** : Définit les prototypes des fonctions `jouer_match_eliminatoire`, `simuler_tour`, et `tour_eliminatoires`.
+- **`phase_elimin.c`** : Implémente les fonctions pour gérer et simuler la phase éliminatoire du tournoi.
 
-## Module 5: Gestion des Statistiques Finales (`statistiques_finales.c` et `statistiques_finales.h`)
+### Module 5: Gestion des Statistiques Finales (`stat_finales.c` et `stat_finales.h`)
 Ce module est responsable de l'analyse et de l'affichage des statistiques finales après la conclusion du tournoi, fournissant des insights sur les performances des équipes.
-- **`statistiques_finales.h`** : Définit les prototypes des fonctions pour l'affichage des statistiques finales et éventuellement d'autres analyses.
-- **`statistiques_finales.c`** : Implémente les fonctions pour calculer et présenter diverses statistiques finales du tournoi.
+- **`stat_finales.h`** : Définit les prototypes des fonctions pour l'affichage des statistiques finales et éventuellement d'autres analyses.
+- **`stat_finales.c`** : Implémente les fonctions pour calculer et présenter diverses statistiques finales du tournoi.
 
-## Résumé de l'Organisation des Fichiers
+### Résumé de l'Organisation des Fichiers
 - **`structures.h`** : Déclarations centrales des structures.
 - **`lecture_fichiers.c` / `lecture_fichiers.h`** : Lecture des données à partir de fichiers.
-- **`simulation_phase_groupe.c` / `simulation_phase_groupe.h`** : Simulation de la phase de groupes.
-- **`phase_eliminatoire.c` / `phase_eliminatoire.h`** : Gestion de la phase éliminatoire.
-- **`statistiques_finales.c` / `statistiques_finales.h`** : Analyse et présentation des statistiques finales.
+- **`sim_phase_grp.c` / `sim_phase_grp.h`** : Simulation de la phase de groupes.
+- **`phase_elimin.c` / `phase_elimin.h`** : Gestion de la phase éliminatoire.
+- **`stat_finales.c` / `stat_finales.h`** : Analyse et présentation des statistiques finales.
 
 Cette organisation modulaire permet une meilleure répartition des responsabilités au sein du code, facilitant ainsi la gestion du projet et permettant aux étudiants de se concentrer sur des aspects individuels de la simulation du tournoi.
 
@@ -353,6 +353,77 @@ W_CUP wc;
 // Afficher les détails de chaque groupe de la Coupe du Monde
 afficher_groupe(wc);
 ```
+
+Groupe A:
+|   | Équipe        | Pts | J | G | N | P | BP | BC | Diff |
+|---|---------------|-----|---|---|---|---|----|----|------|
+| 1 | ![Qatar](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Qatar.svg/20px-Flag_of_Qatar.svg.png) **Qatar** |   |   |   |   |   |    |    |      |
+| 2 | ![Équateur](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/20px-Flag_of_Ecuador.svg.png) **Équateur** |   |   |   |   |   |    |    |      |
+| 3 | ![Sénégal](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/20px-Flag_of_Senegal.svg.png) **Sénégal** |   |   |   |   |   |    |    |      |
+| 4 | ![Pays-Bas](https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/20px-Flag_of_the_Netherlands.svg.png) **Pays-Bas**|   |   |   |   |   |    |    |      |
+
+Groupe B:
+|   | Équipe        | Pts | J | G | N | P | BP | BC | Diff |
+|---|---------------|-----|---|---|---|---|----|----|------|
+| 1 | ![Angleterre](https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/20px-Flag_of_England.svg.png) **Angleterre** |   |   |   |   |   |    |    |      |
+| 2 | ![Iran](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/20px-Flag_of_Iran.svg.png) **Iran** |   |   |   |   |   |    |    |      |
+| 3 | ![États-Unis](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/20px-Flag_of_the_United_States.svg.png) **États-Unis** |   |   |   |   |   |    |    |      |
+| 4 | ![Pays de Galles](https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Flag_of_Wales.svg/20px-Flag_of_Wales.svg.png) **Pays de Galles**|   |   |   |   |   |    |    |      |
+
+
+Groupe C:
+|   | Équipe        | Pts | J | G | N | P | BP | BC | Diff |
+|---|---------------|-----|---|---|---|---|----|----|------|
+| 1 | ![Argentine](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/20px-Flag_of_Argentina.svg.png) **Argentine** |   |   |   |   |   |    |    |      |
+| 2 | ![Arabie Saoudite](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/20px-Flag_of_Saudi_Arabia.svg.png) **Arabie Saoudite** |   |   |   |   |   |    |    |      |
+| 3 | ![Mexique](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/20px-Flag_of_Mexico.svg.png) **Mexique** |   |   |   |   |   |    |    |      |
+| 4 | ![Pologne](https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Flag_of_Poland.svg/20px-Flag_of_Poland.svg.png) **Pologne**|   |   |   |   |   |    |    |      |
+
+
+Groupe D:
+|   | Équipe        | Pts | J | G | N | P | BP | BC | Diff |
+|---|---------------|-----|---|---|---|---|----|----|------|
+| 1 | ![France](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/20px-Flag_of_France.svg.png) **France** |   |   |   |   |   |    |    |      |
+| 2 | ![Australie](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/20px-Flag_of_Australia_%28converted%29.svg.png) **Australie** |   |   |   |   |   |    |    |      |
+| 3 | ![Danemark](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/20px-Flag_of_Denmark.svg.png) **Danemark** |   |   |   |   |   |    |    |      |
+| 4 | ![Tunisie](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/20px-Flag_of_Tunisia.svg.png) **Tunisie**|   |   |   |   |   |    |    |      |
+
+Groupe E:
+|   | Équipe         | Pts | J | G | N | P | BP | BC | Diff |
+|---|----------------|-----|---|---|---|---|----|----|------|
+| 1 | ![Espagne](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/20px-Flag_of_Spain.svg.png) **Espagne** |   |   |   |   |   |    |    |      |
+| 2 | ![Costa Rica](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/20px-Flag_of_Costa_Rica.svg.png) **Costa Rica** |   |   |   |   |   |    |    |      |
+| 3 | ![Allemagne](https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/20px-Flag_of_Germany.svg.png) **Allemagne** |   |   |   |   |   |    |    |      |
+| 4 | ![Japon](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/20px-Flag_of_Japan.svg.png) **Japon**|   |   |   |   |   |    |    |      |
+
+Groupe F:
+|   | Équipe         | Pts | J | G | N | P | BP | BC | Diff |
+|---|----------------|-----|---|---|---|---|----|----|------|
+| 1 | ![Belgique](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/20px-Flag_of_Belgium.svg.png) **Belgique** |   |   |   |   |   |    |    |      |
+| 2 | ![Canada](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/20px-Flag_of_Canada_%28Pantone%29.svg.png) **Canada** |   |   |   |   |   |    |    |      |
+| 3 | ![Maroc](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/20px-Flag_of_Morocco.svg.png) **Maroc** |   |   |   |   |   |    |    |      |
+| 4 | ![Croatie](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/20px-Flag_of_Croatia.svg.png) **Croatie**|   |   |   |   |   |    |    |      |
+
+
+Groupe G:
+|   | Équipe          | Pts | J | G | N | P | BP | BC | Diff |
+|---|-----------------|-----|---|---|---|---|----|----|------|
+| 1 | ![Brésil](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/20px-Flag_of_Brazil.svg.png) **Brésil** |   |   |   |   |   |    |    |      |
+| 2 | ![Cameroun](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Cameroon.svg/20px-Flag_of_Cameroon.svg.png) **Cameroun** |   |   |   |   |   |    |    |      |
+| 3 | ![Serbie](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/20px-Flag_of_Serbia.svg.png) **Serbie** |   |   |   |   |   |    |    |      |
+| 4 | ![Suisse](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/20px-Flag_of_Switzerland.svg.png) **Suisse**|   |   |   |   |   |    |    |      |
+
+
+Groupe H:
+|   | Équipe         | Pts | J | G | N | P | BP | BC | Diff |
+|---|----------------|-----|---|---|---|---|----|----|------|
+| 1 | ![Portugal](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/20px-Flag_of_Portugal.svg.png) **Portugal** |   |   |   |   |   |    |    |      |
+| 2 | ![Ghana](https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/20px-Flag_of_Ghana.svg.png) **Ghana** |   |   |   |   |   |    |    |      |
+| 3 | ![Uruguay](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/20px-Flag_of_Uruguay.svg.png) **Uruguay** |   |   |   |   |   |    |    |      |
+| 4 | ![Corée du Sud](https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/20px-Flag_of_South_Korea.svg.png) **Corée du Sud**|   |   |   |   |   |    |    |      |
+
+
+
 
 ### Lire les matchs
 
