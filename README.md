@@ -4,7 +4,7 @@
 
 # TR02: Coupe du Monde de Football Qatar 2022
 - [Directives particulières](#directives)
-- [Introduction](#Introduction)
+- [Introduction](#introduction)
 - [Objectifs](#objectif) 
 - [Énoncé de travail](#description) 
 - [Déroulement de la Coupe du Monde de Football Qatar 2022](#saison)
