@@ -374,6 +374,15 @@ Le fichier est structuré par confédérations, avec chaque section débutant pa
 4. Le tableau des équipes dans chaque groupe est agrandi dynamiquement au besoin pour accueillir toutes les équipes.
 5. Fermeture du fichier une fois toutes les données lues et traitées.
 
+<p align="justify">
+Voici une implémentation en pseudo-code :
+</p>
+
+<p align="center">
+    <img src="./Images/Algo_1.svg">
+</p>
+
+
 #### Exemple d'utilisation :
 ```c
 W_CUP worldCupData;
@@ -500,6 +509,15 @@ Cette fonction lit les informations des matchs prévus pour la Coupe du Monde de
 - **Lecture des matchs** : La fonction lit le fichier ligne par ligne. Pour chaque ligne lue avec succès, elle crée une nouvelle structure `Matche` et la remplit avec les identifiants des équipes domicile et visiteur lues.
 - **Gestion dynamique de la mémoire** : Si le nombre de matchs lus atteint la capacité actuelle du tableau, la fonction augmente cette capacité en la doublant, utilisant `realloc` pour ajuster la taille du tableau en mémoire.
 - **Fermeture du fichier** : Une fois toutes les lignes lues et traitées, la fonction ferme le fichier.
+
+<p align="justify">
+Voici une implémentation en pseudo-code :
+</p>
+
+<p align="center">
+    <img src="./Images/Algo_2.svg">
+</p>
+
 
 #### Exemple d'utilisation :
 ```c
@@ -689,6 +707,7 @@ Ces mises à jour garantissent une gestion précise et à jour du classement des
 </div>
 
 
+
 #### Exemple d'utilisation :
 ```c
 // Initialisation des équipes
@@ -771,6 +790,14 @@ La fonction `trier_groupes` est essentielle dans le processus de simulation de l
 - Aucun. Le tri est effectué in situ, modifiant l'ordre des équipes directement dans le tableau fourni.
 
 </div>
+
+<p align="justify">
+Voici une implémentation en pseudo-code :
+</p>
+
+<p align="center">
+    <img src="./Images/Algo_3.svg">
+</p>
 
 
 #### Exemple d'utilisation :
@@ -928,6 +955,14 @@ La fonction `jouer_match_eliminatoire` simule un match éliminatoire entre deux 
 - Retourne un pointeur vers l'équipe gagnante qui avance dans le tournoi.
 
 </div>
+
+<p align="justify">
+Voici une implémentation en pseudo-code :
+</p>
+
+<p align="center">
+    <img src="./Images/Algo_4.svg">
+</p>
 
 
 #### Exemple d'utilisation :
