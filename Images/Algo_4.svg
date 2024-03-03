@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="612.95498pt" height="238.16626pt" viewBox="0 0 612.95498 238.16626">
-<g enable-background="new">
+<style>
+    svg  { background-color:#ffffff }
+</style>
+  <g enable-background="new">
 <path transform="matrix(1,0,0,-1,.47750093,1.4442749)" stroke-width=".797" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 0 L 612 0 "/>
 <symbol id="font_0_a">
 <path d="M .43300004 .67200008 C .42200003 .698 .41000004 .698 .393 .698 C .365 .698 .361 .69000008 .354 .67200008 L .106 .07 C .1 .055000005 .09700001 .047000003 .021000002 .047000003 L 0 .047000003 L 0 0 C .038000004 .001 .086 .003 .117000009 .003 C .15600002 .003 .21200001 .003 .24900002 0 L .24900002 .047000003 C .24700001 .047000003 .16 .047000003 .16 .060000004 C .16 .061000006 .16300002 .071 .164 .072000008 L .21400002 .193 L .482 .193 L .542 .047000003 L .44700004 .047000003 L .44700004 0 C .485 .003 .58000007 .003 .623 .003 C .66300007 .003 .75100007 .003 .786 0 L .786 .047000003 L .689 .047000003 L .43300004 .67200008 M .34800003 .518 L .462 .24000001 L .234 .24000001 L .34800003 .518 Z "/>
