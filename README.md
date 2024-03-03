@@ -1237,3 +1237,41 @@ for (size_t i = 0; i < nb_equipes; ++i) {
 // Libération de la mémoire allouée au tableau dynamique
 free(equipes_max_nuls);
 ```
+
+
+
+# 8. Barème /100 <a name="bareme"></a>
+|**Nom des fonctions**|**Nombre de points attribuer**|
+| :- | :- |
+|*lire_equipes*| |
+|*lire_matches*| |
+|*afficher_groupe*| |
+|*afficher_match*| |
+|*trouver_equipe_par_id*| |
+|*normalvariate*| |
+|*jouer_match*| |
+|*mettre_a_jour_classement*| |
+|*echanger*| |
+|*trier_groupes*| |
+|*simuler_matchs*| |
+|*equipes_qualifiees*| |
+|*jouer_match_eliminatoire*| |
+|*simuler_tour*| |
+|*tour_eliminatoires*| |
+|*afficher_stats_premier_tour*| |
+|*equipes_plus_buts_marques*| |
+|*equipes_plus_buts_encaisses*| |
+|*equipes_plus_victoires*| |
+|*equipes_plus_defaites*| |
+|*equipes_plus_matchs_nuls*| |
+
+
+La grille de correction suivante sera utilisée pour la correction de chacune des fonctions implémentées.
+
+| Élément de correction | Explication | Pondération |
+|---------|---------|---------|
+| Structure du Programme | Utilisation adéquate de la structure, inclusion des bibliothèques nécessaires | 5% |
+| Utilisation des Éléments de Langage | Déclarations de fonctions, structures conditionnelles et répétitives | 20%|
+| Algorithme | Pertinence de l'algorithme par rapport aux exigences | 20% |
+| Normes et Standards Enseignés | Commentaires, nommage des variables | 5%|
+| Pénalités | Problèmes de compilation, problèmes de fonctionnement du programme | -50%|
