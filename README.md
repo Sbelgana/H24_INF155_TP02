@@ -426,6 +426,9 @@ Groupe H:
 
 
 
+---
+
+
 
 ### Lire les matchs
 
@@ -447,6 +450,11 @@ Cette fonction lit les informations des matchs prévus pour la Coupe du Monde de
 int nombreMatchs;
 Match* matches = lire_matchs("matchs2022.txt", &nombreMatchs);
 ```
+
+
+---
+
+
 
 ### Afficher les Matchs
 
@@ -503,6 +511,10 @@ if (equipeTrouvee != NULL) {
 
 
 
+---
+
+
+
 ### Générateur de buts basé sur une distribution normale
 
 La fonction décrite est un générateur de nombres aléatoires qui simule le nombre de buts marqués dans un match de football, en s'appuyant sur une distribution normale. Cette méthode est idéale pour refléter la distribution statistique réelle des scores dans le football, où la majorité des matchs se terminent avec peu de buts.
@@ -537,6 +549,9 @@ int butsMarques = normalvariate(2, 1);
 ```
 
 
+---
+
+
 ### Jouer un match
 
 La fonction `jouer_match` simule l'issue d'une rencontre entre deux équipes lors de la Coupe du Monde de Football FIFA Qatar 2022, en se basant sur leur classement FIFA pour prédire le résultat du match. Cette approche de simulation est conçue pour refléter de manière réaliste l'influence du classement FIFA sur la performance des équipes, fournissant une prédiction du résultat basée sur les performances historiques.
@@ -564,6 +579,11 @@ Buts resultat = jouer_match(&eq1, &eq2);
 
 printf("Résultat: %s %d - %d %s\n", eq1.nom, resultat.buts_eq1, resultat.buts_eq2, eq2.nom);
 ```
+
+
+---
+
+
 
 ### Mettre à jour le classement
 
@@ -601,6 +621,11 @@ printf("Equipe 1 - Points: %d, Buts Pour: %d, Buts Contre: %d, Différence de Bu
 printf("Equipe 2 - Points: %d, Buts Pour: %d, Buts Contre: %d, Différence de Buts: %d\n", equipe2.pts, equipe2.buts_p, equipe2.buts_c, equipe2.diff_buts);
 ```
 
+
+---
+
+
+
 ### Fonction pour échanger deux équipes
 
 La fonction `echanger` permet de permuter les données de deux équipes au sein de simulations ou de traitements nécessitant la réorganisation des structures d'équipes. Cet échange est utile dans divers scénarios, tels que le tri des équipes selon leur classement, la mise à jour de leur positionnement dans un tableau, ou d'autres opérations de manipulation de données.
@@ -629,6 +654,10 @@ echanger(&equipe1, &equipe2);
 // Après l'échange
 printf("Après l'échange : Equipe 1 - %s, Equipe 2 - %s\n", equipe1.nom, equipe2.nom);
 ```
+
+
+---
+
 
 ### Trier les groupes
 
@@ -694,6 +723,10 @@ for (size_t i = 0; i < groupeA.nb_eqp; i++) {
 // Libération de la mémoire allouée pour les équipes
 free(groupeA.eqp);
 ```
+
+
+
+---
 
 
  
@@ -767,6 +800,10 @@ equipes_qualifiees(&wc);
 // Les équipes qualifiées sont désormais prêtes pour les huitièmes de finale
 ```
 
+
+---
+
+
 ### Jouer un match éliminatoire
 
 La fonction `jouer_match_eliminatoire` simule un match éliminatoire entre deux équipes dans le cadre de la Coupe du Monde de Football, prenant en compte non seulement le score du match mais également les mécanismes de décision en cas d'égalité, tels que la prolongation ou les tirs au but, pour déterminer l'équipe qui avance dans le tournoi.
@@ -792,6 +829,10 @@ Equipe* equipeGagnante = jouer_match_eliminatoire(&equipe1, &equipe2);
 // Affichage de l'équipe gagnante
 printf("L'équipe gagnante est : %s\n", equipeGagnante->nom);
 ```
+
+
+---
+
 
 ### Simuler un tour éliminatoire
 
@@ -822,7 +863,11 @@ simuler_tour(&wc, wc.huitiemes, 8, wc.quarts);
 // Après la simulation des huitièmes, les quarts sont prêts à être simulés, et ainsi de suite jusqu'à la finale
 ```
 
-### Tournoi Éliminatoire
+
+---
+
+
+### Phase Éliminatoire
 
 La fonction `tour_eliminatoires` orchestre la progression des tours éliminatoires dans la simulation de la Coupe du Monde de Football, depuis les huitièmes de finale jusqu'à la grande finale. Elle utilise la fonction `simuler_tour` pour simuler chaque tour, en s'appuyant sur les résultats pour déterminer les confrontations du tour suivant, jusqu'à couronner le champion du tournoi.
 
