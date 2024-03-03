@@ -26,29 +26,29 @@
 * Pas de librairies externes autres que celles déjà importées;
   
 # 1. Introduction <a name="introduction"></a>
-<div align="justify">
+
   L'analyse de données sportives, en particulier dans le contexte du football, est devenue un domaine d'étude et d'application de première importance dans le monde contemporain. La collecte, l'analyse et l'interprétation des données relatives aux performances des équipes, aux statistiques des matchs et au classement mondial revêtent une importance capitale non seulement pour les clubs et les organisations sportives, mais aussi pour les fans et les analystes.<br><br>
 
-Ce projet propose une immersion dans l'univers fascinant de la simulation sportive au moyen du langage de programmation C. La simulation de la Coupe du Monde de Football, un événement qui retient l'attention globale tous les quatre ans, sera réalisée en s'appuyant sur des données concrètes. Ce processus permettra de développer des compétences importantes en manipulation de données, en algorithmique et en programmation structurée.</div>
+Ce projet propose une immersion dans l'univers fascinant de la simulation sportive au moyen du langage de programmation C. La simulation de la Coupe du Monde de Football, un événement qui retient l'attention globale tous les quatre ans, sera réalisée en s'appuyant sur des données concrètes. Ce processus permettra de développer des compétences importantes en manipulation de données, en algorithmique et en programmation structurée.
 
 
 # 2. Objectifs du Projet <a name="objectif"></a>
 
-<div align="justify">
+
  Ce projet vise à atteindre les objectifs suivants :
   
 - **Maîtrise des notions de base et des structures de données en C** : Approfondir la compréhension et l'application des concepts fondamentaux et des structures de données spécifiques au langage C, essentiels pour la modélisation et la simulation de compétitions sportives.
 - **Gestion de fichiers** : Développer les compétences nécessaires pour manipuler des fichiers en C, permettant de lire et stocker des informations relatives aux équipes, aux joueurs, et aux résultats des matchs.
 - **Adhésion aux standards de programmation** : Encourager l'adoption des meilleures pratiques de programmation, y compris le respect des conventions de codage et la production d'un code clair, maintenable, et efficace.
 - **Simulation de matchs** : Utiliser des algorithmes pour simuler les rencontres entre équipes, prenant en compte divers facteurs tels que le classement des équipes, les performances historiques, et l'avantage de jouer à domicile.
-- **Analyse statistique des résultats** : Appliquer des techniques d'analyse pour traiter et interpréter les données issues des simulations, afin de produire des statistiques détaillées sur les performances des équipes et prédire les issues potentielles des matchs.</div>
+- **Analyse statistique des résultats** : Appliquer des techniques d'analyse pour traiter et interpréter les données issues des simulations, afin de produire des statistiques détaillées sur les performances des équipes et prédire les issues potentielles des matchs.
 
 # 3. Énoncé de travail <a name="description"></a>
-<div align="justify">
-L'objectif de ce projet est de simuler la Coupe du Monde de Football Qatar 2022. Cet événement majeur du football mondial rassemble les meilleures équipes nationales, chacune aspirant à remporter le titre le plus prestigieux. À travers une série de simulations, ce projet vise à prédire les résultats des matchs, en s'appuyant sur des données réelles telles que le classement FIFA des équipes, leurs performances historiques, et d'autres statistiques pertinentes. La question centrale est de savoir comment, en utilisant des méthodes de programmation en C et des algorithmes de simulation, il est possible de calculer les probabilités de chaque équipe de progresser à travers les différentes phases du tournoi, de la phase de groupes à la finale. Ce faisant, le projet explorera la capacité de modéliser des événements sportifs complexes et d'en prédire les issues, en se basant sur l'analyse de données et la simulation informatique.</div>
+
+L'objectif de ce projet est de simuler la Coupe du Monde de Football Qatar 2022. Cet événement majeur du football mondial rassemble les meilleures équipes nationales, chacune aspirant à remporter le titre le plus prestigieux. À travers une série de simulations, ce projet vise à prédire les résultats des matchs, en s'appuyant sur des données réelles telles que le classement FIFA des équipes, leurs performances historiques, et d'autres statistiques pertinentes. La question centrale est de savoir comment, en utilisant des méthodes de programmation en C et des algorithmes de simulation, il est possible de calculer les probabilités de chaque équipe de progresser à travers les différentes phases du tournoi, de la phase de groupes à la finale. Ce faisant, le projet explorera la capacité de modéliser des événements sportifs complexes et d'en prédire les issues, en se basant sur l'analyse de données et la simulation informatique.
 
 ## 3.1 Votre mission:
-<div align="justify">
+
   Votre mission consiste à :
   
 1. **Développer un programme en C** qui simule l'intégralité de la Coupe du Monde de Football Qatar 2022, en utilisant des données réelles sur les équipes qualifiées et des fonctions de simulation pour générer les résultats des matchs.
@@ -61,11 +61,11 @@ L'objectif de ce projet est de simuler la Coupe du Monde de Football Qatar 2022.
      - Le pourcentage de points accumulés par confédération.
      - Le pourcentage de victoires, de défaites, et de matchs nuls par confédération.
 
-Cette mission implique la création de structures de données complexes pour gérer les informations des équipes et des matchs, l'utilisation avancée de fichiers pour lire et stocker les données, et l'application d'algorithmes de tri et de recherche pour organiser et analyser les résultats obtenus.</div>
+Cette mission implique la création de structures de données complexes pour gérer les informations des équipes et des matchs, l'utilisation avancée de fichiers pour lire et stocker les données, et l'application d'algorithmes de tri et de recherche pour organiser et analyser les résultats obtenus.
 
 
 ## 3.2 Données:
-<div align="justify">
+
   
 Pour simuler avec précision la Coupe du Monde de Football Qatar 2022, les données suivantes seront utilisées :
 
@@ -125,8 +125,8 @@ Ce fichier contient les informations des équipes participantes, organisées par
 | | | ![Drapeau Iran](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/20px-Flag_of_Iran.svg.png) Iran | IRN | 1564 | B |
 | | | ![Drapeau Japon](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/20px-Flag_of_Japan.svg.png) Japon | JPN | 1559 |  E|
 | | | ![Drapeau Qatar](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Qatar.svg/20px-Flag_of_Qatar.svg.png) Qatar (pays hôte) | QAT | 1439 | A |
-
 </div>
+
   
 ### Fichier `matchs2022.txt`
 Liste tous les matchs de la phase de groupes avec les identifiants des équipes domicile et visiteuse. Chaque ligne représente un match :
@@ -136,7 +136,7 @@ Liste tous les matchs de la phase de groupes avec les identifiants des équipes 
 ...
 ...
 ```
-Ces fichiers fourniront la base de données nécessaire pour alimenter le programme de simulation, permettant ainsi de reproduire le déroulement du tournoi de manière réaliste et fondée sur des données authentiques.</div>
+Ces fichiers fourniront la base de données nécessaire pour alimenter le programme de simulation, permettant ainsi de reproduire le déroulement du tournoi de manière réaliste et fondée sur des données authentiques.
 
 ## 3.3 Mécanisme de Simulation
 
@@ -163,7 +163,7 @@ Le processus de simulation peut être répété plusieurs fois pour générer de
 
 
 # 4. Déroulement de la Coupe du Monde de Football Qatar 2022 <a name="saison"></a>
-<div align="justify">
+
 La Coupe du Monde de Football Qatar 2022 se distingue par son format unique et sa répartition globale des équipes. Le tournoi regroupe 32 équipes nationales issues de différentes confédérations à travers le monde, réparties en huit groupes de quatre équipes chacun. La phase de groupes est suivie par les phases éliminatoires, incluant les huitièmes de finale, les quarts de finale, les demi-finales, et la finale.
 
 - **Phase de groupes** : Chaque équipe joue trois matchs, un contre chaque autre équipe de son groupe. Les points sont attribués comme suit:
@@ -175,7 +175,7 @@ La Coupe du Monde de Football Qatar 2022 se distingue par son format unique et s
 
 - **Critères de départage** : En cas d'égalité de points dans les phases de groupes, plusieurs critères sont utilisés pour départager les équipes, tels que la différence de buts générale, le nombre de buts marqués, et les résultats directs entre les équipes concernées.
 
-À la fin du tournoi, l'équipe gagnante de la finale est couronnée championne du monde, tandis que les équipes ayant perdu en demi-finales jouent un match pour la troisième place. Ce format garantit une compétition intense et offre de nombreuses possibilités de surprises et de moments mémorables.</div>
+À la fin du tournoi, l'équipe gagnante de la finale est couronnée championne du monde, tandis que les équipes ayant perdu en demi-finales jouent un match pour la troisième place. Ce format garantit une compétition intense et offre de nombreuses possibilités de surprises et de moments mémorables.
 
 
 # 5. Structures de Données Utilisées <a name="data-structures"></a>
@@ -308,7 +308,7 @@ Cette organisation modulaire permet une meilleure répartition des responsabilit
 ## 7.1 Partie 1: Lire et construire la base de données <a name="part1"></a>
 
 ### lire_equipes() / 5
-<div align="justify">
+
 Cette fonction est conçue pour charger les données des équipes qualifiées pour la Coupe du Monde de Football Qatar 2022 à partir d'un fichier texte. Elle lit les informations concernant chaque équipe, telles que le nom de l'équipe, son identifiant FIFA, son classement FIFA, et le groupe auquel elle appartient. Ces informations sont ensuite organisées dans une structure <code>Equipe</code> et stockées dans un tableau dynamique au sein d'une structure <code>Groupe</code>, elle-même intégrée dans une structure globale <code>W_CUP</code> représentant la Coupe du Monde.<br><br>
 
 Le fichier est structuré par confédérations, avec chaque section débutant par le nombre d'équipes et le nom de la confédération. Pour chaque équipe, la fonction lit le nom, l'identifiant FIFA, le classement FIFA, et le groupe d'affectation, avant d'ajouter l'équipe à son groupe respectif dans la structure `W_CUP`. Si nécessaire, l'espace alloué pour les équipes dans un groupe est dynamiquement agrandi pour accueillir de nouvelles entrées.
@@ -329,7 +329,9 @@ Le fichier est structuré par confédérations, avec chaque section débutant pa
 W_CUP worldCupData;
 lire_equipes("equipes2022.txt", &worldCupData);
 ```
-</div>
+
+---
+
 
 ### Afficher les Groupes
 
@@ -693,7 +695,7 @@ for (size_t i = 0; i < groupeA.nb_eqp; i++) {
 free(groupeA.eqp);
 ```
 
-</div>
+
  
 ### Simuler les matchs
 
