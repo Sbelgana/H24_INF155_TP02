@@ -353,7 +353,7 @@ Cette organisation modulaire permet une meilleure répartition des responsabilit
 
 
 # 7. Fonction à implémenter <a name="fonctions"></a>
-## 7.1 Partie 1: Lire et construire la base de données <a name="part1"></a>
+## 7.1 Partie 1: Lire et construire la base de données (Semaine 1)<a name="part1"></a>
 
 <div align="justify">
 
@@ -559,7 +559,7 @@ Liste_matches liste_matches;
 afficher_match(liste_matches);
 ```
 
-## 7.2 Partie 2: Simulation de la Phase de Groupes <a name="part2"></a>
+## 7.2 Partie 2: Simulation de la Phase de Groupes (Semaine 2)<a name="part2"></a>
 
 
 <div align="justify">
@@ -901,7 +901,7 @@ for (int i = 0; i < 8; i++) {
 free(liste_matches.matches);
 ```
 
-## 7.3 Partie 3: Gestion de la Phase Éliminatoire <a name="part3"></a>
+## 7.3 Partie 3: Gestion de la Phase Éliminatoire (Semaine 3)<a name="part3"></a>
 
 <div align="justify">
 
@@ -1049,7 +1049,7 @@ tour_eliminatoires(&wc);
 
 // À la fin, wc contient le champion de la Coupe du Monde de Football.
 ```
-## 7.4 Partie 4: Gestion des Statistiques Finales <a name="part4"></a>
+## 7.4 Partie 4: Gestion des Statistiques Finales (Semaine 4)<a name="part4"></a>
 
 <div align="justify">
 
