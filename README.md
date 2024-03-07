@@ -422,70 +422,69 @@ afficher_groupe(wc);
 **Groupe A:**
 |   | Équipe        | Pts | M-J | V | N | D | BP | BC | Diff |
 |---|---------------|-----|---|---|---|---|----|----|------|
-| 1 | ![Qatar](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Qatar.svg/20px-Flag_of_Qatar.svg.png) **Qatar**     |   |   |   |   |   |    |    |      |
-| 2 | ![Équateur](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/20px-Flag_of_Ecuador.svg.png) **Équateur** |   |   |   |   |   |    |    |      |
-| 3 | ![Sénégal](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/20px-Flag_of_Senegal.svg.png) **Sénégal** |   |   |   |   |   |    |    |      |
-| 4 | ![Pays-Bas](https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/20px-Flag_of_the_Netherlands.svg.png) **Pays-Bas**|   |   |   |   |   |    |    |      |
+| 1 | ![Qatar](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Qatar.svg/20px-Flag_of_Qatar.svg.png) **Qatar**     | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 2 | ![Équateur](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/20px-Flag_of_Ecuador.svg.png) **Équateur** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 3 | ![Sénégal](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/20px-Flag_of_Senegal.svg.png) **Sénégal** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 4 | ![Pays-Bas](https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/20px-Flag_of_the_Netherlands.svg.png) **Pays-Bas**| 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
 
 **Groupe B:**
 |   | Équipe        | Pts | M-J | V | N | D | BP | BC | Diff |
 |---|---------------|-----|---|---|---|---|----|----|------|
-| 1 | ![Angleterre](https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/20px-Flag_of_England.svg.png) **Angleterre** |   |   |   |   |   |    |    |      |
-| 2 | ![Iran](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/20px-Flag_of_Iran.svg.png) **Iran** |   |   |   |   |   |    |    |      |
-| 3 | ![États-Unis](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/20px-Flag_of_the_United_States.svg.png) **États-Unis** |   |   |   |   |   |    |    |      |
-| 4 | ![Pays de Galles](https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Flag_of_Wales.svg/20px-Flag_of_Wales.svg.png) **Pays de Galles**|   |   |   |   |   |    |    |      |
-
+| 1 | ![Angleterre](https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/20px-Flag_of_England.svg.png) **Angleterre** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 2 | ![Iran](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/20px-Flag_of_Iran.svg.png) **Iran** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 3 | ![États-Unis](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/20px-Flag_of_the_United_States.svg.png) **États-Unis** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 4 | ![Pays de Galles](https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Flag_of_Wales.svg/20px-Flag_of_Wales.svg.png) **Pays de Galles**| 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
 
 **Groupe C:**
 |   | Équipe        | Pts | M-J | V | N | D | BP | BC | Diff |
 |---|---------------|-----|---|---|---|---|----|----|------|
-| 1 | ![Argentine](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/20px-Flag_of_Argentina.svg.png) **Argentine** |   |   |   |   |   |    |    |      |
-| 2 | ![Arabie Saoudite](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/20px-Flag_of_Saudi_Arabia.svg.png) **Arabie Saoudite** |   |   |   |   |   |    |    |      |
-| 3 | ![Mexique](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/20px-Flag_of_Mexico.svg.png) **Mexique** |   |   |   |   |   |    |    |      |
-| 4 | ![Pologne](https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Flag_of_Poland.svg/20px-Flag_of_Poland.svg.png) **Pologne**|   |   |   |   |   |    |    |      |
+| 1 | ![Argentine](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/20px-Flag_of_Argentina.svg.png) **Argentine** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 2 | ![Arabie Saoudite](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/20px-Flag_of_Saudi_Arabia.svg.png) **Arabie Saoudite** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 3 | ![Mexique](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/20px-Flag_of_Mexico.svg.png) **Mexique** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 4 | ![Pologne](https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Flag_of_Poland.svg/20px-Flag_of_Poland.svg.png) **Pologne**| 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
 
 
 **Groupe D:**
 |   | Équipe        | Pts | M-J | V | N | D | BP | BC | Diff |
 |---|---------------|-----|---|---|---|---|----|----|------|
-| 1 | ![France](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/20px-Flag_of_France.svg.png) **France** |   |   |   |   |   |    |    |      |
-| 2 | ![Australie](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/20px-Flag_of_Australia_%28converted%29.svg.png) **Australie** |   |   |   |   |   |    |    |      |
-| 3 | ![Danemark](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/20px-Flag_of_Denmark.svg.png) **Danemark** |   |   |   |   |   |    |    |      |
-| 4 | ![Tunisie](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/20px-Flag_of_Tunisia.svg.png) **Tunisie**|   |   |   |   |   |    |    |      |
+| 1 | ![France](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/20px-Flag_of_France.svg.png) **France** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 2 | ![Australie](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/20px-Flag_of_Australia_%28converted%29.svg.png) **Australie** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 3 | ![Danemark](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/20px-Flag_of_Denmark.svg.png) **Danemark** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 4 | ![Tunisie](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/20px-Flag_of_Tunisia.svg.png) **Tunisie**| 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
 
 **Groupe E:**
 |   | Équipe         | Pts | M-J | V | N | D | BP | BC | Diff |
 |---|----------------|-----|---|---|---|---|----|----|------|
-| 1 | ![Espagne](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/20px-Flag_of_Spain.svg.png) **Espagne** |   |   |   |   |   |    |    |      |
-| 2 | ![Costa Rica](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/20px-Flag_of_Costa_Rica.svg.png) **Costa Rica** |   |   |   |   |   |    |    |      |
-| 3 | ![Allemagne](https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/20px-Flag_of_Germany.svg.png) **Allemagne** |   |   |   |   |   |    |    |      |
-| 4 | ![Japon](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/20px-Flag_of_Japan.svg.png) **Japon**|   |   |   |   |   |    |    |      |
+| 1 | ![Espagne](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/20px-Flag_of_Spain.svg.png) **Espagne** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 2 | ![Costa Rica](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/20px-Flag_of_Costa_Rica.svg.png) **Costa Rica** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 3 | ![Allemagne](https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/20px-Flag_of_Germany.svg.png) **Allemagne** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 4 | ![Japon](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/20px-Flag_of_Japan.svg.png) **Japon**| 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
 
 **Groupe F:**
 |   | Équipe         | Pts | M-J | V | N | D | BP | BC | Diff |
 |---|----------------|-----|---|---|---|---|----|----|------|
-| 1 | ![Belgique](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/20px-Flag_of_Belgium.svg.png) **Belgique** |   |   |   |   |   |    |    |      |
-| 2 | ![Canada](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/20px-Flag_of_Canada_%28Pantone%29.svg.png) **Canada** |   |   |   |   |   |    |    |      |
-| 3 | ![Maroc](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/20px-Flag_of_Morocco.svg.png) **Maroc** |   |   |   |   |   |    |    |      |
-| 4 | ![Croatie](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/20px-Flag_of_Croatia.svg.png) **Croatie**|   |   |   |   |   |    |    |      |
+| 1 | ![Belgique](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/20px-Flag_of_Belgium.svg.png) **Belgique** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 2 | ![Canada](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/20px-Flag_of_Canada_%28Pantone%29.svg.png) **Canada** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 3 | ![Maroc](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/20px-Flag_of_Morocco.svg.png) **Maroc**| 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 4 | ![Croatie](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/20px-Flag_of_Croatia.svg.png) **Croatie**| 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
 
 
 **Groupe G:**
 |   | Équipe          | Pts | M-J | V | N | D | BP | BC | Diff |
 |---|-----------------|-----|---|---|---|---|----|----|------|
-| 1 | ![Brésil](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/20px-Flag_of_Brazil.svg.png) **Brésil** |   |   |   |   |   |    |    |      |
-| 2 | ![Cameroun](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Cameroon.svg/20px-Flag_of_Cameroon.svg.png) **Cameroun** |   |   |   |   |   |    |    |      |
-| 3 | ![Serbie](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/20px-Flag_of_Serbia.svg.png) **Serbie** |   |   |   |   |   |    |    |      |
-| 4 | ![Suisse](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/20px-Flag_of_Switzerland.svg.png) **Suisse**|   |   |   |   |   |    |    |      |
+| 1 | ![Brésil](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/20px-Flag_of_Brazil.svg.png) **Brésil** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 2 | ![Cameroun](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Cameroon.svg/20px-Flag_of_Cameroon.svg.png) **Cameroun**| 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 3 | ![Serbie](https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/20px-Flag_of_Serbia.svg.png) **Serbie**| 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 4 | ![Suisse](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/20px-Flag_of_Switzerland.svg.png) **Suisse**| 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
 
 
 **Groupe H:**
 |   | Équipe         | Pts | M-J | V | N | D | BP | BC | Diff |
 |---|----------------|-----|---|---|---|---|----|----|------|
-| 1 | ![Portugal](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/20px-Flag_of_Portugal.svg.png) **Portugal** |   |   |   |   |   |    |    |      |
-| 2 | ![Ghana](https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/20px-Flag_of_Ghana.svg.png) **Ghana** |   |   |   |   |   |    |    |      |
-| 3 | ![Uruguay](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/20px-Flag_of_Uruguay.svg.png) **Uruguay** |   |   |   |   |   |    |    |      |
-| 4 | ![Corée du Sud](https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/20px-Flag_of_South_Korea.svg.png) **Corée du Sud**|   |   |   |   |   |    |    |      |
+| 1 | ![Portugal](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/20px-Flag_of_Portugal.svg.png) **Portugal**| 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 2 | ![Ghana](https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/20px-Flag_of_Ghana.svg.png) **Ghana**| 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 3 | ![Uruguay](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/20px-Flag_of_Uruguay.svg.png) **Uruguay** | 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
+| 4 | ![Corée du Sud](https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/20px-Flag_of_South_Korea.svg.png) **Corée du Sud**| 0  | 0  | 0  | 0  | 0  | 0   |  0  |   0   |
 
 
 
