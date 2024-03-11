@@ -358,11 +358,11 @@ Cette organisation modulaire permet une meilleure répartition des responsabilit
 
 
 # 7. Fonction à implémenter <a name="fonctions"></a>
-## 7.1 Partie 1: Lire et construire la base de données (Semaine 1)<a name="part1"></a>
+## 7.1 Partie 1: Lire et construire la base de données (Semaine 1: 17.5 Points)<a name="part1"></a>
 
 <div align="justify">
 
-### Lire les équipes
+### Lire les équipes (7.5 Points)
 
 Cette fonction est conçue pour charger les données des équipes qualifiées pour la Coupe du Monde de Football Qatar 2022 à partir d'un fichier texte. Elle lit les informations concernant chaque équipe, telles que le nom de l'équipe, son identifiant FIFA, son classement FIFA, et le groupe auquel elle appartient. Ces informations sont ensuite organisées dans une structure <code>Equipe</code> et stockées dans un tableau dynamique au sein d'une structure <code>Groupe</code>, elle-même intégrée dans une structure globale <code>W_CUP</code> représentant la Coupe du Monde.<br><br>
 
@@ -400,7 +400,7 @@ lire_equipes("equipes2022.txt", &worldCupData);
 
 <div align="justify">
 
-### Afficher les Groupes
+### Afficher les Groupes (3 Points)
 
 La fonction `afficher_groupe` est conçue pour présenter les informations détaillées de chaque groupe de la phase de groupes de la Coupe du Monde de Football. Elle parcourt tous les groupes, affichant pour chaque équipe son nom, son identifiant (ID), et son classement FIFA, fournissant ainsi une vue d'ensemble claire de la composition initiale des groupes du tournoi.
 
@@ -499,7 +499,7 @@ afficher_groupe(wc);
 
 <div align="justify">
 
-### Lire les matchs
+### Lire les matchs (5 Points)
 
 Cette fonction lit les informations des matchs prévus pour la Coupe du Monde de Football Qatar 2022 à partir d'un fichier nommé `matchs2022.txt`. Chaque ligne du fichier contient les identifiants des deux équipes qui s'affronteront, ce qui permet d'organiser les données des matchs de manière efficace. La fonction procède à la lecture de chaque ligne, extrayant les identifiants des équipes participantes et les stockant dans des structures `Matche` correspondantes. Ces structures sont ensuite ajoutées à un tableau dynamique, qui est capable de s'agrandir au besoin pour accueillir tous les matchs lus du fichier.
 
@@ -538,7 +538,7 @@ Match* matches = lire_matchs("matchs2022.txt", &nombreMatchs);
 
 <div align="justify">
 
-### Afficher les Matchs
+### Afficher les Matchs (2 Points)
 La fonction `afficher_match` est conçue pour présenter une liste des matchs programmés dans un format simplifié, en affichant les identifiants (ID) des équipes domicile et visiteuse pour chaque match prévu. Cela permet d'avoir une vision claire de l'ensemble des confrontations à venir ou simulées dans le cadre de la Coupe du Monde de Football.
 
 #### Détails de la fonction :
@@ -563,12 +563,12 @@ Liste_matches liste_matches;
 afficher_match(liste_matches);
 ```
 
-## 7.2 Partie 2: Simulation de la Phase de Groupes (Semaine 2)<a name="part2"></a>
+## 7.2 Partie 2: Simulation de la Phase de Groupes (Semaine 2: 25 Points)<a name="part2"></a>
 
 
 <div align="justify">
 
-### Trouver équipe par identifiant
+### Trouver équipe par identifiant (2.5 Points)
 
 La fonction `trouver_equipe_par_id` est essentielle dans le contexte de la simulation de la Coupe du Monde de Football FIFA Qatar 2022, car elle permet de localiser une équipe spécifique à partir de son identifiant unique. Cette capacité est cruciale pour le bon déroulement des simulations de matchs, assurant que chaque équipe puisse être correctement identifiée et manipulée avant, pendant, et après les matchs simulés.
 
@@ -608,7 +608,7 @@ if (equipeTrouvee != NULL) {
 
 <div align="justify">
 
-### Générateur de buts basé sur une distribution normale
+### Générateur de buts basé sur une distribution normale (2.5 Points)
 
 La fonction décrite est un générateur de nombres aléatoires qui simule le nombre de buts marqués dans un match de football, en s'appuyant sur une distribution normale. Cette méthode est idéale pour refléter la distribution statistique réelle des scores dans le football, où la majorité des matchs se terminent avec peu de buts.
 
@@ -649,7 +649,7 @@ int butsMarques = normalvariate(2, 1);
 
 <div align="justify">
 
-### Jouer un match
+### Jouer un match (2.5 Points)
 
 La fonction `jouer_match` simule l'issue d'une rencontre entre deux équipes lors de la Coupe du Monde de Football FIFA Qatar 2022, en se basant sur leur classement FIFA pour prédire le résultat du match. Cette approche de simulation est conçue pour refléter de manière réaliste l'influence du classement FIFA sur la performance des équipes, fournissant une prédiction du résultat basée sur les performances historiques.
 
@@ -689,7 +689,7 @@ printf("Résultat: %s %d - %d %s\n", eq1.nom, resultat.buts_eq1, resultat.buts_e
 
 <div align="justify">
 
-### Mettre à jour le classement
+### Mettre à jour le classement (5 Points)
 
 La fonction `mettre_a_jour_classement` joue un rôle crucial dans l'actualisation des statistiques des équipes à la suite d'un match dans le cadre de la simulation de la Coupe du Monde de la FIFA. Elle permet d'ajuster les données telles que le nombre de buts marqués et encaissés, ainsi que les points accumulés, en fonction des résultats des matchs, assurant ainsi que le classement reflète fidèlement les performances des équipes.
 
@@ -736,7 +736,7 @@ printf("Equipe 2 - Points: %d, Buts Pour: %d, Buts Contre: %d, Différence de Bu
 
 <div align="justify">
 
-### Fonction pour échanger deux équipes
+### Fonction pour échanger deux équipes (2.5 Points)
 
 La fonction `echanger` permet de permuter les données de deux équipes au sein de simulations ou de traitements nécessitant la réorganisation des structures d'équipes. Cet échange est utile dans divers scénarios, tels que le tri des équipes selon leur classement, la mise à jour de leur positionnement dans un tableau, ou d'autres opérations de manipulation de données.
 
@@ -774,7 +774,7 @@ printf("Après l'échange : Equipe 1 - %s, Equipe 2 - %s\n", equipe1.nom, equipe
 
 <div align="justify">
 
-### Trier les groupes
+### Trier les groupes (5 Points)
 
 La fonction `trier_groupes` est essentielle dans le processus de simulation de la Coupe du Monde de Football, car elle organise les équipes de chaque groupe en fonction de leur performance. Le classement se base sur les critères officiels du tournoi, tels que les points accumulés, la différence de buts, et le nombre total de buts marqués, pour mettre en avant les équipes les plus performantes.
 
@@ -858,7 +858,7 @@ free(groupeA.eqp);
  
 <div align="justify">
 
-### Simuler les matchs
+### Simuler les matchs (5 Points)
 
 La fonction `simuler_matchs` est une composante clé de la simulation de la Coupe du Monde de Football Qatar 2022, permettant de simuler tous les matchs prévus dans le tournoi en se basant sur des données spécifiques telles que le classement FIFA et d'autres indicateurs de performance des équipes.
 
@@ -905,11 +905,11 @@ for (int i = 0; i < 8; i++) {
 free(liste_matches.matches);
 ```
 
-## 7.3 Partie 3: Gestion de la Phase Éliminatoire (Semaine 2-3)<a name="part3"></a>
+## 7.3 Partie 3: Gestion de la Phase Éliminatoire (Semaine 2-3: 30 Points)<a name="part3"></a>
 
 <div align="justify">
 
-### Équipes qualifiées
+### Équipes qualifiées (7.5 Points)
 
 La fonction `equipes_qualifiees` identifie les équipes qui avancent aux phases éliminatoires de la Coupe du Monde de Football Qatar 2022, en se basant sur les résultats finaux de la phase de groupes. Cette étape est cruciale pour la transition du tournoi vers les huitièmes de finale, où les enjeux sont considérablement accrus.
 
@@ -943,7 +943,7 @@ equipes_qualifiees(&wc);
 
 <div align="justify">
 
-### Jouer un match éliminatoire
+### Jouer un match éliminatoire (7.5 Points)
 
 La fonction `jouer_match_eliminatoire` simule un match éliminatoire entre deux équipes dans le cadre de la Coupe du Monde de Football, prenant en compte non seulement le score du match mais également les mécanismes de décision en cas d'égalité, tels que la prolongation ou les tirs au but, pour déterminer l'équipe qui avance dans le tournoi.
 
@@ -986,7 +986,7 @@ printf("L'équipe gagnante est : %s\n", equipeGagnante->nom);
 
 <div align="justify">
 
-### Simuler un tour éliminatoire
+### Simuler un tour éliminatoire (7.5 Points)
 
 La fonction `simuler_tour` joue un rôle crucial dans la progression des étapes éliminatoires de la Coupe du Monde de Football, en simulant chaque match d'un tour donné (huitièmes de finale, quarts de finale, demi-finales, et finale) et en préparant les confrontations pour le tour suivant, basées sur les équipes gagnantes.
 
@@ -1024,7 +1024,7 @@ simuler_tour(&wc, wc.huitiemes, 8, wc.quarts);
 
 <div align="justify">
 
-### Phase Éliminatoire
+### Phase Éliminatoire (7.5 Points)
 
 La fonction `tour_eliminatoires` orchestre la progression des tours éliminatoires dans la simulation de la Coupe du Monde de Football, depuis les huitièmes de finale jusqu'à la grande finale. Elle utilise la fonction `simuler_tour` pour simuler chaque tour, en s'appuyant sur les résultats pour déterminer les confrontations du tour suivant, jusqu'à couronner le champion du tournoi.
 
@@ -1053,11 +1053,11 @@ tour_eliminatoires(&wc);
 
 // À la fin, wc contient le champion de la Coupe du Monde de Football.
 ```
-## 7.4 Partie 4: Gestion des Statistiques Finales (Semaine 3)<a name="part4"></a>
+## 7.4 Partie 4: Gestion des Statistiques Finales (Semaine 3: 27.5 Points)<a name="part4"></a>
 
 <div align="justify">
 
-### Afficher les Statistiques du Premier Tour
+### Afficher les Statistiques du Premier Tour (7.5 Points)
 
 La fonction `afficher_stats_premier_tour` est dédiée à la présentation des statistiques détaillées de chaque équipe participant à la phase de groupes de la Coupe du Monde de Football, après que tous les matchs de cette phase ont été joués. Elle offre un aperçu complet des performances des équipes, incluant les victoires, défaites, nuls, buts pour et contre, la différence de buts, et les points accumulés, le tout organisé par groupe.
 
@@ -1090,7 +1090,7 @@ afficher_stats_premier_tour(&wc);
 
 <div align="justify">
 
-### Équipes avec le Plus de Buts Marqués
+### Équipes avec le Plus de Buts Marqués (4 Points)
 
 La fonction `equipes_plus_buts_marques` identifie les équipes ayant marqué le plus grand nombre de buts durant la phase de groupes de la Coupe du Monde de Football. Elle parcourt toutes les équipes participantes, compare leurs performances en termes de buts marqués, et sélectionne celles qui se distinguent par leur efficacité offensive.
 
@@ -1129,7 +1129,7 @@ free(equipes_dominantes);
 
 <div align="justify">
 
-### Équipes avec le Plus de Buts Encaissés
+### Équipes avec le Plus de Buts Encaissés (4 Points)
 
 La fonction `equipes_plus_buts_encaisses` sert à identifier les équipes qui ont concédé le plus grand nombre de buts pendant la phase de groupes de la Coupe du Monde de Football. En parcourant les statistiques des équipes dans chaque groupe, cette fonction met en avant celles qui ont montré des vulnérabilités défensives en encaissant de nombreux buts.
 
@@ -1167,7 +1167,7 @@ free(equipes_vulnerables);
 
 <div align="justify">
   
-### Équipes avec le Plus de Victoires
+### Équipes avec le Plus de Victoires (4 Points)
 
 La fonction `equipes_plus_victoires` extrait les équipes ayant enregistré le plus grand nombre de victoires durant la phase de groupes de la Coupe du Monde de Football. Cette approche permet de mettre en évidence les performances dominantes en termes de résultats positifs obtenus par les équipes tout au long du tournoi.
 
@@ -1205,7 +1205,7 @@ free(equipes_dominantes);
 
 <div align="justify">
 
-### Équipes avec le Plus de Défaites
+### Équipes avec le Plus de Défaites (4 Points)
 
 La fonction `equipes_plus_defaites` identifie les équipes ayant subi le plus grand nombre de défaites durant la phase de groupes de la Coupe du Monde de Football. Cette analyse permet de reconnaître les équipes qui ont eu des difficultés tout au long du tournoi, en mettant en lumière les défis auxquels elles ont été confrontées.
 
@@ -1243,7 +1243,7 @@ free(equipes_avec_defaites);
 
 <div align="justify">
   
-### Équipes avec le Plus de Matchs Nuls
+### Équipes avec le Plus de Matchs Nuls (4 Points)
 
 La fonction `equipes_plus_matchs_nuls` cible les équipes ayant concédé le plus grand nombre de matchs nuls durant la phase de groupes de la Coupe du Monde de Football. Cette analyse révèle les équipes qui ont montré une résilience défensive ou qui ont été impliquées dans des confrontations très serrées, aboutissant à des issues indécises.
 
@@ -1282,27 +1282,27 @@ free(equipes_max_nuls);
 # 8. Barème /100 <a name="bareme"></a>
 |**Nom des fonctions**|**Nombre de points attribuer**|
 | :- | :- |
-|*lire_equipes*| |
-|*lire_matches*| |
-|*afficher_groupe*| |
-|*afficher_match*| |
-|*trouver_equipe_par_id*| |
-|*normalvariate*| |
-|*jouer_match*| |
-|*mettre_a_jour_classement*| |
-|*echanger*| |
-|*trier_groupes*| |
-|*simuler_matchs*| |
-|*equipes_qualifiees*| |
-|*jouer_match_eliminatoire*| |
-|*simuler_tour*| |
-|*tour_eliminatoires*| |
-|*afficher_stats_premier_tour*| |
-|*equipes_plus_buts_marques*| |
-|*equipes_plus_buts_encaisses*| |
-|*equipes_plus_victoires*| |
-|*equipes_plus_defaites*| |
-|*equipes_plus_matchs_nuls*| |
+|*lire_equipes*| 7.5 |
+|*lire_matches*| 3 |
+|*afficher_groupe*| 5 |
+|*afficher_match*| 2 |
+|*trouver_equipe_par_id*| 2.5 |
+|*normalvariate*| 2.5 |
+|*jouer_match*| 2.5 |
+|*mettre_a_jour_classement*| 5 |
+|*echanger*| 2.5 |
+|*trier_groupes*| 5 |
+|*simuler_matchs*| 5 |
+|*equipes_qualifiees*| 7.5 |
+|*jouer_match_eliminatoire*| 7.5 |
+|*simuler_tour*| 7.5 |
+|*tour_eliminatoires*| 7.5 |
+|*afficher_stats_premier_tour*| 7.5 |
+|*equipes_plus_buts_marques*| 4 |
+|*equipes_plus_buts_encaisses*| 4 |
+|*equipes_plus_victoires*|4  |
+|*equipes_plus_defaites*| 4 |
+|*equipes_plus_matchs_nuls*| 4 |
 
 
 La grille de correction suivante sera utilisée pour la correction de chacune des fonctions implémentées.
