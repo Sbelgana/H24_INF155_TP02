@@ -900,7 +900,7 @@ for (int i = 0; i < 8; i++) {
 free(liste_matches.matches);
 ```
 
-## 7.3 Partie 3: Gestion de la Phase Éliminatoire (Semaine 3)<a name="part3"></a>
+## 7.3 Partie 3: Gestion de la Phase Éliminatoire (Semaine 2-3)<a name="part3"></a>
 
 <div align="justify">
 
@@ -1048,7 +1048,7 @@ tour_eliminatoires(&wc);
 
 // À la fin, wc contient le champion de la Coupe du Monde de Football.
 ```
-## 7.4 Partie 4: Gestion des Statistiques Finales (Semaine 4)<a name="part4"></a>
+## 7.4 Partie 4: Gestion des Statistiques Finales (Semaine 3)<a name="part4"></a>
 
 <div align="justify">
 
