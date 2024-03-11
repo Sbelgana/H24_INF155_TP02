@@ -230,19 +230,19 @@ Ce projet utilise des structures de données spécifiques pour modéliser les as
 Cette structure représente une équipe participant au tournoi, contenant toutes les informations nécessaires relatives à son identité et ses performances.
 ```c
 typedef struct {
-    char id[10];          // Identifiant unique de l'équipe, souvent basé sur des abréviations ou des codes FIFA.
-    char nom[20];         // Nom complet de l'équipe.
-    char conf[20];        // Confédération à laquelle appartient l'équipe (ex : UEFA, CONMEBOL).
-    char groupe;          // Lettre désignant le groupe dans lequel l'équipe est placée.
-    size_t vic;           // Nombre de victoires de l'équipe dans le tournoi.
-    size_t def;           // Nombre de défaites de l'équipe dans le tournoi.
-    size_t nul;           // Nombre de matchs nuls de l'équipe dans le tournoi.
-    size_t buts_p;        // Nombre total de buts marqués par l'équipe.
-    size_t buts_c;        // Nombre total de buts encaissés par l'équipe.
-    size_t diff_buts;     // Différence entre les buts marqués et les buts encaissés.
-    size_t pts;           // Nombre total de points accumulés par l'équipe dans le tournoi.
-    size_t clas;          // Classement FIFA de l'équipe.
-    size_t matche_jouer;  // Nombre total de matchs joués par l'équipe.
+    char id[10];       // Identifiant unique de l'équipe, souvent basé sur des abréviations ou des codes FIFA.
+    char nom[20];      // Nom complet de l'équipe.
+    char conf[20];     // Confédération à laquelle appartient l'équipe (ex : UEFA, CONMEBOL).
+    char groupe;       // Lettre désignant le groupe dans lequel l'équipe est placée.
+    int vic;           // Nombre de victoires de l'équipe dans le tournoi.
+    int def;           // Nombre de défaites de l'équipe dans le tournoi.
+    int nul;           // Nombre de matchs nuls de l'équipe dans le tournoi.
+    int buts_p;        // Nombre total de buts marqués par l'équipe.
+    int buts_c;        // Nombre total de buts encaissés par l'équipe.
+    int diff_buts;     // Différence entre les buts marqués et les buts encaissés.
+    int pts;           // Nombre total de points accumulés par l'équipe dans le tournoi.
+    int clas;          // Classement FIFA de l'équipe.
+    int matche_jouer;  // Nombre total de matchs joués par l'équipe.
 } Equipe;
 ```
 
@@ -250,10 +250,10 @@ typedef struct {
 Organise les équipes en groupes pour la phase de groupes du tournoi.
 ```c
 typedef struct {
-    char nom;             // Lettre désignant le nom du groupe.
-    Equipe* eqp;          // Pointeur vers un tableau dynamique d'équipes dans le groupe.
-    size_t nb_eqp;        // Nombre d'équipes actuellement dans le groupe.
-    size_t cap;           // Capacité actuelle du tableau d'équipes (permet d'allouer dynamiquement plus d'espace si nécessaire).
+    char nom;          // Lettre désignant le nom du groupe.
+    Equipe* eqp;       // Pointeur vers un tableau dynamique d'équipes dans le groupe.
+    int nb_eqp;        // Nombre d'équipes actuellement dans le groupe.
+    int cap;           // Capacité actuelle du tableau d'équipes (permet d'allouer dynamiquement plus d'espace si nécessaire).
 } Groupe;
 ```
 
@@ -261,8 +261,8 @@ typedef struct {
 Contient le décompte des buts pour un match donné entre deux équipes.
 ```c
 typedef struct {
-    int buts_eq1;         // Nombre de buts marqués par l'équipe 1.
-    int buts_eq2;         // Nombre de buts marqués par l'équipe 2.
+    int buts_eq1;      // Nombre de buts marqués par l'équipe 1.
+    int buts_eq2;      // Nombre de buts marqués par l'équipe 2.
 } Buts;
 ```
 
@@ -290,22 +290,22 @@ typedef struct {
 Ces structures permettent de gérer les informations relatives aux matchs programmés et simulés durant le tournoi.
 ```c
 typedef struct{
-    char id_vis[10];        // Identifiant de l'équipe visiteuse.
-    char id_dom[10];        // Identifiant de l'équipe à domicile.
-    size_t clas_vis;        // Classement
+    char id_vis[10];     // Identifiant de l'équipe visiteuse.
+    char id_dom[10];     // Identifiant de l'équipe à domicile.
+    int clas_vis;        // Classement
 
  FIFA de l'équipe visiteuse.
-    size_t clas_dom;        // Classement FIFA de l'équipe à domicile.
-    size_t buts_eq1;        // Buts marqués par l'équipe à domicile.
-    size_t buts_eq2;        // Buts marqués par l'équipe visiteuse.
-    size_t pts_vis;         // Points accumulés par l'équipe visiteuse.
-    size_t pts_dom;         // Points accumulés par l'équipe à domicile.
+    int clas_dom;        // Classement FIFA de l'équipe à domicile.
+    int buts_eq1;        // Buts marqués par l'équipe à domicile.
+    int buts_eq2;        // Buts marqués par l'équipe visiteuse.
+    int pts_vis;         // Points accumulés par l'équipe visiteuse.
+    int pts_dom;         // Points accumulés par l'équipe à domicile.
 } Matche;
 
 typedef struct{
-    Matche* matches;        // Pointeur vers un tableau dynamique de matchs.
-    size_t nb_matche;       // Nombre de matchs contenus dans le tableau.
-    size_t cap;             // Capacité actuelle du tableau (pour allocation dynamique).
+    Matche* matches;     // Pointeur vers un tableau dynamique de matchs.
+    int nb_matche;       // Nombre de matchs contenus dans le tableau.
+    int cap;             // Capacité actuelle du tableau (pour allocation dynamique).
 } Liste_matches;
 ```
 
@@ -841,7 +841,7 @@ trier_groupes(&groupeA);
 
 // Affichage du classement après tri
 printf("Classement du Groupe A après tri :\n");
-for (size_t i = 0; i < groupeA.nb_eqp; i++) {
+for (int i = 0; i < groupeA.nb_eqp; i++) {
     printf("%s - Points : %zu, Buts pour : %zu, Buts contre : %zu\n",
            groupeA.eqp[i].nom, groupeA.eqp[i].pts, groupeA.eqp[i].buts_p, groupeA.eqp[i].buts_c);
 }
@@ -892,7 +892,7 @@ simuler_matchs(&wc, &liste_matches);
 // Affichage du classement final des groupes
 for (int i = 0; i < 8; i++) {
     printf("Classement final du Groupe %c:\n", wc.grp[i].nom);
-    for (size_t j = 0; j < wc.grp[i].nb_eqp; j++) {
+    for (int j = 0; j < wc.grp[i].nb_eqp; j++) {
         printf("%d. %s - %zu points\n", j + 1, wc.grp[i].eqp[j].nom, wc.grp[i].eqp[j].pts);
     }
     printf("\n");
@@ -1112,11 +1112,11 @@ La fonction `equipes_plus_buts_marques` identifie les équipes ayant marqué le 
 W_CUP wc;
 // La structure W_CUP doit être initialisée avec les résultats de la phase de groupes.
 
-size_t nb_equipes;
+int nb_equipes;
 Equipe* equipes_dominantes = equipes_plus_buts_marques(&wc, &nb_equipes);
 
 // Affichage des équipes sélectionnées et de leurs buts marqués
-for (size_t i = 0; i < nb_equipes; ++i) {
+for (int i = 0; i < nb_equipes; ++i) {
     printf("Equipe : %s, Buts marqués : %d\n", equipes_dominantes[i].nom, equipes_dominantes[i].buts_p);
 }
 
@@ -1151,11 +1151,11 @@ La fonction `equipes_plus_buts_encaisses` sert à identifier les équipes qui on
 W_CUP wc;
 // Assurez-vous que la structure W_CUP est initialisée avec les données pertinentes de la compétition.
 
-size_t nb_equipes;
+int nb_equipes;
 Equipe* equipes_vulnerables = equipes_plus_buts_encaisses(&wc, &nb_equipes);
 
 // Affichage des équipes ayant encaissé le plus de buts
-for (size_t i = 0; i < nb_equipes; ++i) {
+for (int i = 0; i < nb_equipes; ++i) {
     printf("Equipe : %s, Buts encaissés : %d\n", equipes_vulnerables[i].nom, equipes_vulnerables[i].buts_c);
 }
 
@@ -1189,11 +1189,11 @@ La fonction `equipes_plus_victoires` extrait les équipes ayant enregistré le p
 W_CUP wc;
 // Supposons que wc contient les informations des phases de groupes correctement initialisées.
 
-size_t nb_equipes;
+int nb_equipes;
 Equipe* equipes_dominantes = equipes_plus_victoires(&wc, &nb_equipes);
 
 // Affichage des équipes avec le plus de victoires
-for (size_t i = 0; i < nb_equipes; ++i) {
+for (int i = 0; i < nb_equipes; ++i) {
     printf("Equipe : %s, Victoires : %d\n", equipes_dominantes[i].nom, equipes_dominantes[i].vic);
 }
 
@@ -1227,11 +1227,11 @@ La fonction `equipes_plus_defaites` identifie les équipes ayant subi le plus gr
 W_CUP wc;
 // La structure W_CUP est supposée être préalablement remplie avec les données des phases de groupes.
 
-size_t nb_equipes;
+int nb_equipes;
 Equipe* equipes_avec_defaites = equipes_plus_defaites(&wc, &nb_equipes);
 
 // Affichage des équipes ayant le plus de défaites
-for (size_t i = 0; i < nb_equipes; ++i) {
+for (int i = 0; i < nb_equipes; ++i) {
     printf("Equipe : %s, Défaites : %d\n", equipes_avec_defaites[i].nom, equipes_avec_defaites[i].def);
 }
 
@@ -1265,11 +1265,11 @@ La fonction `equipes_plus_matchs_nuls` cible les équipes ayant concédé le plu
 W_CUP wc;
 // Assumez que wc a été préalablement initialisé avec les données des phases de groupes.
 
-size_t nb_equipes;
+int nb_equipes;
 Equipe* equipes_max_nuls = equipes_plus_matchs_nuls(&wc, &nb_equipes);
 
 // Affichage des équipes ayant concédé le plus de matchs nuls
-for (size_t i = 0; i < nb_equipes; ++i) {
+for (int i = 0; i < nb_equipes; ++i) {
     printf("Equipe : %s, Matchs Nuls : %d\n", equipes_max_nuls[i].nom, equipes_max_nuls[i].nul);
 }
 
