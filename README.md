@@ -25,6 +25,11 @@
 * Respecter [guide de codage](https://ena.etsmtl.ca/pluginfile.php/1933883/mod_resource/content/0/INF145%20-%20Normes%20de%20programmations.pdf)
 * Noms de variables et fonctions adéquats (concis, compréhensibles);  
 * Pas de librairies externes autres que celles déjà importées;
+* Lien utile:
+  * [Les chaînes de caractères](https://openclassrooms.com/fr/courses/19980-apprenez-a-programmer-en-c/7672681-manipulez-du-texte-avec-les-chaines-de-caracteres)
+  * [Les structures](https://openclassrooms.com/fr/courses/19980-apprenez-a-programmer-en-c/16119-creez-vos-propres-types-de-variables)
+  * [L'allocation dynamique](https://openclassrooms.com/fr/courses/19980-apprenez-a-programmer-en-c/16595-creez-des-variables-grace-a-lallocation-dynamique)
+  * [Manipulez des fichiers](https://openclassrooms.com/fr/courses/19980-apprenez-a-programmer-en-c/16421-manipulez-des-fichiers-a-laide-de-fonctions)
   
 <div align="justify">
 
