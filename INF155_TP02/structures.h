@@ -1,27 +1,32 @@
+#ifndef INF155_TP02_STRUCTURES_H
+#define INF155_TP02_STRUCTURES_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include <math.h>
+#include <assert.h>
 
-#ifndef INF155_TP02_STRUCTURES_H
-#define INF155_TP02_STRUCTURES_H
+#define NOM_FICHIER_EQUIPES "..//equipes2022.txt"
+#define NOM_FICHIER_MATCHES "..//matchs2022.txt"
+
 
 typedef struct {
     char id[10];
     char nom[20];
     char conf[20];
     char groupe;
-    size_t vic, def, nul;
-    size_t buts_p, buts_c, diff_buts;
-    size_t pts, clas, matche_jouer;
+    int vic, def, nul;
+    int buts_p, buts_c, diff_buts;
+    int pts, clas, matche_jouer;
 } Equipe;
 
 typedef struct {
     char nom;
     Equipe* eqp;
-    size_t nb_eqp;
-    size_t cap;
+    int nb_eqp;
+    int cap;
 } Groupe;
 
 typedef struct {
@@ -42,15 +47,15 @@ typedef struct {
 
 typedef struct{
     char id_vis[10], id_dom[10];
-    size_t clas_vis, clas_dom;
-    size_t buts_eq1, buts_eq2;
-    size_t pts_vis, pts_dom;
+    int clas_vis, clas_dom;
+    int buts_eq1, buts_eq2;
+    int pts_vis, pts_dom;
 }Matche;
 
 typedef struct{
     Matche* matches;
-    size_t nb_matche;
-    size_t cap;
+    int nb_matche;
+    int cap;
 }Liste_matches;
 
 #endif //INF155_TP02_STRUCTURES_H
