@@ -22,6 +22,7 @@
 
 
 # Directives particulières <a name="directives"></a>
+* Le travail doit être effectué en équipe de 2 à 4 personnes.
 * Respecter [guide de codage](https://ena.etsmtl.ca/pluginfile.php/1933883/mod_resource/content/0/INF145%20-%20Normes%20de%20programmations.pdf)
 * Noms de variables et fonctions adéquats (concis, compréhensibles);  
 * Pas de librairies externes autres que celles déjà importées;
