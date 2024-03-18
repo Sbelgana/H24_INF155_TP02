@@ -359,6 +359,11 @@ Cette organisation modulaire permet une meilleure répartition des responsabilit
 
 
 # 7. Fonction à implémenter <a name="fonctions"></a>
+
+<div align="justify">
+Pour structurer le projet de manière efficace et garantir une avancée méthodique, il s'avère essentiel de segmenter le travail en sous-programmes spécialisés, organisés en divers sous-modules. Cette approche contribue à une compréhension détaillée des processus internes du programme, tout en augmentant la modularité, facilitant ainsi les ajustements ou l'ajout de nouvelles fonctionnalités à l'avenir. Les tâches fondamentales seront abordées en premier lieu, établissant ainsi la base sur laquelle les procédures plus complexes seront ultérieurement construites.</div>
+
+
 ## 7.1 Partie 1: Lire et construire la base de données (Semaine 1: 17.5 Points)<a name="part1"></a>
 
 <div align="justify">
