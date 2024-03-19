@@ -1286,6 +1286,9 @@ free(equipes_max_nuls);
 
 
 # 8. Barème /100 <a name="bareme"></a>
+
+La répartition des points pour l'évaluation de ce projet est détaillée ci-dessous. 
+
 |**Nom des fonctions**|**Nombre de points attribuer**|
 | :- | :- |
 |*lire_equipes*| 7.5 |
