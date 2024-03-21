@@ -1,6 +1,6 @@
 
 void test_lire_equipes() {
-    W_CUP wc = {0}; // Initialiser la structure W_CUP
+    t_cup wc = {0}; // Initialiser la structure W_CUP
     lire_equipes(NOM_FICHIER_EQUIPES, &wc); // Chemin vers votre fichier de données
 
     // Assertions de test
@@ -36,7 +36,7 @@ void test_lire_equipes() {
 }
 
 void test_lire_matches() {
-    Liste_matches liste_matches;
+    t_liste_matches liste_matches;
     lire_matches(NOM_FICHIER_MATCHES, &liste_matches);
 
     // Tester si le nombre de matchs lus est égal au nombre attendu dans le fichier
