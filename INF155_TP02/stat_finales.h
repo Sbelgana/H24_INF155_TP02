@@ -3,12 +3,12 @@
 
 #include "phase_elimin.h"
 
-void afficher_stats_premier_tour(W_CUP *wc);
-Equipe* equipes_plus_buts_marques(W_CUP *wc, int *nb_equipes);
-Equipe* equipes_plus_buts_encaisses(W_CUP *wc, int *nb_equipes);
-Equipe* equipes_plus_victoires(W_CUP *wc, int *nb_equipes);
-Equipe* equipes_plus_defaites(W_CUP *wc, int *nb_equipes);
-Equipe* equipes_plus_matchs_nuls(W_CUP *wc, int *nb_equipes);
+void afficher_stats_premier_tour(t_wcup *wc);
+Equipe* equipes_plus_buts_marques(t_wcup *wc, int *nb_equipes);
+Equipe* equipes_plus_buts_encaisses(t_wcup *wc, int *nb_equipes);
+Equipe* equipes_plus_victoires(t_wcup *wc, int *nb_equipes);
+Equipe* equipes_plus_defaites(t_wcup *wc, int *nb_equipes);
+Equipe* equipes_plus_matchs_nuls(t_wcup *wc, int *nb_equipes);
 
 void test_stat();
 
