@@ -1,3 +1,5 @@
+
+
 void test_trouver_equipe_par_id() {
     // Initialisation de la structure t_wcup pour les tests
     t_wcup wc = {0};
@@ -115,13 +117,13 @@ void test_echanger() {
 void test_trier_groupes() {
     t_groupe groupeTest;
     groupeTest.nb_eqp = 4; // Nombre d'équipes dans le groupe
-    groupeTest.eqp = (Equipe*)malloc(groupeTest.nb_eqp * sizeof(Equipe));
+    groupeTest.eqp = (t_equipe*)malloc(groupeTest.nb_eqp * sizeof(t_equipe));
 
     // Initialisation des équipes avec des statistiques pour couvrir tous les cas de tri
-    groupeTest.eqp[0] = (Equipe){"ID1", "Equipe1", "UEFA", 'A', 0, 1, 1, 3, 4, -1, 1, 3, 3}; // Moins de points
-    groupeTest.eqp[1] = (Equipe){"ID2", "Equipe2", "CONMEBOL", 'A', 3, 0, 0, 5, 2, 3, 9, 1, 3}; // Plus de points
-    groupeTest.eqp[2] = (Equipe){"ID3", "Equipe3", "AFC", 'A', 1, 1, 1, 4, 4, 0, 4, 2, 3}; // Egalité de points et différence de buts, mais moins de buts pour
-    groupeTest.eqp[3] = (Equipe){"ID4", "Equipe4", "CAF", 'A', 1, 1, 1, 5, 5, 0, 4, 2, 3}; // Egalité de points et différence de buts, mais plus de buts pour
+    groupeTest.eqp[0] = (t_equipe){"ID1", "Equipe1", "UEFA", 'A', 0, 1, 1, 3, 4, -1, 1, 3, 3}; // Moins de points
+    groupeTest.eqp[1] = (t_equipe){"ID2", "Equipe2", "CONMEBOL", 'A', 3, 0, 0, 5, 2, 3, 9, 1, 3}; // Plus de points
+    groupeTest.eqp[2] = (t_equipe){"ID3", "Equipe3", "AFC", 'A', 1, 1, 1, 4, 4, 0, 4, 2, 3}; // Egalité de points et différence de buts, mais moins de buts pour
+    groupeTest.eqp[3] = (t_equipe){"ID4", "Equipe4", "CAF", 'A', 1, 1, 1, 5, 5, 0, 4, 2, 3}; // Egalité de points et différence de buts, mais plus de buts pour
 
     // Tri des équipes dans le groupe
     trier_groupes(&groupeTest);

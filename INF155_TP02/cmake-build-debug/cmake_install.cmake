@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/S_Belgana/Desktop/INF155_TP02
+# Install script for directory: C:/Users/S_Belgana/Documents/GitHub/INF155/TP02/INF155_TP02
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/S_Belgana/Desktop/INF155_TP02/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/S_Belgana/Documents/GitHub/INF155/TP02/INF155_TP02/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

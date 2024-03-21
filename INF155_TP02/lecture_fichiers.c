@@ -1,6 +1,7 @@
 
+
 void test_lire_equipes() {
-    t_cup wc = {0}; // Initialiser la structure t_wcup
+    t_wcup wc = {0}; // Initialiser la structure t_wcup
     lire_equipes(NOM_FICHIER_EQUIPES, &wc); // Chemin vers votre fichier de données
 
     // Assertions de test

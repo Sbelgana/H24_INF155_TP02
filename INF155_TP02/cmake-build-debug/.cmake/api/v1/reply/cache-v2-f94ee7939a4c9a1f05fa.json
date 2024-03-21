@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/S_Belgana/Desktop/INF155_TP02/cmake-build-debug"
+			"value" : "c:/Users/S_Belgana/Documents/GitHub/INF155/TP02/INF155_TP02/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -431,7 +431,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/S_Belgana/Desktop/INF155_TP02/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/S_Belgana/Documents/GitHub/INF155/TP02/INF155_TP02/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -503,7 +503,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/S_Belgana/Desktop/INF155_TP02"
+			"value" : "C:/Users/S_Belgana/Documents/GitHub/INF155/TP02/INF155_TP02"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1135,7 +1135,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/S_Belgana/Desktop/INF155_TP02/cmake-build-debug"
+			"value" : "C:/Users/S_Belgana/Documents/GitHub/INF155/TP02/INF155_TP02/cmake-build-debug"
 		},
 		{
 			"name" : "INF155_TP02_IS_TOP_LEVEL",
@@ -1159,7 +1159,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/S_Belgana/Desktop/INF155_TP02"
+			"value" : "C:/Users/S_Belgana/Documents/GitHub/INF155/TP02/INF155_TP02"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
