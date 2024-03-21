@@ -29,13 +29,13 @@ typedef struct t_groupe{
     int cap;
 } ;
 
-typedef struct {
+typedef struct t_buts{
     int buts_eq1, buts_eq2;
-}Buts;
+};
 
 typedef struct t_eliminatoire{
     Equipe rencontre[2];
-}Eliminatoire;
+};
 
 typedef struct t_wcup{
     Groupe grp[8];
@@ -50,7 +50,7 @@ typedef struct t_matche{
     int clas_vis, clas_dom;
     int buts_eq1, buts_eq2;
     int pts_vis, pts_dom;
-}Matche;
+};
 
 typedef struct t_liste_matches{
     Matche* matches;
