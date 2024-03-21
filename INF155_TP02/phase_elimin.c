@@ -19,8 +19,8 @@ void test_equipes_qualifiees(){
 
     for(int i = 0; i < 8; i++){
         trouve = 0;
-        Equipe eq1 = wc.tour_16[i].rencontre[0];
-        Equipe eq2 = wc.tour_16[i].rencontre[1];
+        t_equipe eq1 = wc.tour_16[i].rencontre[0];
+        t_equipe eq2 = wc.tour_16[i].rencontre[1];
         for (int j = 0; j < nb_ids; j++) {
             if (strcmp(eq1.id, ids_qualifies[j]) == 0 || strcmp(eq2.id, ids_qualifies[j]) == 0) {
                 trouve = 1;
@@ -77,7 +77,7 @@ void test_simuler_tour() {
         assert(id_trouve); // Vérifie que l'ID de l'équipe est trouvé parmi les IDs attendus
 
         // Vérification des statistiques pour le premier participant de chaque rencontre
-        Equipe eq = wc.tour_8[i].rencontre[0];
+        t_equipe eq = wc.tour_8[i].rencontre[0];
         assert(eq.pts == 6);
         assert(eq.vic == 3);
         assert(eq.def == 1);
