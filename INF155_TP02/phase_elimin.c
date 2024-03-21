@@ -1,9 +1,9 @@
 
 
 void test_equipes_qualifiees(){
-    // Initialisation de la structure W_CUP pour les tests
-    W_CUP wc = {0};
-    Liste_matches liste_matches = {0};
+    // Initialisation de la structure t_wcup pour les tests
+    t_wcup wc = {0};
+    t_liste_matches liste_matches = {0};
 
     lire_equipes(NOM_FICHIER_EQUIPES, &wc); // Chemin vers votre fichier de données
     lire_matches(NOM_FICHIER_MATCHES, &liste_matches);
@@ -47,9 +47,9 @@ void test_equipes_qualifiees(){
 }
 
 void test_simuler_tour() {
-    // Initialisation de la structure W_CUP pour les tests
-    W_CUP wc = {0};
-    Liste_matches liste_matches = {0};
+    // Initialisation de la structure t_wcup pour les tests
+    t_wcup wc = {0};
+    t_liste_matches liste_matches = {0};
 
     lire_equipes(NOM_FICHIER_EQUIPES, &wc); // Chemin vers votre fichier de données
     lire_matches(NOM_FICHIER_MATCHES, &liste_matches);
@@ -95,9 +95,9 @@ void test_simuler_tour() {
 }
 
 void test_tour_eliminatoires(){
-    // Initialisation de la structure W_CUP pour les tests
-    W_CUP wc = {0};
-    Liste_matches liste_matches = {0};
+    // Initialisation de la structure t_wcup pour les tests
+    t_wcup wc = {0};
+    t_liste_matches liste_matches = {0};
 
     lire_equipes(NOM_FICHIER_EQUIPES, &wc); // Chemin vers votre fichier de données
     lire_matches(NOM_FICHIER_MATCHES, &liste_matches);
