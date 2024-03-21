@@ -3,13 +3,13 @@
 
 #include "lecture_fichiers.h"
 
-Equipe* trouver_equipe_par_id(W_CUP* wc, const char* id);
+t_equipe* trouver_equipe_par_id(t_wcup* wc, const char* id);
 int normalvariate(double mu, double sigma);
-Buts jouer_match(Equipe *eq1, Equipe *eq2);
-void mettre_a_jour_classement(Equipe *eq1, Equipe *eq2, Buts but);
-void echanger(Equipe *a, Equipe *b) ;
-void trier_groupes(Groupe *grp);
-void simuler_matchs(W_CUP *wc, Liste_matches *liste_matches);
+t_buts jouer_match(t_equipe *eq1, t_equipe *eq2);
+void mettre_a_jour_classement(t_equipe *eq1, t_equipe *eq2, t_buts but);
+void echanger(t_equipe *a, t_equipe *b) ;
+void trier_groupes(t_groupe *grp);
+void simuler_matchs(t_wcup *wc, t_liste_matches *liste_matches);
 
 void test_trouver_equipe_par_id();
 void test_normalvariate();
