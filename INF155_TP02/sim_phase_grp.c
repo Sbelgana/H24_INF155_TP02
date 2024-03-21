@@ -1,13 +1,13 @@
 void test_trouver_equipe_par_id() {
-    // Initialisation de la structure W_CUP pour les tests
-    W_CUP wc = {0};
+    // Initialisation de la structure t_wcup pour les tests
+    t_wcup wc = {0};
 
     lire_equipes(NOM_FICHIER_EQUIPES, &wc); // Chemin vers votre fichier de données
 
 
 
     // Test avec un ID existant
-    Equipe* equipe = trouver_equipe_par_id(&wc, "MAR");
+    t_equipe* equipe = trouver_equipe_par_id(&wc, "MAR");
     assert(equipe != nullptr && "L'équipe avec l'ID_EXISTANT doit exister.");
 
     // Test avec un ID inexistant
@@ -34,8 +34,8 @@ void test_normalvariate(){
 
 
 void test_jouer_match() {
-    Equipe eq1 = {"ID1", "Equipe1", "UEFA", 'A', 0, 0, 0, 0, 0, 0, 1500, 0, 0};
-    Equipe eq2 = {"ID2", "Equipe2", "CONMEBOL", 'A', 0, 0, 0, 0, 0, 0, 1400, 0, 0};
+    t_equipe eq1 = {"ID1", "Equipe1", "UEFA", 'A', 0, 0, 0, 0, 0, 0, 1500, 0, 0};
+    t_equipe eq2 = {"ID2", "Equipe2", "CONMEBOL", 'A', 0, 0, 0, 0, 0, 0, 1400, 0, 0};
 
     for(int i = 0; i < 1000; i++){
         Buts resultat = jouer_match(&eq1, &eq2);
@@ -50,8 +50,8 @@ void test_jouer_match() {
 
 
 void test_mettre_a_jour_classement() {
-    Equipe eq1 = {"ID1", "Equipe1", "UEFA", 'A', 0, 0, 0, 0, 0, 0, 0, 1, 0}; // Initialisation d'une équipe avec des valeurs fictives
-    Equipe eq2 = {"ID2", "Equipe2", "CONMEBOL", 'B', 0, 0, 0, 0, 0, 0, 0, 2, 0}; // Initialisation d'une autre équipe avec des valeurs fictives
+    t_equipe eq1 = {"ID1", "Equipe1", "UEFA", 'A', 0, 0, 0, 0, 0, 0, 0, 1, 0}; // Initialisation d'une équipe avec des valeurs fictives
+    t_equipe eq2 = {"ID2", "Equipe2", "CONMEBOL", 'B', 0, 0, 0, 0, 0, 0, 0, 2, 0}; // Initialisation d'une autre équipe avec des valeurs fictives
     Buts resultat_match = {2, 1}; // Résultat fictif du match où eq1 marque 2 buts et eq2 marque 1 but
 
     mettre_a_jour_classement(&eq1, &eq2, resultat_match);
@@ -76,8 +76,8 @@ void test_mettre_a_jour_classement() {
 
 
 void test_echanger() {
-    Equipe equipeA = {"ID_A", "Equipe A", "UEFA", 'A', 1, 0, 0, 10, 0, 0, 3, 1110, 1};
-    Equipe equipeB = {"ID_B", "Equipe B", "CONMEBOL", 'B', 0, 1, 0, 0, 5, 0, 1, 1120, 1};
+    t_equipe equipeA = {"ID_A", "Equipe A", "UEFA", 'A', 1, 0, 0, 10, 0, 0, 3, 1110, 1};
+    t_equipe equipeB = {"ID_B", "Equipe B", "CONMEBOL", 'B', 0, 1, 0, 0, 5, 0, 1, 1120, 1};
 
     // Sauvegarde des valeurs initiales pour comparaison après échange
     Equipe equipeA_init = equipeA;
@@ -113,7 +113,7 @@ void test_echanger() {
 
 // Test de la fonction trier_groupes
 void test_trier_groupes() {
-    Groupe groupeTest;
+    t_groupe groupeTest;
     groupeTest.nb_eqp = 4; // Nombre d'équipes dans le groupe
     groupeTest.eqp = (Equipe*)malloc(groupeTest.nb_eqp * sizeof(Equipe));
 
@@ -138,9 +138,9 @@ void test_trier_groupes() {
 
 
 void test_simuler_matchs(){
-    // Initialisation de la structure W_CUP pour les tests
-    W_CUP wc = {0};
-    Liste_matches liste_matches = {0};
+    // Initialisation de la structure t_wcup pour les tests
+    t_wcup wc = {0};
+    t_liste_matches liste_matches = {0};
 
     lire_equipes(NOM_FICHIER_EQUIPES, &wc); // Chemin vers votre fichier de données
     lire_matches(NOM_FICHIER_MATCHES, &liste_matches);
