@@ -2,7 +2,7 @@
 
 void test_stat(){
     t_wcup wc = {0};
-    t_liste_matches liste_matches = {0};
+    t_liste_matchs liste_matchs = {0};
     int nb_equipes_vic =0;
     int nb_equipes_def =0;
     int nb_equipes_nul =0;
@@ -10,10 +10,10 @@ void test_stat(){
     int nb_equipes_bc =0;
 
     lire_equipes(NOM_FICHIER_EQUIPES, &wc); // Chemin vers votre fichier de données
-    lire_matches(NOM_FICHIER_MATCHES, &liste_matches);
+    lire_matchs(NOM_FICHIER_MATCHS, &liste_matchs);
 
     // Appel de la fonction de simulation
-    simuler_matchs(&wc, &liste_matches);
+    simuler_matchs(&wc, &liste_matchs);
     t_equipe* eqs_vic = equipes_plus_victoires( &wc,  &nb_equipes_vic);
     t_equipe* eqs_def = equipes_plus_defaites( &wc,  &nb_equipes_def);
     t_equipe* eqs_nul = equipes_plus_matchs_nuls( &wc,  &nb_equipes_nul);
@@ -32,7 +32,7 @@ void test_stat(){
     for (int i = 0; i < 8; ++i) {
         free(wc.grp[i].eqp);
     }
-    free(liste_matches.matches);
+    free(liste_matchs.matchs);
     free(eqs_vic);
     free(eqs_def);
     free(eqs_nul);

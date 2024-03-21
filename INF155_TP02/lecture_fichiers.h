@@ -4,11 +4,11 @@
 #include "structures.h"
 
 void lire_equipes(const char* nom_fichier, t_wcup* wc);
-void afficher_groupe(t_wcup wc);
-void lire_matches(const char* nom_fichier, t_liste_matches* liste_matches);
-void afficher_match(t_liste_matches liste_matches );
+void afficher_groupe(t_wcup* wc);
+void lire_matchs(const char* nom_fichier, t_liste_matchs* liste_matchs);
+void afficher_matchs(t_liste_matchs* liste_matchs);
 
 void test_lire_equipes();
-void test_lire_matches();
+void test_lire_matchs();
 
 #endif //INF155_TP02_LECTURE_FICHIERS_H

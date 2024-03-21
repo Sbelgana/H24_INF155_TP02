@@ -9,7 +9,7 @@
 #include <assert.h>
 
 #define NOM_FICHIER_EQUIPES "..//equipes2022.txt"
-#define NOM_FICHIER_MATCHES "..//matchs2022.txt"
+#define NOM_FICHIER_MATCHS "..//matchs2022.txt"
 
 
 typedef struct {
@@ -19,7 +19,7 @@ typedef struct {
     char groupe;
     int vic, def, nul;
     int buts_p, buts_c, diff_buts;
-    int pts, clas, matche_jouer;
+    int pts, clas, matchs_joues;
 }t_equipe;
 
 typedef struct {
@@ -43,6 +43,7 @@ typedef struct {
     t_eliminatoire tour_8[4];
     t_eliminatoire tour_4[2];
     t_eliminatoire finale;
+    t_equipe gagnant;
 }t_wcup;
 
 typedef struct {
@@ -50,12 +51,12 @@ typedef struct {
     int clas_vis, clas_dom;
     int buts_eq1, buts_eq2;
     int pts_vis, pts_dom;
-}t_matche;
+}t_match;
 
 typedef struct {
-    t_matche* matches;
-    int nb_matche;
+    t_match* matchs;
+    int nb_match;
     int cap;
-}t_liste_matches;
+}t_liste_matchs;
 
 #endif //INF155_TP02_STRUCTURES_H

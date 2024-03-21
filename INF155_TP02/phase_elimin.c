@@ -3,13 +3,13 @@
 void test_equipes_qualifiees(){
     // Initialisation de la structure t_wcup pour les tests
     t_wcup wc = {0};
-    t_liste_matches liste_matches = {0};
+    t_liste_matchs liste_matchs = {0};
 
     lire_equipes(NOM_FICHIER_EQUIPES, &wc); // Chemin vers votre fichier de données
-    lire_matches(NOM_FICHIER_MATCHES, &liste_matches);
+    lire_matchs(NOM_FICHIER_MATCHS, &liste_matchs);
 
     // Appel de la fonction de simulation
-    simuler_matchs(&wc, &liste_matches);
+    simuler_matchs(&wc, &liste_matchs);
 
     equipes_qualifiees(&wc);
 
@@ -43,19 +43,19 @@ void test_equipes_qualifiees(){
     for (int i = 0; i < 8; ++i) {
         free(wc.grp[i].eqp);
     }
-    free(liste_matches.matches);
+    free(liste_matchs.matchs);
 }
 
 void test_simuler_tour() {
     // Initialisation de la structure t_wcup pour les tests
     t_wcup wc = {0};
-    t_liste_matches liste_matches = {0};
+    t_liste_matchs liste_matchs = {0};
 
     lire_equipes(NOM_FICHIER_EQUIPES, &wc); // Chemin vers votre fichier de données
-    lire_matches(NOM_FICHIER_MATCHES, &liste_matches);
+    lire_matchs(NOM_FICHIER_MATCHS, &liste_matchs);
 
     // Appel de la fonction de simulation
-    simuler_matchs(&wc, &liste_matches);
+    simuler_matchs(&wc, &liste_matchs);
 
     equipes_qualifiees(&wc);
 
@@ -91,19 +91,19 @@ void test_simuler_tour() {
     for (int i = 0; i < 8; ++i) {
         free(wc.grp[i].eqp);
     }
-    free(liste_matches.matches);
+    free(liste_matchs.matchs);
 }
 
 void test_tour_eliminatoires(){
     // Initialisation de la structure t_wcup pour les tests
     t_wcup wc = {0};
-    t_liste_matches liste_matches = {0};
+    t_liste_matchs liste_matchs = {0};
 
     lire_equipes(NOM_FICHIER_EQUIPES, &wc); // Chemin vers votre fichier de données
-    lire_matches(NOM_FICHIER_MATCHES, &liste_matches);
+    lire_matchs(NOM_FICHIER_MATCHS, &liste_matchs);
 
     // Appel de la fonction de simulation
-    simuler_matchs(&wc, &liste_matches);
+    simuler_matchs(&wc, &liste_matchs);
 
     equipes_qualifiees(&wc) ;
 
@@ -130,5 +130,5 @@ void test_tour_eliminatoires(){
     for (int i = 0; i < 8; ++i) {
         free(wc.grp[i].eqp);
     }
-    free(liste_matches.matches);
+    free(liste_matchs.matchs);
 }

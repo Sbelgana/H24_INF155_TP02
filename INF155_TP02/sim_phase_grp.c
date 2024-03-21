@@ -64,14 +64,14 @@ void test_mettre_a_jour_classement() {
     assert(eq1.diff_buts == 1);
     assert(eq1.vic == 1);
     assert(eq1.pts == 3);
-    assert(eq1.matche_jouer == 1);
+    assert(eq1.matchs_joues == 1);
 
     assert(eq2.buts_p == 1);
     assert(eq2.buts_c == 2);
     assert(eq2.diff_buts == -1);
     assert(eq2.def == 1);
     assert(eq2.pts == 0);
-    assert(eq2.matche_jouer == 1);
+    assert(eq2.matchs_joues == 1);
 
     printf("Tous les tests sont passés avec succès.\n");
 }
@@ -114,7 +114,7 @@ void test_echanger() {
 
 
 // Test de la fonction trier_groupes
-void test_trier_groupes() {
+void test_trier_groupe() {
     t_groupe groupeTest;
     groupeTest.nb_eqp = 4; // Nombre d'équipes dans le groupe
     groupeTest.eqp = (t_equipe*)malloc(groupeTest.nb_eqp * sizeof(t_equipe));
@@ -126,7 +126,7 @@ void test_trier_groupes() {
     groupeTest.eqp[3] = (t_equipe){"ID4", "Equipe4", "CAF", 'A', 1, 1, 1, 5, 5, 0, 4, 2, 3}; // Egalité de points et différence de buts, mais plus de buts pour
 
     // Tri des équipes dans le groupe
-    trier_groupes(&groupeTest);
+    trier_groupe(&groupeTest);
 
     // Vérification de l'ordre après le tri
     assert(strcmp(groupeTest.eqp[0].id, "ID2") == 0); // L'équipe avec le plus de points doit être première
@@ -142,13 +142,13 @@ void test_trier_groupes() {
 void test_simuler_matchs(){
     // Initialisation de la structure t_wcup pour les tests
     t_wcup wc = {0};
-    t_liste_matches liste_matches = {0};
+    t_liste_matchs liste_matchs = {0};
 
     lire_equipes(NOM_FICHIER_EQUIPES, &wc); // Chemin vers votre fichier de données
-    lire_matches(NOM_FICHIER_MATCHES, &liste_matches);
+    lire_matchs(NOM_FICHIER_MATCHS, &liste_matchs);
 
     // Appel de la fonction de simulation
-    simuler_matchs(&wc, &liste_matches);
+    simuler_matchs(&wc, &liste_matchs);
 
     for(int i = 0; i < 8; i++){
         for (int j = 0; j < 4; j++){
@@ -208,5 +208,5 @@ void test_simuler_matchs(){
     for (int i = 0; i < 8; ++i) {
         free(wc.grp[i].eqp);
     }
-    free(liste_matches.matches);
+    free(liste_matchs.matchs);
 }

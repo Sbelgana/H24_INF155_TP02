@@ -36,21 +36,23 @@ void test_lire_equipes() {
     printf("Tous les tests sont passés avec succès.\n");
 }
 
-void test_lire_matches() {
-    t_liste_matches liste_matches;
-    lire_matches(NOM_FICHIER_MATCHES, &liste_matches);
+void test_lire_matchs() {
+    t_liste_matchs liste_matchs;
+    lire_matchs(NOM_FICHIER_MATCHS, &liste_matchs);
 
     // Tester si le nombre de matchs lus est égal au nombre attendu dans le fichier
-    assert(liste_matches.nb_matche == 48);
+    assert(liste_matchs.nb_match == 48);
 
     // Tester si le premier et le dernier match ont été lus correctement
-    assert(strcmp(liste_matches.matches[0].id_dom, "QAT") == 0);
-    assert(strcmp(liste_matches.matches[0].id_vis, "ECU") == 0);
-    assert(strcmp(liste_matches.matches[47].id_dom, "KOR") == 0);
-    assert(strcmp(liste_matches.matches[47].id_vis, "POR") == 0);
+    assert(strcmp(liste_matchs.matchs[0].id_dom, "QAT") == 0);
+    assert(strcmp(liste_matchs.matchs[0].id_vis, "ECU") == 0);
+    assert(strcmp(liste_matchs.matchs[47].id_dom, "KOR") == 0);
+    assert(strcmp(liste_matchs.matchs[47].id_vis, "POR") == 0);
+
+    //afficher_matchs(&liste_matchs);
 
     // Libérer la mémoire allouée pour la liste des matchs
-    free(liste_matches.matches);
+    free(liste_matchs.matchs);
 
     printf("Tous les tests sont passés avec succès.\n");
 }
