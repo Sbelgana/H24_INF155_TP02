@@ -26,26 +26,49 @@ void test_trouver_equipe_par_id() {
 
 
 void test_normalvariate(){
+    int sum = 0;
+    double var = 0.0;
     for(int i = 0; i < 10000; i++) {
         int result = normalvariate(3, 1); // Utilisation de valeurs typiques pour mu et sigma
         assert(result >= 0 && result <= 6); // Vérification que le résultat est dans l'intervalle [0, 6]
+
+        sum += result;
+        var += pow(result - 3.0, 2);
     }
+
+    // Vérification de la moyenne
+    assert(fabs((sum / 10000.0) - 3.0) < 0.1);
+
+    // Vérification de l'écart-type
+    assert(fabs(sqrt(var / 10000.0) - 1.0) < 0.1);
 
     printf("Tous les tests sont passés avec succès.\n");
 }
 
 
 void test_jouer_match() {
-    t_equipe eq1 = {"ID1", "Equipe1", "UEFA", 'A', 0, 0, 0, 0, 0, 0, 1500, 0, 0};
-    t_equipe eq2 = {"ID2", "Equipe2", "CONMEBOL", 'A', 0, 0, 0, 0, 0, 0, 1400, 0, 0};
+    t_equipe eq1 = {"ID1", "Equipe1", "UEFA", 'A', 0, 0, 0, 0, 0, 0, 0, 1500, 0};
+    t_equipe eq2 = {"ID2", "Equipe2", "CONMEBOL", 'A', 0, 0, 0, 0, 0, 0, 0, 1400, 0};
 
+    int eq1_vic = 0; // Nombre de victoires de l'équipe 1
+    int eq1_nul = 0; // Nombre de parties nulles de l'équipe 1
     for(int i = 0; i < 1000; i++){
         t_buts resultat = jouer_match(&eq1, &eq2);
 
         // Vérifier que le score est non négatif
         assert(resultat.buts_eq1 >= 0);
         assert(resultat.buts_eq2 >= 0);
+
+        if (resultat.buts_eq1 > resultat.buts_eq2) {
+            eq1_vic++;
+        } else if (resultat.buts_eq1 == resultat.buts_eq2) {
+            eq1_nul++;
+        }
     }
+
+    // Vérifier que l'équipe 1 a gagné la majorité des matchs
+    // (On compte les matchs nuls comme une demi victoire)
+    assert((eq1_vic + eq1_nul/2) > 500);
 
     printf("Tous les tests sont passés avec succès.\n");
 }
