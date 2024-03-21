@@ -665,7 +665,7 @@ La fonction `jouer_match` simule l'issue d'une rencontre entre deux équipes lor
 - **Détermination des scores :** Le nombre de buts marqués par chaque équipe est généré à l'aide d'une distribution normale, où la moyenne est ajustée selon la différence de classement FIFA. Cela simule l'avantage ou le désavantage d'une équipe en fonction de son classement.
 
 #### Calcul des buts :
-La fonction calcule la différence de classement FIFA entre les deux équipes (`diff_fifa`), puis utilise cette différence pour ajuster la moyenne des buts marqués. Pour l'équipe avec un classement supérieur, la moyenne est augmentée de `diff_fifa`, et pour l'équipe avec un classement inférieur, elle est diminuée de `diff_fifa`. Les buts sont générés en suivant une distribution normale centrée sur 3 buts, avec un écart type de 1, ajustée par la différence de classement FIFA.
+La fonction calcule la différence de classement FIFA entre les deux équipes et le divise par 1000 (`diff_fifa`), puis utilise cette différence pour ajuster la moyenne des buts marqués. Pour l'équipe avec un classement supérieur, la moyenne est augmentée de `diff_fifa`, et pour l'équipe avec un classement inférieur, elle est diminuée de `diff_fifa`. Les buts sont générés en suivant une distribution normale centrée sur 3 buts, avec un écart type de 1, ajustée par la différence de classement FIFA.
 
 #### Résultat du match :
 Le match peut se terminer par une victoire d'une des équipes ou un match nul. La fonction calcule les scores finaux sans nécessiter de prolongation ou de tirs au but pour les matchs de phase de groupe.
