@@ -38,7 +38,7 @@ void test_jouer_match() {
     t_equipe eq2 = {"ID2", "Equipe2", "CONMEBOL", 'A', 0, 0, 0, 0, 0, 0, 1400, 0, 0};
 
     for(int i = 0; i < 1000; i++){
-        Buts resultat = jouer_match(&eq1, &eq2);
+        t_buts resultat = jouer_match(&eq1, &eq2);
 
         // Vérifier que le score est non négatif
         assert(resultat.buts_eq1 >= 0);
@@ -52,7 +52,7 @@ void test_jouer_match() {
 void test_mettre_a_jour_classement() {
     t_equipe eq1 = {"ID1", "Equipe1", "UEFA", 'A', 0, 0, 0, 0, 0, 0, 0, 1, 0}; // Initialisation d'une équipe avec des valeurs fictives
     t_equipe eq2 = {"ID2", "Equipe2", "CONMEBOL", 'B', 0, 0, 0, 0, 0, 0, 0, 2, 0}; // Initialisation d'une autre équipe avec des valeurs fictives
-    Buts resultat_match = {2, 1}; // Résultat fictif du match où eq1 marque 2 buts et eq2 marque 1 but
+    t_buts resultat_match = {2, 1}; // Résultat fictif du match où eq1 marque 2 buts et eq2 marque 1 but
 
     mettre_a_jour_classement(&eq1, &eq2, resultat_match);
 
@@ -80,8 +80,8 @@ void test_echanger() {
     t_equipe equipeB = {"ID_B", "Equipe B", "CONMEBOL", 'B', 0, 1, 0, 0, 5, 0, 1, 1120, 1};
 
     // Sauvegarde des valeurs initiales pour comparaison après échange
-    Equipe equipeA_init = equipeA;
-    Equipe equipeB_init = equipeB;
+    t_equipe equipeA_init = equipeA;
+    t_equipe equipeB_init = equipeB;
 
     // Échange des données entre equipeA et equipeB
     echanger(&equipeA, &equipeB);
