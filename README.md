@@ -3,7 +3,7 @@
 </p>
 
 
-# TR02: Coupe du Monde de Football Qatar 2022
+# TP02: Coupe du Monde de Football Qatar 2022
 - [Directives particulières](#directives)
 - [Introduction](#introduction)
 - [Objectifs](#objectif) 
