@@ -1,6 +1,6 @@
 void test_stat(){
-    W_CUP wc = {0};
-    Liste_matches liste_matches = {0};
+    t_wcup wc = {0};
+    t_liste_matches liste_matches = {0};
     int nb_equipes_vic =0;
     int nb_equipes_def =0;
     int nb_equipes_nul =0;
@@ -12,11 +12,11 @@ void test_stat(){
 
     // Appel de la fonction de simulation
     simuler_matchs(&wc, &liste_matches);
-    Equipe * eqs_vic = equipes_plus_victoires( &wc,  &nb_equipes_vic);
-    Equipe * eqs_def = equipes_plus_defaites( &wc,  &nb_equipes_def);
-    Equipe * eqs_nul = equipes_plus_matchs_nuls( &wc,  &nb_equipes_nul);
-    Equipe * eqs_bp = equipes_plus_buts_marques( &wc,  &nb_equipes_bp);
-    Equipe * eqs_bc = equipes_plus_buts_encaisses( &wc,  &nb_equipes_bc);
+    t_equipe* eqs_vic = equipes_plus_victoires( &wc,  &nb_equipes_vic);
+    t_equipe* eqs_def = equipes_plus_defaites( &wc,  &nb_equipes_def);
+    t_equipe* eqs_nul = equipes_plus_matchs_nuls( &wc,  &nb_equipes_nul);
+    t_equipe* eqs_bp = equipes_plus_buts_marques( &wc,  &nb_equipes_bp);
+    t_equipe* eqs_bc = equipes_plus_buts_encaisses( &wc,  &nb_equipes_bc);
 
     assert(nb_equipes_vic == 16);
     assert(nb_equipes_def == 16);
