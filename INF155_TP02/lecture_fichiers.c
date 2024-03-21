@@ -1,6 +1,6 @@
 
 void test_lire_equipes() {
-    t_cup wc = {0}; // Initialiser la structure W_CUP
+    t_cup wc = {0}; // Initialiser la structure t_wcup
     lire_equipes(NOM_FICHIER_EQUIPES, &wc); // Chemin vers votre fichier de données
 
     // Assertions de test
@@ -14,7 +14,7 @@ void test_lire_equipes() {
     // Exemple d'autres assertions
     // Vérifiez qu'une équipe spécifique est correctement placée dans son groupe avec les détails corrects
     // Cela pourrait être étendu en fonction des données connues de votre fichier
-    Groupe test_groupe = wc.grp[0]; // Exemple : Groupe A
+    t_groupe test_groupe = wc.grp[0]; // Exemple : Groupe A
     int trouve = 0;
     for (int i = 0; i < test_groupe.nb_eqp; ++i) {
         if (strcmp(test_groupe.eqp[i].nom, "Qatar") == 0 &&
