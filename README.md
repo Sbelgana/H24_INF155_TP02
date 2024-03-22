@@ -3,7 +3,7 @@
 </p>
 
 
-# TR02: Coupe du Monde de Football Qatar 2022
+# TP02: Coupe du Monde de Football Qatar 2022
 - [Directives particulières](#directives)
 - [Introduction](#introduction)
 - [Objectifs](#objectif) 
@@ -227,7 +227,7 @@ La Coupe du Monde de Football Qatar 2022 se distingue par son format unique et s
 
 Ce projet utilise des structures de données spécifiques pour modéliser les aspects clés de la Coupe du Monde de Football. Ces structures représentent les équipes, les groupes, les matchs, et l'organisation générale du tournoi. Voici une explication détaillée de chaque structure et de ses champs :
 
-## Structure `Equipe`
+## Structure `t_equipe`
 Cette structure représente une équipe participant au tournoi, contenant toutes les informations nécessaires relatives à son identité et ses performances.
 ```c
 typedef struct {
@@ -243,51 +243,52 @@ typedef struct {
     int diff_buts;     // Différence entre les buts marqués et les buts encaissés.
     int pts;           // Nombre total de points accumulés par l'équipe dans le tournoi.
     int clas;          // Classement FIFA de l'équipe.
-    int matche_jouer;  // Nombre total de matchs joués par l'équipe.
-} Equipe;
+    int matchs_joues;  // Nombre total de matchs joués par l'équipe.
+} t_equipe;
 ```
 
-## Structure `Groupe`
+## Structure `t_groupe`
 Organise les équipes en groupes pour la phase de groupes du tournoi.
 ```c
 typedef struct {
     char nom;          // Lettre désignant le nom du groupe.
-    Equipe* eqp;       // Pointeur vers un tableau dynamique d'équipes dans le groupe.
+    t_equipe* eqp;       // Pointeur vers un tableau dynamique d'équipes dans le groupe.
     int nb_eqp;        // Nombre d'équipes actuellement dans le groupe.
     int cap;           // Capacité actuelle du tableau d'équipes (permet d'allouer dynamiquement plus d'espace si nécessaire).
-} Groupe;
+} t_groupe;
 ```
 
-## Structure `Buts`
+## Structure `t_buts`
 Contient le décompte des buts pour un match donné entre deux équipes.
 ```c
 typedef struct {
     int buts_eq1;      // Nombre de buts marqués par l'équipe 1.
     int buts_eq2;      // Nombre de buts marqués par l'équipe 2.
-} Buts;
+} t_buts;
 ```
 
-## Structure `Eliminatoire`
+## Structure `t_eliminatoire`
 Définit une rencontre éliminatoire, pouvant être un match des huitièmes de finale, quarts de finale, demi-finales, ou la finale.
 ```c
 typedef struct {
-    Equipe rencontre[2];  // Les deux équipes participant à la rencontre éliminatoire.
-} Eliminatoire;
+    t_equipe rencontre[2];  // Les deux équipes participant à la rencontre éliminatoire.
+} t_eliminatoire;
 ```
 
-## Structure `W_CUP`
+## Structure `t_wcup`
 Représente la structure globale du tournoi, incluant toutes les phases de jeu.
 ```c
 typedef struct {
-    Groupe grp[8];           // Tableau des 8 groupes de la phase de groupes.
-    Eliminatoire tour_16[8]; // Tableau des 8 matchs des huitièmes de finale.
-    Eliminatoire tour_8[4];  // Tableau des 4 matchs des quarts de finale.
-    Eliminatoire tour_4[2];  // Tableau des 2 matchs des demi-finales.
-    Eliminatoire finale;     // La finale du tournoi.
-} W_CUP;
+    t_groupe grp[8];           // Tableau des 8 groupes de la phase de groupes.
+    t_eliminatoire tour_16[8]; // Tableau des 8 matchs des huitièmes de finale.
+    t_eliminatoire tour_8[4];  // Tableau des 4 matchs des quarts de finale.
+    t_eliminatoire tour_4[2];  // Tableau des 2 matchs des demi-finales.
+    t_eliminatoire finale;     // La finale du tournoi.
+    t_equipe gagnant;          // Équipe qui a gagné la finale.
+} t_wcup;
 ```
 
-## Structure `Matche` et `Liste_matches`
+## Structure `t_match` et `t_liste_matchs`
 Ces structures permettent de gérer les informations relatives aux matchs programmés et simulés durant le tournoi.
 ```c
 typedef struct{
@@ -301,13 +302,13 @@ typedef struct{
     int buts_eq2;        // Buts marqués par l'équipe visiteuse.
     int pts_vis;         // Points accumulés par l'équipe visiteuse.
     int pts_dom;         // Points accumulés par l'équipe à domicile.
-} Matche;
+} t_match;
 
 typedef struct{
-    Matche* matches;     // Pointeur vers un tableau dynamique de matchs.
-    int nb_matche;       // Nombre de matchs contenus dans le tableau.
+    t_match* matchs;     // Pointeur vers un tableau dynamique de matchs.
+    int nb_match;       // Nombre de matchs contenus dans le tableau.
     int cap;             // Capacité actuelle du tableau (pour allocation dynamique).
-} Liste_matches;
+} t_liste_matchs;
 ```
 
 La compréhension de ces structures est essentielle pour naviguer à travers les différentes phases du projet de simulation.
@@ -324,11 +325,11 @@ Afin de structurer le projet de manière modulaire et de faciliter la compréhen
 
 ### Module 1: Déclaration des Structures (`structures.h`)
 Ce module contient les déclarations de toutes les structures de données utilisées dans le projet, offrant une référence centrale pour la modélisation des éléments du tournoi.
-- **`structures.h`** : Contient les déclarations des structures `Equipe`, `Groupe`, `Buts`, `Eliminatoire`, `Matche`, `Liste_matches`, et `W_CUP`.
+- **`structures.h`** : Contient les déclarations des structures `t_equipe`, `t_groupe`, `t_buts`, `t_eliminatoire`, `t_match`, `t_liste_matchs`, et `t_wcup`.
 
 ### Module 2: Lecture des Fichiers (`lecture_fichiers.c` et `lecture_fichiers.h`)
 Ce module se charge de lire les informations des équipes et des matchs depuis des fichiers, permettant de charger les données nécessaires pour le tournoi.
-- **`lecture_fichiers.h`** : Définit les prototypes des fonctions `lire_equipes` et `lire_matches`.
+- **`lecture_fichiers.h`** : Définit les prototypes des fonctions `lire_equipes` et `lire_matchs`.
 - **`lecture_fichiers.c`** : Implémente les fonctions pour la lecture des fichiers des équipes et des matchs.
 
 ### Module 3: Simulation de la Phase de Groupes (`sim_phase_grp.c` et `sim_phase_grp.h`)
@@ -370,18 +371,18 @@ Pour structurer le projet de manière efficace et garantir une avancée méthodi
 
 ### Lire les équipes (7.5 Points)
 
-Cette fonction est conçue pour charger les données des équipes qualifiées pour la Coupe du Monde de Football Qatar 2022 à partir d'un fichier texte. Elle lit les informations concernant chaque équipe, telles que le nom de l'équipe, son identifiant FIFA, son classement FIFA, et le groupe auquel elle appartient. Ces informations sont ensuite organisées dans une structure <code>Equipe</code> et stockées dans un tableau dynamique au sein d'une structure <code>Groupe</code>, elle-même intégrée dans une structure globale <code>W_CUP</code> représentant la Coupe du Monde.<br><br>
+Cette fonction est conçue pour charger les données des équipes qualifiées pour la Coupe du Monde de Football Qatar 2022 à partir d'un fichier texte. Elle lit les informations concernant chaque équipe, telles que le nom de l'équipe, son identifiant FIFA, son classement FIFA, et le groupe auquel elle appartient. Ces informations sont ensuite organisées dans une structure <code>t_equipe</code> et stockées dans un tableau dynamique au sein d'une structure <code>t_groupe</code>, elle-même intégrée dans une structure globale <code>t_wcup</code> représentant la Coupe du Monde.<br><br>
 
-Le fichier est structuré par confédérations, avec chaque section débutant par le nombre d'équipes et le nom de la confédération. Pour chaque équipe, la fonction lit le nom, l'identifiant FIFA, le classement FIFA, et le groupe d'affectation, avant d'ajouter l'équipe à son groupe respectif dans la structure `W_CUP`. Si nécessaire, l'espace alloué pour les équipes dans un groupe est dynamiquement agrandi pour accueillir de nouvelles entrées.
+Le fichier est structuré par confédérations, avec chaque section débutant par le nombre d'équipes et le nom de la confédération. Pour chaque équipe, la fonction lit le nom, l'identifiant FIFA, le classement FIFA, et le groupe d'affectation, avant d'ajouter l'équipe à son groupe respectif dans la structure `t_wcup`. Si nécessaire, l'espace alloué pour les équipes dans un groupe est dynamiquement agrandi pour accueillir de nouvelles entrées.
 
 #### Paramètres :
 - `nom_fichier` : Chaîne de caractères constante représentant le chemin vers le fichier contenant les données des équipes.
-- `wc` : Pointeur vers une structure `W_CUP`, qui sera remplie avec les données des équipes lues du fichier.
+- `wc` : Pointeur vers une structure `t_wcup`, qui sera remplie avec les données des équipes lues du fichier.
 
 #### Déroulement de la fonction :
 1. La fonction commence par ouvrir le fichier spécifié pour la lecture. Si l'ouverture échoue, elle affiche un message d'erreur et s'arrête.
 2. Pour chaque confédération, le nombre d'équipes et le nom de la confédération sont lus, puis chaque équipe est traitée individuellement.
-3. Pour chaque équipe, les informations sont lues et stockées dans une structure `Equipe`. Cette structure est ensuite ajoutée à un tableau dynamique correspondant au groupe de l'équipe dans la structure `W_CUP`.
+3. Pour chaque équipe, les informations sont lues et stockées dans une structure `t_equipe`. Cette structure est ensuite ajoutée à un tableau dynamique correspondant au groupe de l'équipe dans la structure `t_wcup`.
 4. Le tableau des équipes dans chaque groupe est agrandi dynamiquement au besoin pour accueillir toutes les équipes.
 5. Fermeture du fichier une fois toutes les données lues et traitées.
 
@@ -396,7 +397,7 @@ Voici une implémentation en pseudo-code :
 
 #### Exemple d'utilisation :
 ```c
-W_CUP worldCupData;
+t_wcup worldCupData;
 lire_equipes("equipes2022.txt", &worldCupData);
 ```
 </div>
@@ -408,25 +409,25 @@ lire_equipes("equipes2022.txt", &worldCupData);
 
 ### Afficher les Groupes (3 Points)
 
-La fonction `afficher_groupe` est conçue pour présenter les informations détaillées de chaque groupe de la phase de groupes de la Coupe du Monde de Football. Elle parcourt tous les groupes, affichant pour chaque équipe son nom, son identifiant (ID), et son classement FIFA, fournissant ainsi une vue d'ensemble claire de la composition initiale des groupes du tournoi.
+La fonction `afficher_groupes` est conçue pour présenter les informations détaillées de chaque groupe de la phase de groupes de la Coupe du Monde de Football. Elle parcourt tous les groupes, affichant pour chaque équipe son nom, son identifiant (ID), et son classement FIFA, fournissant ainsi une vue d'ensemble claire de la composition initiale des groupes du tournoi.
 
 #### Fonctionnement :
 - **Parcours des groupes :** La fonction itère sur chaque groupe de la Coupe du Monde, affichant le nom du groupe suivi des détails des équipes qui le composent.
 - **Affichage des équipes :** Pour chaque équipe dans un groupe, le nom de l'équipe, son identifiant (ID) et son classement FIFA sont affichés, offrant une perspective sur la force relative des équipes au sein de chaque groupe.
 
 #### Paramètres :
-- `wc` : Une structure `W_CUP` passée par valeur, contenant les informations complètes des groupes et des équipes de la Coupe du Monde.
+- `wc` : Une structure `t_wcup` passée par valeur, contenant les informations complètes des groupes et des équipes de la Coupe du Monde.
 
 #### Type de retour :
 - Aucun. Les informations sont affichées directement à l'écran.
 
 #### Exemple d'utilisation :
 ```c
-W_CUP wc;
+t_wcup wc;
 // Supposons que wc a été préalablement initialisé avec les données des groupes et des équipes.
 
 // Afficher les détails de chaque groupe de la Coupe du Monde
-afficher_groupe(wc);
+afficher_groupes(&wc);
 ```
 </div>
 
@@ -507,16 +508,16 @@ afficher_groupe(wc);
 
 ### Lire les matchs (5 Points)
 
-Cette fonction lit les informations des matchs prévus pour la Coupe du Monde de Football Qatar 2022 à partir d'un fichier nommé `matchs2022.txt`. Chaque ligne du fichier contient les identifiants des deux équipes qui s'affronteront, ce qui permet d'organiser les données des matchs de manière efficace. La fonction procède à la lecture de chaque ligne, extrayant les identifiants des équipes participantes et les stockant dans des structures `Matche` correspondantes. Ces structures sont ensuite ajoutées à un tableau dynamique, qui est capable de s'agrandir au besoin pour accueillir tous les matchs lus du fichier.
+Cette fonction lit les informations des matchs prévus pour la Coupe du Monde de Football Qatar 2022 à partir d'un fichier nommé `matchs2022.txt`. Chaque ligne du fichier contient les identifiants des deux équipes qui s'affronteront, ce qui permet d'organiser les données des matchs de manière efficace. La fonction procède à la lecture de chaque ligne, extrayant les identifiants des équipes participantes et les stockant dans des structures `t_match` correspondantes. Ces structures sont ensuite ajoutées à un tableau dynamique, qui est capable de s'agrandir au besoin pour accueillir tous les matchs lus du fichier.
 
 #### Paramètres :
 - `nom_fichier` : Chaîne de caractères constante indiquant le chemin d'accès au fichier contenant les données des matchs.
-- `liste_matches` : Pointeur vers une structure `Liste_matches` qui est utilisée pour stocker le tableau des matchs lus, ainsi que le nombre total de matchs et la capacité actuelle du tableau.
+- `liste_matchs` : Pointeur vers une structure `t_liste_matchs` qui est utilisée pour stocker le tableau des matchs lus, ainsi que le nombre total de matchs et la capacité actuelle du tableau.
 
 #### Fonctionnalités :
 - **Ouverture du fichier** : La fonction commence par ouvrir le fichier spécifié pour la lecture. Si l'ouverture échoue, elle affiche un message d'erreur et s'arrête.
-- **Initialisation du tableau de matchs** : Avant de commencer la lecture, la fonction initialise la structure `Liste_matches` avec une capacité initiale de 1, prête à être agrandie selon le besoin.
-- **Lecture des matchs** : La fonction lit le fichier ligne par ligne. Pour chaque ligne lue avec succès, elle crée une nouvelle structure `Matche` et la remplit avec les identifiants des équipes domicile et visiteur lues.
+- **Initialisation du tableau de matchs** : Avant de commencer la lecture, la fonction initialise la structure `t_liste_matchs` avec une capacité initiale de 1, prête à être agrandie selon le besoin.
+- **Lecture des matchs** : La fonction lit le fichier ligne par ligne. Pour chaque ligne lue avec succès, elle crée une nouvelle structure `t_match` et la remplit avec les identifiants des équipes domicile et visiteur lues.
 - **Gestion dynamique de la mémoire** : Si le nombre de matchs lus atteint la capacité actuelle du tableau, la fonction augmente cette capacité en la doublant, utilisant `realloc` pour ajuster la taille du tableau en mémoire.
 - **Fermeture du fichier** : Une fois toutes les lignes lues et traitées, la fonction ferme le fichier.
 
@@ -532,7 +533,7 @@ Voici une implémentation en pseudo-code :
 #### Exemple d'utilisation :
 ```c
 int nombreMatchs;
-Match* matches = lire_matchs("matchs2022.txt", &nombreMatchs);
+t_match* matchs = lire_matchs("matchs2022.txt", &nombreMatchs);
 ```
 
 </div>
@@ -545,14 +546,14 @@ Match* matches = lire_matchs("matchs2022.txt", &nombreMatchs);
 <div align="justify">
 
 ### Afficher les Matchs (2 Points)
-La fonction `afficher_match` est conçue pour présenter une liste des matchs programmés dans un format simplifié, en affichant les identifiants (ID) des équipes domicile et visiteuse pour chaque match prévu. Cela permet d'avoir une vision claire de l'ensemble des confrontations à venir ou simulées dans le cadre de la Coupe du Monde de Football.
+La fonction `afficher_matchs` est conçue pour présenter une liste des matchs programmés dans un format simplifié, en affichant les identifiants (ID) des équipes domicile et visiteuse pour chaque match prévu. Cela permet d'avoir une vision claire de l'ensemble des confrontations à venir ou simulées dans le cadre de la Coupe du Monde de Football.
 
 #### Détails de la fonction :
 - **Itération sur les matchs :** La fonction parcourt l'ensemble des matchs enregistrés dans la liste fournie, affichant les identifiants des équipes impliquées dans chaque rencontre.
 - **Affichage simplifié :** Pour chaque match, les identifiants de l'équipe à domicile et de l'équipe visiteuse sont affichés côte à côte, facilitant ainsi la compréhension rapide des confrontations prévues.
 
 #### Paramètres :
-- `liste_matches` : Une structure `Liste_matches` contenant la liste des matchs à afficher, y compris le nombre de matchs et un tableau des rencontres.
+- `liste_matchs` : Une structure `t_liste_matchs` contenant la liste des matchs à afficher, y compris le nombre de matchs et un tableau des rencontres.
 
 #### Type de retour :
 - Aucun. Les informations sur les matchs sont directement affichées à l'utilisateur.
@@ -562,11 +563,11 @@ La fonction `afficher_match` est conçue pour présenter une liste des matchs pr
 
 #### Exemple d'utilisation :
 ```c
-Liste_matches liste_matches;
-// Supposons que liste_matches a été préalablement remplie avec les données des matchs à venir.
+t_liste_matchs liste_matchs;
+// Supposons que liste_matchs a été préalablement remplie avec les données des matchs à venir.
 
 // Afficher les identifiants des équipes pour chaque match prévu
-afficher_match(liste_matches);
+afficher_matchs(&liste_matchs);
 ```
 
 ## 7.2 Partie 2: Simulation de la Phase de Groupes (Semaine 2: 25 Points)<a name="part2"></a>
@@ -579,28 +580,28 @@ afficher_match(liste_matches);
 La fonction `trouver_equipe_par_id` est essentielle dans le contexte de la simulation de la Coupe du Monde de Football FIFA Qatar 2022, car elle permet de localiser une équipe spécifique à partir de son identifiant unique. Cette capacité est cruciale pour le bon déroulement des simulations de matchs, assurant que chaque équipe puisse être correctement identifiée et manipulée avant, pendant, et après les matchs simulés.
 
 #### Fonctionnement :
-La fonction effectue une recherche séquentielle à travers la structure `W_CUP`, qui est organisée en groupes contenant les équipes qualifiées. Chaque groupe inclut un tableau d'équipes, avec chaque équipe représentée par une structure contenant des informations telles que son identifiant, son nom, et d'autres données pertinentes.
+La fonction effectue une recherche séquentielle à travers la structure `t_wcup`, qui est organisée en groupes contenant les équipes qualifiées. Chaque groupe inclut un tableau d'équipes, avec chaque équipe représentée par une structure contenant des informations telles que son identifiant, son nom, et d'autres données pertinentes.
 
-Pour trouver une équipe, la fonction parcourt chaque groupe et, au sein de chaque groupe, compare l'identifiant de chaque équipe avec l'identifiant recherché. Si elle trouve une équipe dont l'identifiant correspond à celui fourni, la fonction retourne immédiatement un pointeur vers cette structure `Equipe`. Si aucune correspondance n'est trouvée dans l'ensemble des groupes, la fonction retourne `NULL`, signalant ainsi l'absence d'une équipe correspondant à l'identifiant spécifié.
+Pour trouver une équipe, la fonction parcourt chaque groupe et, au sein de chaque groupe, compare l'identifiant de chaque équipe avec l'identifiant recherché. Si elle trouve une équipe dont l'identifiant correspond à celui fourni, la fonction retourne immédiatement un pointeur vers cette structure `t_equipe`. Si aucune correspondance n'est trouvée dans l'ensemble des groupes, la fonction retourne `NULL`, signalant ainsi l'absence d'une équipe correspondant à l'identifiant spécifié.
 
 #### Paramètres :
-- `wc` : Pointeur vers la structure `W_CUP` contenant les données de tous les groupes et équipes de la Coupe du Monde.
+- `wc` : Pointeur vers la structure `t_wcup` contenant les données de tous les groupes et équipes de la Coupe du Monde.
 - `id` : Chaîne de caractères constante représentant l'identifiant unique de l'équipe recherchée.
 
 #### Type de retour :
-- Un pointeur vers la structure `Equipe` trouvée, contenant les informations détaillées de l'équipe correspondante. Retourne `NULL` si aucune équipe correspondante n'est trouvée.
+- Un pointeur vers la structure `t_equipe` trouvée, contenant les informations détaillées de l'équipe correspondante. Retourne `NULL` si aucune équipe correspondante n'est trouvée.
 
 </div>
 
 
 #### Exemple d'utilisation :
 ```c
-W_CUP wc;
+t_wcup wc;
 char* idRecherche = "FRA";
-Equipe* equipeTrouvee = trouver_equipe_par_id(&wc, idRecherche);
+t_equipe* equipeTrouvee = trouver_equipe_par_id(&wc, idRecherche);
 
 if (equipeTrouvee != NULL) {
-    printf("Equipe trouvée : %s\n", equipeTrouvee->nom);
+    printf("t_equipe trouvée : %s\n", equipeTrouvee->nom);
 } else {
     printf("Aucune équipe correspondante à l'ID '%s' n'a été trouvée.\n", idRecherche);
 }
@@ -664,26 +665,26 @@ La fonction `jouer_match` simule l'issue d'une rencontre entre deux équipes lor
 - **Détermination des scores :** Le nombre de buts marqués par chaque équipe est généré à l'aide d'une distribution normale, où la moyenne est ajustée selon la différence de classement FIFA. Cela simule l'avantage ou le désavantage d'une équipe en fonction de son classement.
 
 #### Calcul des buts :
-La fonction calcule la différence de classement FIFA entre les deux équipes (`diff_fifa`), puis utilise cette différence pour ajuster la moyenne des buts marqués. Pour l'équipe avec un classement supérieur, la moyenne est augmentée de `diff_fifa`, et pour l'équipe avec un classement inférieur, elle est diminuée de `diff_fifa`. Les buts sont générés en suivant une distribution normale centrée sur 3 buts, avec un écart type de 1, ajustée par la différence de classement FIFA.
+La fonction calcule la différence de classement FIFA entre les deux équipes et le divise par 1000 (`diff_fifa`), puis utilise cette différence pour ajuster la moyenne des buts marqués. Pour l'équipe avec un classement supérieur, la moyenne est augmentée de `diff_fifa`, et pour l'équipe avec un classement inférieur, elle est diminuée de `diff_fifa`. Les buts sont générés en suivant une distribution normale centrée sur 3 buts, avec un écart type de 1, ajustée par la différence de classement FIFA.
 
 #### Résultat du match :
 Le match peut se terminer par une victoire d'une des équipes ou un match nul. La fonction calcule les scores finaux sans nécessiter de prolongation ou de tirs au but pour les matchs de phase de groupe.
 
 #### Paramètres :
-- `eq1` : Pointeur vers la première structure `Equipe`, représentant l'une des équipes participant au match.
-- `eq2` : Pointeur vers la seconde structure `Equipe`, représentant l'autre équipe participant au match.
+- `eq1` : Pointeur vers la première structure `t_equipe`, représentant l'une des équipes participant au match.
+- `eq2` : Pointeur vers la seconde structure `t_equipe`, représentant l'autre équipe participant au match.
 
 #### Type de retour :
-- Renvoie une structure `Buts` qui contient le nombre de buts marqués par chaque équipe pendant le match.
+- Renvoie une structure `t_buts` qui contient le nombre de buts marqués par chaque équipe pendant le match.
 
 </div>
 
 #### Exemple d'utilisation :
 ```c
-Equipe eq1 = {"FRA", "France", "UEFA", 'A', 1750}; // Exemple d'équipe 1
-Equipe eq2 = {"BRA", "Brésil", "CONMEBOL", 'B', 1822}; // Exemple d'équipe 2
+t_equipe eq1 = {"FRA", "France", "UEFA", 'A', 1750}; // Exemple d'équipe 1
+t_equipe eq2 = {"BRA", "Brésil", "CONMEBOL", 'B', 1822}; // Exemple d'équipe 2
 
-Buts resultat = jouer_match(&eq1, &eq2);
+t_buts resultat = jouer_match(&eq1, &eq2);
 
 printf("Résultat: %s %d - %d %s\n", eq1.nom, resultat.buts_eq1, resultat.buts_eq2, eq2.nom);
 ```
@@ -708,11 +709,11 @@ La fonction `mettre_a_jour_classement` joue un rôle crucial dans l'actualisatio
 Ces mises à jour garantissent une gestion précise et à jour du classement des équipes, permettant une analyse plus approfondie de leurs performances.
 
 #### Paramètres :
-- `eq1` et `eq2` : Pointeurs vers les structures `Equipe` représentant les deux équipes ayant participé au match.
-- `but` : Une structure `Buts` indiquant le nombre de buts marqués par chaque équipe.
+- `eq1` et `eq2` : Pointeurs vers les structures `t_equipe` représentant les deux équipes ayant participé au match.
+- `but` : Une structure `t_buts` indiquant le nombre de buts marqués par chaque équipe.
 
 #### Type de retour :
-- Aucun. Les modifications sont appliquées directement aux structures `Equipe` fournies en paramètres.
+- Aucun. Les modifications sont appliquées directement aux structures `t_equipe` fournies en paramètres.
 
 </div>
 
@@ -721,11 +722,11 @@ Ces mises à jour garantissent une gestion précise et à jour du classement des
 #### Exemple d'utilisation :
 ```c
 // Initialisation des équipes
-Equipe equipe1 = {"Eq1", "Equipe 1", 0, 0, 0, 0, 0, 0, 0, 0};
-Equipe equipe2 = {"Eq2", "Equipe 2", 0, 0, 0, 0, 0, 0, 0, 0};
+t_equipe equipe1 = {"Eq1", "Equipe 1", 0, 0, 0, 0, 0, 0, 0, 0};
+t_equipe equipe2 = {"Eq2", "Equipe 2", 0, 0, 0, 0, 0, 0, 0, 0};
 
 // Simulation d'un résultat de match
-Buts resultatMatch = {2, 1}; // L'équipe 1 marque 2 buts, l'équipe 2 marque 1 but
+t_buts resultatMatch = {2, 1}; // L'équipe 1 marque 2 buts, l'équipe 2 marque 1 but
 
 // Mise à jour des statistiques des équipes
 mettre_a_jour_classement(&equipe1, &equipe2, resultatMatch);
@@ -748,10 +749,10 @@ La fonction `echanger` permet de permuter les données de deux équipes au sein 
 
 #### Mécanisme d'échange :
 
-La fonction réalise l'échange en copiant temporairement les données de la première équipe (`eq1`) dans une structure `Equipe` intermédiaire, puis en copiant les données de la seconde équipe (`eq2`) dans la première équipe, et finalement en copiant les données de la structure temporaire dans la seconde équipe. Ce processus garantit que les données des deux équipes sont échangées de manière efficace et sûre, sans perte d'informations.
+La fonction réalise l'échange en copiant temporairement les données de la première équipe (`eq1`) dans une structure `t_equipe` intermédiaire, puis en copiant les données de la seconde équipe (`eq2`) dans la première équipe, et finalement en copiant les données de la structure temporaire dans la seconde équipe. Ce processus garantit que les données des deux équipes sont échangées de manière efficace et sûre, sans perte d'informations.
 
 #### Paramètres :
-- `eq1` et `eq2` : Pointeurs vers les structures `Equipe` dont les données doivent être échangées.
+- `eq1` et `eq2` : Pointeurs vers les structures `t_equipe` dont les données doivent être échangées.
 
 #### Type de retour :
 - Aucun. L'échange des données est effectué directement sur les structures passées en paramètres.
@@ -761,8 +762,8 @@ La fonction réalise l'échange en copiant temporairement les données de la pre
 
 #### Exemple d'utilisation :
 ```c
-Equipe equipe1 = {"Eq1", "Equipe 1", 0, 0, 0, 0, 0, 0, 0, 0};
-Equipe equipe2 = {"Eq2", "Equipe 2", 0, 0, 0, 0, 0, 0, 0, 0};
+t_equipe equipe1 = {"Eq1", "Equipe 1", 0, 0, 0, 0, 0, 0, 0, 0};
+t_equipe equipe2 = {"Eq2", "Equipe 2", 0, 0, 0, 0, 0, 0, 0, 0};
 
 // Avant l'échange
 printf("Avant l'échange : Equipe 1 - %s, Equipe 2 - %s\n", equipe1.nom, equipe2.nom);
@@ -782,7 +783,7 @@ printf("Après l'échange : Equipe 1 - %s, Equipe 2 - %s\n", equipe1.nom, equipe
 
 ### Trier les groupes (5 Points)
 
-La fonction `trier_groupes` est essentielle dans le processus de simulation de la Coupe du Monde de Football, car elle organise les équipes de chaque groupe en fonction de leur performance. Le classement se base sur les critères officiels du tournoi, tels que les points accumulés, la différence de buts, et le nombre total de buts marqués, pour mettre en avant les équipes les plus performantes.
+La fonction `trier_groupe` est essentielle dans le processus de simulation de la Coupe du Monde de Football, car elle organise les équipes de chaque groupe en fonction de leur performance. Le classement se base sur les critères officiels du tournoi, tels que les points accumulés, la différence de buts, et le nombre total de buts marqués, pour mettre en avant les équipes les plus performantes.
 
 #### Mécanisme de tri :
 - **Critères de classement :** Les équipes sont d'abord classées par points. En cas d'égalité, la différence de buts puis le nombre total de buts marqués sont utilisés pour départager les équipes.
@@ -813,13 +814,13 @@ Voici une implémentation en pseudo-code :
 #### Exemple d'utilisation :
 ```c
 // Initialisation d'un groupe avec des données fictives
-Groupe groupeA;
+t_groupe groupeA;
 // Configuration initiale du groupe et allocation de la mémoire pour les équipes
 // Initialisation des équipes avec des données fictives
 groupeA.nom = 'A';
 groupeA.cap = 4; // Capacité du tableau d'équipes
 groupeA.nb_eqp = 4; // Nombre d'équipes réellement présentes
-groupeA.eqp = (Equipe*)malloc(groupeA.cap * sizeof(Equipe));
+groupeA.eqp = (t_equipe*)malloc(groupeA.cap * sizeof(t_equipe));
     
 // Initialisation des équipes avec des données fictives
 strcpy(groupeA.eqp[0].nom, "Equipe A1");
@@ -843,7 +844,7 @@ groupeA.eqp[3].buts_p = 3;
 groupeA.eqp[3].buts_c = 7;
 
 // Tri des équipes du groupe A selon leur performance
-trier_groupes(&groupeA);
+trier_groupe(&groupeA);
 
 // Affichage du classement après tri
 printf("Classement du Groupe A après tri :\n");
@@ -875,7 +876,7 @@ La fonction `simuler_matchs` est une composante clé de la simulation de la Coup
 
 #### Paramètres :
 - `wc` : Référence à la structure globale de la Coupe du Monde, comprenant les détails de chaque équipe et les groupes.
-- `liste_matches` : Référence à une liste des matchs à simuler, incluant les identifiants des équipes.
+- `liste_matchs` : Référence à une liste des matchs à simuler, incluant les identifiants des équipes.
 
 #### Type de retour :
 - Aucun. La fonction effectue les simulations et met à jour les structures concernées directement.
@@ -885,15 +886,15 @@ La fonction `simuler_matchs` est une composante clé de la simulation de la Coup
 
 #### Exemple d'utilisation :
 ```c
-W_CUP wc;
-Liste_matches liste_matches;
+t_wcup wc;
+t_liste_matchs liste_matchs;
 
 // Chargement des équipes et des matchs
 lire_equipes("equipes2022.txt", &wc);
-lire_matches("matchs2022.txt", &liste_matches);
+lire_matchs("matchs2022.txt", &liste_matchs);
 
 // Simulation des matchs et mise à jour des classements
-simuler_matchs(&wc, &liste_matches);
+simuler_matchs(&wc, &liste_matchs);
 
 // Affichage du classement final des groupes
 for (int i = 0; i < 8; i++) {
@@ -908,7 +909,7 @@ for (int i = 0; i < 8; i++) {
 for (int i = 0; i < 8; i++) {
     free(wc.grp[i].eqp);
 }
-free(liste_matches.matches);
+free(liste_matchs.matchs);
 ```
 
 ## 7.3 Partie 3: Gestion de la Phase Éliminatoire (Semaine 2-3: 30 Points)<a name="part3"></a>
@@ -927,15 +928,15 @@ La fonction `equipes_qualifiees` identifie les équipes qui avancent aux phases 
 - `wc` : Référence à la structure globale de la Coupe du Monde, contenant les détails des groupes et des équipes.
 
 #### Type de retour :
-- Aucun. Les équipes qualifiées sont directement intégrées dans la structure `W_CUP`, préparant le tableau pour les huitièmes de finale.
+- Aucun. Les équipes qualifiées sont directement intégrées dans la structure `t_wcup`, préparant le tableau pour les huitièmes de finale.
 
 </div>
 
 
 #### Exemple d'utilisation :
 ```c
-W_CUP wc;
-// Initialisation de la structure W_CUP avec les résultats de la phase de groupes
+t_wcup wc;
+// Initialisation de la structure t_wcup avec les résultats de la phase de groupes
 
 // Identification des équipes qualifiées pour les phases éliminatoires
 equipes_qualifiees(&wc);
@@ -959,7 +960,7 @@ La fonction `jouer_match_eliminatoire` simule un match éliminatoire entre deux 
 - **Détermination du gagnant :** En cas de match nul à la fin du temps réglementaire, une décision aléatoire détermine le gagnant soit par une prolongation, soit par des tirs au but.
 
 #### Paramètres :
-- `eq1` et `eq2` : Pointeurs vers les structures `Equipe` des équipes participant au match éliminatoire.
+- `eq1` et `eq2` : Pointeurs vers les structures `t_equipe` des équipes participant au match éliminatoire.
 
 #### Type de retour :
 - Retourne un pointeur vers l'équipe gagnante qui avance dans le tournoi.
@@ -977,10 +978,10 @@ Voici une implémentation en pseudo-code :
 
 #### Exemple d'utilisation :
 ```c
-Equipe equipe1; // Initialisée avec des données spécifiques
-Equipe equipe2; // Initialisée avec des données spécifiques
+t_equipe equipe1; // Initialisée avec des données spécifiques
+t_equipe equipe2; // Initialisée avec des données spécifiques
 
-Equipe* equipeGagnante = jouer_match_eliminatoire(&equipe1, &equipe2);
+t_equipe* equipeGagnante = jouer_match_eliminatoire(&equipe1, &equipe2);
 
 // Affichage de l'équipe gagnante
 printf("L'équipe gagnante est : %s\n", equipeGagnante->nom);
@@ -1015,7 +1016,7 @@ La fonction `simuler_tour` joue un rôle crucial dans la progression des étapes
 
 #### Exemple d'utilisation :
 ```c
-W_CUP wc;
+t_wcup wc;
 // Supposons que wc contient déjà les informations des tours éliminatoires correctement initialisées
 
 // Simulation des huitièmes de finale
@@ -1041,18 +1042,18 @@ La fonction `tour_eliminatoires` orchestre la progression des tours éliminatoir
 - **Finale :** La simulation culmine avec la finale, où l'équipe gagnante est couronnée championne du monde.
 
 #### Paramètres :
-- `wc` : Pointeur vers la structure `W_CUP` contenant les détails des équipes et des tours éliminatoires.
+- `wc` : Pointeur vers la structure `t_wcup` contenant les détails des équipes et des tours éliminatoires.
 
 #### Type de retour :
-- Aucun. Le champion du tournoi est déterminé et enregistré dans la structure `W_CUP`.
+- Aucun. Le champion du tournoi est déterminé et enregistré dans la structure `t_wcup`.
 
 </div>
 
 
 #### Exemple d'utilisation :
 ```c
-W_CUP wc;
-// La structure W_CUP doit être préalablement initialisée avec les équipes qualifiées et les configurations des tours éliminatoires.
+t_wcup wc;
+// La structure t_wcup doit être préalablement initialisée avec les équipes qualifiées et les configurations des tours éliminatoires.
 
 // Lancer la simulation des tours éliminatoires du tournoi
 tour_eliminatoires(&wc);
@@ -1073,7 +1074,7 @@ La fonction `afficher_stats_premier_tour` est dédiée à la présentation des s
 - **Format des statistiques :** Pour chaque équipe, sont affichés le nom, le nombre de victoires (V), de défaites (D), de nuls (N), les buts pour (BP), les buts contre (BC), la différence de buts (DB), et le total des points (Pts).
 
 #### Paramètres :
-- `wc` : Pointeur vers la structure `W_CUP`, contenant les informations des groupes et des équipes de la Coupe du Monde.
+- `wc` : Pointeur vers la structure `t_wcup`, contenant les informations des groupes et des équipes de la Coupe du Monde.
 
 #### Type de retour :
 - Aucun. Les statistiques sont affichées directement sur la sortie standard.
@@ -1083,7 +1084,7 @@ La fonction `afficher_stats_premier_tour` est dédiée à la présentation des s
 
 #### Exemple d'utilisation :
 ```c
-W_CUP wc;
+t_wcup wc;
 // Supposons que wc est déjà initialisé et contient les résultats des matchs du premier tour.
 
 // Affichage des statistiques des équipes du premier tour, organisées par groupe
@@ -1105,7 +1106,7 @@ La fonction `equipes_plus_buts_marques` identifie les équipes ayant marqué le 
 - **Sélection dynamique :** Les équipes répondant au critère de sélection sont ajoutées à un tableau dynamique, dont la capacité est ajustée au besoin pour accueillir toutes les équipes correspondantes.
 
 #### Paramètres :
-- `wc` : Pointeur vers la structure globale `W_CUP` contenant les détails des groupes et des équipes.
+- `wc` : Pointeur vers la structure globale `t_wcup` contenant les détails des groupes et des équipes.
 - `nb_equipes` : Pointeur vers une variable où le nombre d'équipes sélectionnées sera enregistré.
 
 #### Type de retour :
@@ -1115,15 +1116,15 @@ La fonction `equipes_plus_buts_marques` identifie les équipes ayant marqué le 
 
 #### Exemple d'utilisation :
 ```c
-W_CUP wc;
-// La structure W_CUP doit être initialisée avec les résultats de la phase de groupes.
+t_wcup wc;
+// La structure t_wcup doit être initialisée avec les résultats de la phase de groupes.
 
 int nb_equipes;
-Equipe* equipes_dominantes = equipes_plus_buts_marques(&wc, &nb_equipes);
+t_equipe* equipes_dominantes = equipes_plus_buts_marques(&wc, &nb_equipes);
 
 // Affichage des équipes sélectionnées et de leurs buts marqués
 for (int i = 0; i < nb_equipes; ++i) {
-    printf("Equipe : %s, Buts marqués : %d\n", equipes_dominantes[i].nom, equipes_dominantes[i].buts_p);
+    printf("t_equipe : %s, Buts marqués : %d\n", equipes_dominantes[i].nom, equipes_dominantes[i].buts_p);
 }
 
 // Libération de la mémoire allouée au tableau dynamique
@@ -1144,7 +1145,7 @@ La fonction `equipes_plus_buts_encaisses` sert à identifier les équipes qui on
 - **Sélection et allocation dynamique :** Les équipes correspondant au critère sont ajoutées à un tableau dynamique, dont la taille est ajustée selon le nombre d'équipes répondant au critère.
 
 #### Paramètres :
-- `wc` : Pointeur vers la structure globale `W_CUP`, qui contient les informations sur les groupes et les équipes.
+- `wc` : Pointeur vers la structure globale `t_wcup`, qui contient les informations sur les groupes et les équipes.
 - `nb_equipes` : Pointeur vers une variable destinée à stocker le nombre d'équipes identifiées selon le critère de sélection.
 
 #### Type de retour :
@@ -1154,11 +1155,11 @@ La fonction `equipes_plus_buts_encaisses` sert à identifier les équipes qui on
 
 #### Exemple d'utilisation :
 ```c
-W_CUP wc;
-// Assurez-vous que la structure W_CUP est initialisée avec les données pertinentes de la compétition.
-
+t_wcup wc;
+// Assurez-vous que la structure t_wcup est initialisée avec les données pertinentes de la compétition.
+e
 int nb_equipes;
-Equipe* equipes_vulnerables = equipes_plus_buts_encaisses(&wc, &nb_equipes);
+t_equipe* equipes_vulnerables = equipes_plus_buts_encaisses(&wc, &nb_equipes);
 
 // Affichage des équipes ayant encaissé le plus de buts
 for (int i = 0; i < nb_equipes; ++i) {
@@ -1182,7 +1183,7 @@ La fonction `equipes_plus_victoires` extrait les équipes ayant enregistré le p
 - **Sélection et allocation dynamique :** Les équipes sélectionnées sont stockées dans un tableau dynamique, dont la taille est ajustée selon le nombre d'équipes répondant au critère de sélection.
 
 #### Paramètres :
-- `wc` : Pointeur vers la structure `W_CUP`, contenant les informations détaillées des équipes et des groupes.
+- `wc` : Pointeur vers la structure `t_wcup`, contenant les informations détaillées des équipes et des groupes.
 - `nb_equipes` : Pointeur vers une variable où sera stocké le nombre d'équipes répondant au critère de sélection.
 
 #### Type de retour :
@@ -1192,7 +1193,7 @@ La fonction `equipes_plus_victoires` extrait les équipes ayant enregistré le p
 
 #### Exemple d'utilisation :
 ```c
-W_CUP wc;
+t_wcup wc;
 // Supposons que wc contient les informations des phases de groupes correctement initialisées.
 
 int nb_equipes;
@@ -1220,7 +1221,7 @@ La fonction `equipes_plus_defaites` identifie les équipes ayant subi le plus gr
 - **Allocation dynamique :** Les équipes répondant au critère sont ajoutées à un tableau dynamique. La capacité de ce tableau est ajustée au besoin pour accueillir toutes les équipes concernées.
 
 #### Paramètres :
-- `wc` : Pointeur vers la structure `W_CUP`, contenant les détails des équipes et des groupes.
+- `wc` : Pointeur vers la structure `t_wcup`, contenant les détails des équipes et des groupes.
 - `nb_equipes` : Pointeur vers une variable qui stockera le nombre d'équipes sélectionnées.
 
 #### Type de retour :
@@ -1230,11 +1231,11 @@ La fonction `equipes_plus_defaites` identifie les équipes ayant subi le plus gr
 
 #### Exemple d'utilisation :
 ```c
-W_CUP wc;
-// La structure W_CUP est supposée être préalablement remplie avec les données des phases de groupes.
+t_wcup wc;
+// La structure t_wcup est supposée être préalablement remplie avec les données des phases de groupes.
 
 int nb_equipes;
-Equipe* equipes_avec_defaites = equipes_plus_defaites(&wc, &nb_equipes);
+t_equipe* equipes_avec_defaites = equipes_plus_defaites(&wc, &nb_equipes);
 
 // Affichage des équipes ayant le plus de défaites
 for (int i = 0; i < nb_equipes; ++i) {
@@ -1258,7 +1259,7 @@ La fonction `equipes_plus_matchs_nuls` cible les équipes ayant concédé le plu
 - **Gestion dynamique du tableau :** Les équipes sélectionnées sont stockées dans un tableau dynamique, dont la taille est adaptée pour accueillir le nombre variable d'équipes répondant aux critères de sélection.
 
 #### Paramètres :
-- `wc` : Pointeur vers la structure `W_CUP`, englobant les informations détaillées sur les équipes et les groupes du tournoi.
+- `wc` : Pointeur vers la structure `t_wcup`, englobant les informations détaillées sur les équipes et les groupes du tournoi.
 - `nb_equipes` : Pointeur vers une variable qui sera utilisée pour stocker le nombre d'équipes ayant le plus grand nombre de matchs nuls.
 
 #### Type de retour :
@@ -1268,11 +1269,11 @@ La fonction `equipes_plus_matchs_nuls` cible les équipes ayant concédé le plu
 
 #### Exemple d'utilisation :
 ```c
-W_CUP wc;
+t_wcup wc;
 // Assumez que wc a été préalablement initialisé avec les données des phases de groupes.
 
 int nb_equipes;
-Equipe* equipes_max_nuls = equipes_plus_matchs_nuls(&wc, &nb_equipes);
+t_equipe* equipes_max_nuls = equipes_plus_matchs_nuls(&wc, &nb_equipes);
 
 // Affichage des équipes ayant concédé le plus de matchs nuls
 for (int i = 0; i < nb_equipes; ++i) {
@@ -1292,15 +1293,15 @@ La répartition des points pour l'évaluation de ce projet est détaillée ci-de
 |**Nom des fonctions**|**Nombre de points attribuer**|
 | :- | :- |
 |*lire_equipes*| 7.5 |
-|*lire_matches*| 3 |
-|*afficher_groupe*| 5 |
-|*afficher_match*| 2 |
+|*lire_matchs*| 3 |
+|*afficher_groupes*| 5 |
+|*afficher_matchs*| 2 |
 |*trouver_equipe_par_id*| 2.5 |
 |*normalvariate*| 2.5 |
 |*jouer_match*| 2.5 |
 |*mettre_a_jour_classement*| 5 |
 |*echanger*| 2.5 |
-|*trier_groupes*| 5 |
+|*trier_groupe*| 5 |
 |*simuler_matchs*| 5 |
 |*equipes_qualifiees*| 7.5 |
 |*jouer_match_eliminatoire*| 7.5 |
