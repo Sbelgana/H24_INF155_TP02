@@ -13,3 +13,5 @@ add_executable(INF155_TP02 main.c
         phase_elimin.c
         stat_finales.c
         stat_finales.h)
+
+target_link_libraries(INF155_TP02 m)
