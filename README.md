@@ -305,7 +305,7 @@ typedef struct{
 } t_match;
 
 typedef struct{
-    t_match* matchs;     // Pointeur vers un tableau dynamique de matchs.
+    t_t_match matchs;     // Pointeur vers un tableau dynamique de matchs.
     int nb_match;       // Nombre de matchs contenus dans le tableau.
     int cap;             // Capacité actuelle du tableau (pour allocation dynamique).
 } t_liste_matchs;
@@ -397,8 +397,8 @@ Voici une implémentation en pseudo-code :
 
 #### Exemple d'utilisation :
 ```c
-t_wcup worldCupData;
-lire_equipes("equipes2022.txt", &worldCupData);
+t_wcup wc; 
+lire_equipes("equipes2022.txt", &wc);
 ```
 </div>
 
@@ -423,8 +423,7 @@ La fonction `afficher_groupe` est conçue pour présenter les informations déta
 
 #### Exemple d'utilisation :
 ```c
-t_wcup wc;
-// Supposons que wc a été préalablement initialisé avec les données des groupes et des équipes.
+t_wcup wc; // Supposons que wc a été préalablement initialisé avec les données des groupes et des équipes. 
 
 // Afficher les détails de chaque groupe de la Coupe du Monde
 afficher_groupe(wc);
@@ -532,8 +531,8 @@ Voici une implémentation en pseudo-code :
 
 #### Exemple d'utilisation :
 ```c
-int nombreMatchs;
-Match* matches = lire_matchs("matchs2022.txt", &nombreMatchs);
+int nombre_matchs;
+t_match matches = lire_matchs("matchs2022.txt", &nombre_matchs);
 ```
 
 </div>
@@ -596,14 +595,15 @@ Pour trouver une équipe, la fonction parcourt chaque groupe et, au sein de chaq
 
 #### Exemple d'utilisation :
 ```c
-t_wcup wc;
-char* idRecherche = "FRA";
-t_equipe* equipeTrouvee = trouver_equipe_par_id(&wc, idRecherche);
+t_wcup wc; // Supposons que wc a été préalablement initialisé avec les données des groupes et des équipes.
 
-if (equipeTrouvee != NULL) {
+char* id_recherche = "FRA";
+t_equipe* equipe = trouver_equipe_par_id(&wc, id_recherche);
+
+if (equipe != NULL) {
     printf("Equipe trouvée : %s\n", equipeTrouvee->nom);
 } else {
-    printf("Aucune équipe correspondante à l'ID '%s' n'a été trouvée.\n", idRecherche);
+    printf("Aucune équipe correspondante à l'ID '%s' n'a été trouvée.\n", id_recherche);
 }
 ```
 
@@ -647,7 +647,7 @@ La variable normalisée et ajustée pour le contexte du football est calculée c
 
 #### Exemple d'utilisation :
 ```c
-int butsMarques = normalvariate(2, 1);
+int buts_marques = normalvariate(2, 1);
 ```
 
 
@@ -726,10 +726,10 @@ t_equipe eq1 = {"Eq1", "Equipe 1", 0, 0, 0, 0, 0, 0, 0, 0};
 t_equipe eq2 = {"Eq2", "Equipe 2", 0, 0, 0, 0, 0, 0, 0, 0};
 
 // Simulation d'un résultat de match
-Buts resultatMatch = {2, 1}; // L'équipe 1 marque 2 buts, l'équipe 2 marque 1 but
+Buts resultat_match = {2, 1}; // L'équipe 1 marque 2 buts, l'équipe 2 marque 1 but
 
 // Mise à jour des statistiques des équipes
-mettre_a_jour_classement(&eq1, &eq2, resultatMatch);
+mettre_a_jour_classement(&eq1, &eq2, resultat_match);
 
 // Affichage des statistiques pour vérification
 printf("Equipe 1 - Points: %d, Buts Pour: %d, Buts Contre: %d, Différence de Buts: %d\n", eq1.pts, eq1.buts_p, eq1.buts_c, eq1.diff_buts);
@@ -886,8 +886,8 @@ La fonction `simuler_matchs` est une composante clé de la simulation de la Coup
 
 #### Exemple d'utilisation :
 ```c
-t_wcup wc;
-Liste_matches liste_matches;
+t_wcup wc; // Supposons que wc a été préalablement initialisé avec les données des groupes et des équipes.
+t_liste_matches liste_matches;
 
 // Chargement des équipes et des matchs
 lire_equipes("equipes2022.txt", &wc);
@@ -935,8 +935,7 @@ La fonction `equipes_qualifiees` identifie les équipes qui avancent aux phases 
 
 #### Exemple d'utilisation :
 ```c
-t_wcup wc;
-// Initialisation de la structure t_wcup avec les résultats de la phase de groupes
+t_wcup wc; // Supposons que wc a été préalablement initialisé avec les données des groupes et des équipes. 
 
 // Identification des équipes qualifiées pour les phases éliminatoires
 equipes_qualifiees(&wc);
@@ -981,10 +980,10 @@ Voici une implémentation en pseudo-code :
 t_equipe eq1; // Initialisée avec des données spécifiques
 t_equipe eq2; // Initialisée avec des données spécifiques
 
-t_equipe* equipeGagnante = jouer_match_eliminatoire(&eq1, &eq2);
+t_equipe* equipe_gagnante = jouer_match_eliminatoire(&eq1, &eq2);
 
 // Affichage de l'équipe gagnante
-printf("L'équipe gagnante est : %s\n", equipeGagnante->nom);
+printf("L'équipe gagnante est : %s\n", equipe_gagnante->nom);
 ```
 
 
@@ -1016,8 +1015,7 @@ La fonction `simuler_tour` joue un rôle crucial dans la progression des étapes
 
 #### Exemple d'utilisation :
 ```c
-t_wcup wc;
-// Supposons que wc contient déjà les informations des tours éliminatoires correctement initialisées
+t_wcup wc; // Supposons que wc a été préalablement initialisé avec les données des groupes et des équipes. 
 
 // Simulation des huitièmes de finale
 simuler_tour(&wc, wc.huitiemes, 8, wc.quarts);
@@ -1052,8 +1050,7 @@ La fonction `tour_eliminatoires` orchestre la progression des tours éliminatoir
 
 #### Exemple d'utilisation :
 ```c
-t_wcup wc;
-// La structure t_wcup doit être préalablement initialisée avec les équipes qualifiées et les configurations des tours éliminatoires.
+t_wcup wc; // Supposons que wc a été préalablement initialisé avec les données des groupes et des équipes. 
 
 // Lancer la simulation des tours éliminatoires du tournoi
 tour_eliminatoires(&wc);
@@ -1084,8 +1081,7 @@ La fonction `afficher_stats_premier_tour` est dédiée à la présentation des s
 
 #### Exemple d'utilisation :
 ```c
-t_wcup wc;
-// Supposons que wc est déjà initialisé et contient les résultats des matchs du premier tour.
+t_wcup wc; // Supposons que wc a été préalablement initialisé avec les données des groupes et des équipes. 
 
 // Affichage des statistiques des équipes du premier tour, organisées par groupe
 afficher_stats_premier_tour(&wc);
@@ -1116,8 +1112,7 @@ La fonction `equipes_plus_buts_marques` identifie les équipes ayant marqué le 
 
 #### Exemple d'utilisation :
 ```c
-t_wcup wc;
-// La structure t_wcup doit être initialisée avec les résultats de la phase de groupes.
+t_wcup wc; // Supposons que wc a été préalablement initialisé avec les données des groupes et des équipes. 
 
 int nb_equipes;
 t_equipe* equipes_dominantes = equipes_plus_buts_marques(&wc, &nb_equipes);
@@ -1155,8 +1150,7 @@ La fonction `equipes_plus_buts_encaisses` sert à identifier les équipes qui on
 
 #### Exemple d'utilisation :
 ```c
-t_wcup wc;
-// Assurez-vous que la structure t_wcup est initialisée avec les données pertinentes de la compétition.
+t_wcup wc; // Supposons que wc a été préalablement initialisé avec les données des groupes et des équipes. 
 
 int nb_equipes;
 t_equipe* equipes_vulnerables = equipes_plus_buts_encaisses(&wc, &nb_equipes);
@@ -1193,8 +1187,7 @@ La fonction `equipes_plus_victoires` extrait les équipes ayant enregistré le p
 
 #### Exemple d'utilisation :
 ```c
-t_wcup wc;
-// Supposons que wc contient les informations des phases de groupes correctement initialisées.
+t_wcup wc; // Supposons que wc a été préalablement initialisé avec les données des groupes et des équipes. 
 
 int nb_equipes;
 t_equipe* equipes_dominantes = equipes_plus_victoires(&wc, &nb_equipes);
@@ -1231,8 +1224,8 @@ La fonction `equipes_plus_defaites` identifie les équipes ayant subi le plus gr
 
 #### Exemple d'utilisation :
 ```c
-t_wcup wc;
-// La structure t_wcup est supposée être préalablement remplie avec les données des phases de groupes.
+t_wcup wc; // Supposons que wc a été préalablement initialisé avec les données des groupes et des équipes. 
+
 
 int nb_equipes;
 t_equipe* equipes_avec_defaites = equipes_plus_defaites(&wc, &nb_equipes);
@@ -1269,8 +1262,7 @@ La fonction `equipes_plus_matchs_nuls` cible les équipes ayant concédé le plu
 
 #### Exemple d'utilisation :
 ```c
-t_wcup wc;
-// Assumez que wc a été préalablement initialisé avec les données des phases de groupes.
+t_wcup wc; // Supposons que wc a été préalablement initialisé avec les données des groupes et des équipes.
 
 int nb_equipes;
 t_equipe* equipes_max_nuls = equipes_plus_matchs_nuls(&wc, &nb_equipes);
@@ -1295,10 +1287,10 @@ La répartition des points pour l'évaluation de ce projet est détaillée ci-de
 |*lire_equipes*| 7.5 |
 |*lire_matches*| 3 |
 |*afficher_groupe*| 5 |
-|*afficher_match*| 2 |
+|*afficher_t_match| 2 |
 |*trouver_equipe_par_id*| 2.5 |
 |*normalvariate*| 2.5 |
-|*jouer_match*| 2.5 |
+|*jouer_t_match| 2.5 |
 |*mettre_a_jour_classement*| 5 |
 |*echanger*| 2.5 |
 |*trier_groupes*| 5 |
