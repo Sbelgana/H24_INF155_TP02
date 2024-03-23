@@ -38,7 +38,7 @@
 
 L'analyse de données sportives, en particulier dans le contexte du football, est devenue un domaine d'étude et d'application de première importance dans le monde contemporain. La collecte, l'analyse et l'interprétation des données relatives aux performances des équipes, aux statistiques des matchs et au classement mondial revêtent une importance capitale non seulement pour les clubs et les organisations sportives, mais aussi pour les fans et les analystes.
 
-Ce projet propose une immersion dans l'univers fascinant de la simulation sportive au moyen du langage de programmation C. La simulation de la Coupe du Monde de Football, un événement qui retient l'attention globale tous les quatre ans, sera réalisée en s'appuyant sur des données concrètes. Ce processus permettra de développer des compétences importantes en manipulation de données, en algorithmique et en programmation structurée.
+Ce projet propose une immersion dans l'univers fascinant de la simulation sportive au moyen du langage de programmation C. La simulation de la Coupe du Monde de Football, un évènement qui retient l'attention globale tous les quatre ans, sera réalisée en s'appuyant sur des données concrètes. Ce processus permettra de développer des compétences importantes en manipulation de données, en algorithmique et en programmation structurée.
 
 </div>
 
@@ -50,7 +50,7 @@ Ce projet propose une immersion dans l'univers fascinant de la simulation sporti
 
 Ce projet vise à atteindre les objectifs suivants :
 
-- **Maîtrise des notions de base et des structures de données en C** : Approfondir la compréhension et l'application des concepts fondamentaux et des structures de données spécifiques au langage C, essentiels pour la modélisation et la simulation de compétitions sportives.
+- **Maîtrise des notions de base et des structures de données en C** : Approfondir la compréhension et l'application des concepts fondamentaux et des structures de données spécifiques au langage C, essentiel pour la modélisation et la simulation de compétitions sportives.
 - **Gestion de fichiers** : Développer les compétences nécessaires pour manipuler des fichiers en C, permettant de lire et stocker des informations relatives aux équipes, aux joueurs, et aux résultats des matchs.
 - **Adhésion aux standards de programmation** : Encourager l'adoption des meilleures pratiques de programmation, y compris le respect des conventions de codage et la production d'un code clair, maintenable, et efficace.
 - **Simulation de matchs** : Utiliser des algorithmes pour simuler les rencontres entre équipes, prenant en compte divers facteurs tels que le classement des équipes, les performances historiques, et l'avantage de jouer à domicile.
@@ -67,7 +67,7 @@ Ce projet vise à atteindre les objectifs suivants :
 
 <div align="justify">
 
-L'objectif de ce projet est de simuler la Coupe du Monde de Football Qatar 2022. Cet événement majeur du football mondial rassemble les meilleures équipes nationales, chacune aspirant à remporter le titre le plus prestigieux. À travers une série de simulations, ce projet vise à prédire les résultats des matchs, en s'appuyant sur des données réelles telles que le classement FIFA des équipes, leurs performances historiques, et d'autres statistiques pertinentes. La question centrale est de savoir comment, en utilisant des méthodes de programmation en C et des algorithmes de simulation, il est possible de calculer les probabilités de chaque équipe de progresser à travers les différentes phases du tournoi, de la phase de groupes à la finale. Ce faisant, le projet explorera la capacité de modéliser des événements sportifs complexes et d'en prédire les issues, en se basant sur l'analyse de données et la simulation informatique.
+L'objectif de ce projet est de simuler la Coupe du Monde de Football Qatar 2022. Cet évènement majeur du football mondial rassemble les meilleures équipes nationales, chacune aspirant à remporter le titre le plus prestigieux. À travers une série de simulations, ce projet vise à prédire les résultats des matchs, en s'appuyant sur des données réelles telles que le classement FIFA des équipes, leurs performances historiques, et d'autres statistiques pertinentes. La question centrale est de savoir comment, en utilisant des méthodes de programmation en C et des algorithmes de simulation, il est possible de calculer les probabilités de chaque équipe de progresser à travers les différentes phases du tournoi, de la phase de groupes à la finale. Ce faisant, le projet explorera la capacité de modéliser des évènements sportifs complexes et d'en prédire les issues, en se basant sur l'analyse de données et la simulation informatique.
 
 </div>
 
@@ -84,7 +84,7 @@ Votre mission consiste à :
    - Les équipes ayant marqué le plus et le moins de buts durant le tournoi.
    - Les équipes ayant accumulé le plus et le moins de points au cours des matchs de groupes et des phases éliminatoires.
    - Les équipes présentant le plus grand et le plus petit nombre de victoires, de défaites, et de matchs nuls.
-   - Réaliser une analyse comparative des performances des équipes par confédération, incluant :
+   - Réaliser une analyse comparative des performances des équipes par confédération, incluante :
      - Le pourcentage de buts marqués par confédération.
      - Le pourcentage de points accumulés par confédération.
      - Le pourcentage de victoires, de défaites, et de matchs nuls par confédération.
@@ -185,9 +185,9 @@ Avant la simulation, les données pertinentes sur les équipes, incluant le clas
 Chaque match est simulé en tenant compte des facteurs suivants :
 - **Classement FIFA :** Influence directement les probabilités de victoire, de nul ou de défaite pour chaque équipe.
 - **Distribution des Scores :** Utilisation d'une fonction générant des scores basés sur une distribution normale, ajustée selon le classement FIFA des équipes. Cela permet de simuler des résultats de matchs qui reflètent les capacités réelles des équipes.
-- **Résolution des Égalités :** En cas de match nul à la fin du temps réglementaire, des mécanismes tels que la prolongation ou les tirs au but sont aléatoirement choisis pour déterminer le gagnant.
+- **Résolution des Égalités :** En cas de match nul à la fin du temps règlementaire, des mécanismes tels que la prolongation ou les tirs au but sont aléatoirement choisis pour déterminer le gagnant.
 
-### Étape 3: Mise à Jour des Statistiques
+### Étape 3: Mise à jour des Statistiques
 Après chaque match simulé, les statistiques des équipes sont mises à jour pour inclure les résultats, les buts marqués et encaissés, et d'autres données pertinentes. Cela permet de maintenir un classement à jour et de préparer le terrain pour les simulations suivantes.
 
 ### Étape 4: Avancement et Élimination
@@ -517,7 +517,7 @@ Cette fonction lit les informations des matchs prévus pour la Coupe du Monde de
 #### Fonctionnalités :
 - **Ouverture du fichier** : La fonction commence par ouvrir le fichier spécifié pour la lecture. Si l'ouverture échoue, elle affiche un message d'erreur et s'arrête.
 - **Initialisation du tableau de matchs** : Avant de commencer la lecture, la fonction initialise la structure `t_liste_matches` avec une capacité initiale de 1, prête à être agrandie selon le besoin.
-- **Lecture des matchs** : La fonction lit le fichier ligne par ligne. Pour chaque ligne lue avec succès, elle crée une nouvelle structure `t_matche` et la remplit avec les identifiants des équipes domicile et visiteur lues.
+- **Lecture des matchs** : La fonction lit le fichier ligne par ligne. Pour chaque ligne lue avec succès, elle crée une nouvelle structure `t_matche` et la remplit avec les identifiants des équipes domicile et visiteuses lues.
 - **Gestion dynamique de la mémoire** : Si le nombre de matchs lus atteint la capacité actuelle du tableau, la fonction augmente cette capacité en la doublant, utilisant `realloc` pour ajuster la taille du tableau en mémoire.
 - **Fermeture du fichier** : Une fois toutes les lignes lues et traitées, la fonction ferme le fichier.
 
@@ -640,7 +640,7 @@ La variable normalisée et ajustée pour le contexte du football est calculée c
 - `sigma` : L'écart-type de la distribution, indiquant la variabilité des scores autour de la moyenne.
 
 #### Type de retour :
-- Un entier représentant le nombre de buts généré, garanti d'être compris entre 0 et 6.
+- Un entier représentant le nombre de buts généré, garantis d'être compris entre 0 et 6.
 
 </div>
 
@@ -952,12 +952,12 @@ equipes_qualifiees(&wc);
 
 ### Jouer un match éliminatoire (7.5 Points)
 
-La fonction `jouer_match_eliminatoire` simule un match éliminatoire entre deux équipes dans le cadre de la Coupe du Monde de Football, prenant en compte non seulement le score du match mais également les mécanismes de décision en cas d'égalité, tels que la prolongation ou les tirs au but, pour déterminer l'équipe qui avance dans le tournoi.
+La fonction `jouer_match_eliminatoire` simule un match éliminatoire entre deux équipes dans le cadre de la Coupe du Monde de Football, prenant en compte non seulement le score du match, mais également les mécanismes de décision en cas d'égalité, telle que la prolongation ou les tirs au but, pour déterminer l'équipe qui avance dans le tournoi.
 
 #### Fonctionnement :
 - **Calcul du score :** Utilise les classements FIFA des équipes pour simuler le résultat du match, ajustant les statistiques de buts marqués et encaissés en conséquence.
 - **Mise à jour des statistiques :** Les statistiques des équipes, incluant les buts marqués, encaissés, et le nombre de matchs joués, sont actualisées suite au match.
-- **Détermination du gagnant :** En cas de match nul à la fin du temps réglementaire, une décision aléatoire détermine le gagnant soit par une prolongation, soit par des tirs au but.
+- **Détermination du gagnant :** En cas de match nul à la fin du temps règlementaire, une décision aléatoire détermine le gagnant soit par une prolongation, soit par des tirs au but.
 
 #### Paramètres :
 - `eq1` et `eq2` : Pointeurs vers les structures `t_equipe` des équipes participant au match éliminatoire.
@@ -1070,7 +1070,7 @@ La fonction `afficher_stats_premier_tour` est dédiée à la présentation des s
 
 #### Fonctionnement :
 - **Tri des équipes :** Avant l'affichage, les équipes de chaque groupe sont triées en fonction de leurs performances, assurant que les statistiques sont présentées de manière ordonnée et cohérente avec le classement final du groupe.
-- **Présentation par groupe :** Les statistiques sont affichées groupe par groupe, avec un en-tête indiquant le nom du groupe suivi par les détails de chaque équipe.
+- **Présentation par groupe :** Les statistiques sont affichées groupe par groupe, avec un entête indiquant le nom du groupe suivi par les détails de chaque équipe.
 - **Format des statistiques :** Pour chaque équipe, sont affichés le nom, le nombre de victoires (V), de défaites (D), de nuls (N), les buts pour (BP), les buts contre (BC), la différence de buts (DB), et le total des points (Pts).
 
 #### Paramètres :
