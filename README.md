@@ -598,7 +598,7 @@ Pour trouver une équipe, la fonction parcourt chaque groupe et, au sein de chaq
 ```c
 t_wcup wc;
 char* idRecherche = "FRA";
-Equipe* equipeTrouvee = trouver_equipe_par_id(&wc, idRecherche);
+t_equipe* equipeTrouvee = trouver_equipe_par_id(&wc, idRecherche);
 
 if (equipeTrouvee != NULL) {
     printf("Equipe trouvée : %s\n", equipeTrouvee->nom);
@@ -681,8 +681,8 @@ Le match peut se terminer par une victoire d'une des équipes ou un match nul. L
 
 #### Exemple d'utilisation :
 ```c
-Equipe eq1 = {"FRA", "France", "UEFA", 'A', 1750}; // Exemple d'équipe 1
-Equipe eq2 = {"BRA", "Brésil", "CONMEBOL", 'B', 1822}; // Exemple d'équipe 2
+t_equipe eq1 = {"FRA", "France", "UEFA", 'A', 1750}; // Exemple d'équipe 1
+t_equipe eq2 = {"BRA", "Brésil", "CONMEBOL", 'B', 1822}; // Exemple d'équipe 2
 
 Buts resultat = jouer_match(&eq1, &eq2);
 
@@ -722,18 +722,18 @@ Ces mises à jour garantissent une gestion précise et à jour du classement des
 #### Exemple d'utilisation :
 ```c
 // Initialisation des équipes
-Equipe equipe1 = {"Eq1", "Equipe 1", 0, 0, 0, 0, 0, 0, 0, 0};
-Equipe equipe2 = {"Eq2", "Equipe 2", 0, 0, 0, 0, 0, 0, 0, 0};
+t_equipe eq1 = {"Eq1", "Equipe 1", 0, 0, 0, 0, 0, 0, 0, 0};
+t_equipe eq2 = {"Eq2", "Equipe 2", 0, 0, 0, 0, 0, 0, 0, 0};
 
 // Simulation d'un résultat de match
 Buts resultatMatch = {2, 1}; // L'équipe 1 marque 2 buts, l'équipe 2 marque 1 but
 
 // Mise à jour des statistiques des équipes
-mettre_a_jour_classement(&equipe1, &equipe2, resultatMatch);
+mettre_a_jour_classement(&eq1, &eq2, resultatMatch);
 
 // Affichage des statistiques pour vérification
-printf("Equipe 1 - Points: %d, Buts Pour: %d, Buts Contre: %d, Différence de Buts: %d\n", equipe1.pts, equipe1.buts_p, equipe1.buts_c, equipe1.diff_buts);
-printf("Equipe 2 - Points: %d, Buts Pour: %d, Buts Contre: %d, Différence de Buts: %d\n", equipe2.pts, equipe2.buts_p, equipe2.buts_c, equipe2.diff_buts);
+printf("Equipe 1 - Points: %d, Buts Pour: %d, Buts Contre: %d, Différence de Buts: %d\n", eq1.pts, eq1.buts_p, eq1.buts_c, eq1.diff_buts);
+printf("Equipe 2 - Points: %d, Buts Pour: %d, Buts Contre: %d, Différence de Buts: %d\n", eq2.pts, eq2.buts_p, eq2.buts_c, eq2.diff_buts);
 ```
 
 
@@ -762,17 +762,17 @@ La fonction réalise l'échange en copiant temporairement les données de la pre
 
 #### Exemple d'utilisation :
 ```c
-Equipe equipe1 = {"Eq1", "Equipe 1", 0, 0, 0, 0, 0, 0, 0, 0};
-Equipe equipe2 = {"Eq2", "Equipe 2", 0, 0, 0, 0, 0, 0, 0, 0};
+t_equipe eq1 = {"Eq1", "Equipe 1", 0, 0, 0, 0, 0, 0, 0, 0};
+t_equipe eq2 = {"Eq2", "Equipe 2", 0, 0, 0, 0, 0, 0, 0, 0};
 
 // Avant l'échange
-printf("Avant l'échange : Equipe 1 - %s, Equipe 2 - %s\n", equipe1.nom, equipe2.nom);
+printf("Avant l'échange : Equipe 1 - %s, Equipe 2 - %s\n", eq1.nom, eq2.nom);
 
 // Échange des équipes
-echanger(&equipe1, &equipe2);
+echanger(&eq1, &eq2);
 
 // Après l'échange
-printf("Après l'échange : Equipe 1 - %s, Equipe 2 - %s\n", equipe1.nom, equipe2.nom);
+printf("Après l'échange : Equipe 1 - %s, Equipe 2 - %s\n", eq1.nom, eq2.nom);
 ```
 
 
@@ -820,7 +820,7 @@ Groupe groupeA;
 groupeA.nom = 'A';
 groupeA.cap = 4; // Capacité du tableau d'équipes
 groupeA.nb_eqp = 4; // Nombre d'équipes réellement présentes
-groupeA.eqp = (Equipe*)malloc(groupeA.cap * sizeof(Equipe));
+groupeA.eqp = (t_equipe*)malloc(groupeA.cap * sizeof(Equipe));
     
 // Initialisation des équipes avec des données fictives
 strcpy(groupeA.eqp[0].nom, "Equipe A1");
@@ -978,10 +978,10 @@ Voici une implémentation en pseudo-code :
 
 #### Exemple d'utilisation :
 ```c
-Equipe equipe1; // Initialisée avec des données spécifiques
-Equipe equipe2; // Initialisée avec des données spécifiques
+t_equipe eq1; // Initialisée avec des données spécifiques
+t_equipe eq2; // Initialisée avec des données spécifiques
 
-Equipe* equipeGagnante = jouer_match_eliminatoire(&equipe1, &equipe2);
+t_equipe* equipeGagnante = jouer_match_eliminatoire(&eq1, &eq2);
 
 // Affichage de l'équipe gagnante
 printf("L'équipe gagnante est : %s\n", equipeGagnante->nom);
@@ -1120,7 +1120,7 @@ t_wcup wc;
 // La structure t_wcup doit être initialisée avec les résultats de la phase de groupes.
 
 int nb_equipes;
-Equipe* equipes_dominantes = equipes_plus_buts_marques(&wc, &nb_equipes);
+t_equipe* equipes_dominantes = equipes_plus_buts_marques(&wc, &nb_equipes);
 
 // Affichage des équipes sélectionnées et de leurs buts marqués
 for (int i = 0; i < nb_equipes; ++i) {
@@ -1159,7 +1159,7 @@ t_wcup wc;
 // Assurez-vous que la structure t_wcup est initialisée avec les données pertinentes de la compétition.
 
 int nb_equipes;
-Equipe* equipes_vulnerables = equipes_plus_buts_encaisses(&wc, &nb_equipes);
+t_equipe* equipes_vulnerables = equipes_plus_buts_encaisses(&wc, &nb_equipes);
 
 // Affichage des équipes ayant encaissé le plus de buts
 for (int i = 0; i < nb_equipes; ++i) {
@@ -1197,7 +1197,7 @@ t_wcup wc;
 // Supposons que wc contient les informations des phases de groupes correctement initialisées.
 
 int nb_equipes;
-Equipe* equipes_dominantes = equipes_plus_victoires(&wc, &nb_equipes);
+t_equipe* equipes_dominantes = equipes_plus_victoires(&wc, &nb_equipes);
 
 // Affichage des équipes avec le plus de victoires
 for (int i = 0; i < nb_equipes; ++i) {
@@ -1235,7 +1235,7 @@ t_wcup wc;
 // La structure t_wcup est supposée être préalablement remplie avec les données des phases de groupes.
 
 int nb_equipes;
-Equipe* equipes_avec_defaites = equipes_plus_defaites(&wc, &nb_equipes);
+t_equipe* equipes_avec_defaites = equipes_plus_defaites(&wc, &nb_equipes);
 
 // Affichage des équipes ayant le plus de défaites
 for (int i = 0; i < nb_equipes; ++i) {
@@ -1273,7 +1273,7 @@ t_wcup wc;
 // Assumez que wc a été préalablement initialisé avec les données des phases de groupes.
 
 int nb_equipes;
-Equipe* equipes_max_nuls = equipes_plus_matchs_nuls(&wc, &nb_equipes);
+t_equipe* equipes_max_nuls = equipes_plus_matchs_nuls(&wc, &nb_equipes);
 
 // Affichage des équipes ayant concédé le plus de matchs nuls
 for (int i = 0; i < nb_equipes; ++i) {
